@@ -1,0 +1,584 @@
+<html>
+<head>
+<title>TestNG:  Siddhi-store-influxdb-tests</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Siddhi-store-influxdb-tests</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>31/1/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Feb 28 10:15:32 IST 2019</td>
+</tr>
+<tr><td>Total time:</td><td>155 seconds (155394 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase.updateOrInsertWithTwoConditionsTest()'><b>updateOrInsertWithTwoConditionsTest</b><br>Test class: org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase<br>Test method: Update or insert successfully with two conditions</td>
+<td><div><pre>java.lang.AssertionError: updating failed expected [3] but found [1]
+	at org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase.updateOrInsertWithTwoConditionsTest(UpdateOrInsertIntoInfluxDBTestCase.java:173)
+... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1978531482", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1978531482'><pre>java.lang.AssertionError: updating failed expected [3] but found [1]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:513)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
+	at org.testng.Assert.assertEquals(Assert.java:116)
+	at org.testng.Assert.assertEquals(Assert.java:389)
+	at org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase.updateOrInsertWithTwoConditionsTest(UpdateOrInsertIntoInfluxDBTestCase.java:173)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:281)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:121)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+</pre></div></td>
+<td>3</td>
+<td>org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase@151bf776</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='org.wso2.extension.siddhi.store.influxdb.ContainsInInfluxDBTestCase.containsCheckTestWithDefinedStream()'><b>containsCheckTestWithDefinedStream</b><br>Test class: org.wso2.extension.siddhi.store.influxdb.ContainsInInfluxDBTestCase<br>Test method: Testing with already defined outputstream.</td>
+<td></td>
+<td>30</td>
+<td>org.wso2.extension.siddhi.store.influxdb.ContainsInInfluxDBTestCase@1cd3b138</td></tr>
+<tr>
+<td title='org.wso2.extension.siddhi.store.influxdb.ContainsInInfluxDBTestCase.containsCheckTestWithSingleCondition()'><b>containsCheckTestWithSingleCondition</b><br>Test class: org.wso2.extension.siddhi.store.influxdb.ContainsInInfluxDBTestCase<br>Test method: Test contains with one condition.</td>
+<td></td>
+<td>31</td>
+<td>org.wso2.extension.siddhi.store.influxdb.ContainsInInfluxDBTestCase@1cd3b138</td></tr>
+<tr>
+<td title='org.wso2.extension.siddhi.store.influxdb.ContainsInInfluxDBTestCase.containsCheckTestWithTwoConditions()'><b>containsCheckTestWithTwoConditions</b><br>Test class: org.wso2.extension.siddhi.store.influxdb.ContainsInInfluxDBTestCase<br>Test method: Test contains with two conditions.</td>
+<td></td>
+<td>30</td>
+<td>org.wso2.extension.siddhi.store.influxdb.ContainsInInfluxDBTestCase@1cd3b138</td></tr>
+<tr>
+<td title='org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase.deleteFromITableWithTwoConditionsTest()'><b>deleteFromITableWithTwoConditionsTest</b><br>Test class: org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase<br>Test method: Delete From influxDB table successfully test4</td>
+<td></td>
+<td>2</td>
+<td>org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase@15639440</td></tr>
+<tr>
+<td title='org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase.deleteFromInfluxDBTableTest()'><b>deleteFromInfluxDBTableTest</b><br>Test class: org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase<br>Test method: Delete From influxDB table successfully test3</td>
+<td></td>
+<td>1</td>
+<td>org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase@15639440</td></tr>
+<tr>
+<td title='org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase.deleteFromInfluxDBTableTestWithSingleCondition()'><b>deleteFromInfluxDBTableTestWithSingleCondition</b><br>Test class: org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase<br>Test method: Delete From InfluxDBTable successfully test1</td>
+<td></td>
+<td>1</td>
+<td>org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase@15639440</td></tr>
+<tr>
+<td title='org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase.deleteFromTableTestWithSingleCondition()'><b>deleteFromTableTestWithSingleCondition</b><br>Test class: org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase<br>Test method: Delete From InfluxDB Table successfully test2</td>
+<td></td>
+<td>1</td>
+<td>org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase@15639440</td></tr>
+<tr>
+<td title='org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase.influxDBTablWithIncorrectUrlTest()'><b>influxDBTablWithIncorrectUrlTest</b><br>Test class: org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase<br>Test method: testing with incorrect value for url</td>
+<td></td>
+<td>0</td>
+<td>org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase@5a6d30e2</td></tr>
+<tr>
+<td title='org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase.influxDBTableCreationTest()'><b>influxDBTableCreationTest</b><br>Test class: org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase<br>Test method: Testing table creation. </td>
+<td></td>
+<td>0</td>
+<td>org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase@5a6d30e2</td></tr>
+<tr>
+<td title='org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase.influxDBTableCreationWithoutDatabaseTest()'><b>influxDBTableCreationWithoutDatabaseTest</b><br>Test class: org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase<br>Test method: Testing without defining database name</td>
+<td><div><pre>org.wso2.siddhi.core.exception.SiddhiAppCreationException: Error on &apos;0ac20ba7-6427-447e-bcda-ab939ba30af7&apos; @ Line: 2. Position: 91, near &apos;@Store(type=&quot;influxdb&quot;, url = &quot;http://localhost:8086&quot; ,username=&quot;root&quot;, password=&quot;root&quot;, database = &quot;&quot;)
+@Index(&quot;symbol&quot;)define table StockTable (symbol string, price float, volume long,time long)&apos;. Required parameter &apos;database&apos;for DB connectivity cannot be empty.
+	at org.wso2.extension.siddhi.store.influxdb.InfluxDBStore.init(InfluxDBStore.java:221)
+	at org.wso2.siddhi.core.table.record.AbstractRecordTable.init(AbstractRecordTable.java:69)
+	at org.wso2.siddhi.core.table.Table.initTable(Table.java:121)
+	at org.wso2.siddhi.core.util.parser.helper.DefinitionParserHelper.addTable(DefinitionParserHelper.java:212)
+	at org.wso2.siddhi.core.util.SiddhiAppRuntimeBuilder.defineTable(SiddhiAppRuntimeBuilder.java:125)
+	at org.wso2.siddhi.core.util.parser.SiddhiAppParser.defineTableDefinitions(SiddhiAppParser.java:348)
+	at org.wso2.siddhi.core.util.parser.SiddhiAppParser.parse(SiddhiAppParser.java:227)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:65)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:74)
+	at org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase.influxDBTableCreationWithoutDatabaseTest(DefineInfluxDBTableTestCase.java:183)
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace581564963", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace581564963'><pre>org.wso2.siddhi.core.exception.SiddhiAppCreationException: Error on &apos;0ac20ba7-6427-447e-bcda-ab939ba30af7&apos; @ Line: 2. Position: 91, near &apos;@Store(type=&quot;influxdb&quot;, url = &quot;http://localhost:8086&quot; ,username=&quot;root&quot;, password=&quot;root&quot;, database = &quot;&quot;)
+@Index(&quot;symbol&quot;)define table StockTable (symbol string, price float, volume long,time long)&apos;. Required parameter &apos;database&apos;for DB connectivity cannot be empty.
+	at org.wso2.extension.siddhi.store.influxdb.InfluxDBStore.init(InfluxDBStore.java:221)
+	at org.wso2.siddhi.core.table.record.AbstractRecordTable.init(AbstractRecordTable.java:69)
+	at org.wso2.siddhi.core.table.Table.initTable(Table.java:121)
+	at org.wso2.siddhi.core.util.parser.helper.DefinitionParserHelper.addTable(DefinitionParserHelper.java:212)
+	at org.wso2.siddhi.core.util.SiddhiAppRuntimeBuilder.defineTable(SiddhiAppRuntimeBuilder.java:125)
+	at org.wso2.siddhi.core.util.parser.SiddhiAppParser.defineTableDefinitions(SiddhiAppParser.java:348)
+	at org.wso2.siddhi.core.util.parser.SiddhiAppParser.parse(SiddhiAppParser.java:227)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:65)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:74)
+	at org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase.influxDBTableCreationWithoutDatabaseTest(DefineInfluxDBTableTestCase.java:183)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:281)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:121)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+</pre></div></td>
+<td>0</td>
+<td>org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase@5a6d30e2</td></tr>
+<tr>
+<td title='org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase.influxDBTableCreationWithoutPasswordTest()'><b>influxDBTableCreationWithoutPasswordTest</b><br>Test class: org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase<br>Test method: testing without defining password</td>
+<td><div><pre>org.wso2.siddhi.core.exception.SiddhiAppCreationException: Error on &apos;75fe40e4-e01e-424b-a9f5-abaab2323c3c&apos; @ Line: 2. Position: 99, near &apos;@Store(type=&quot;influxdb&quot;, url = &quot;http://localhost:8086&quot; ,username=&quot;root&quot;, password=&quot;&quot;, database = &quot;aTimeSeries&quot;)
+@Index(&quot;symbol&quot;, &quot;time&quot;)define table StockTable (symbol string, price float, volume long,time long)&apos;. Required parameter &apos;password&apos; for DB connectivity cannot be empty.
+	at org.wso2.extension.siddhi.store.influxdb.InfluxDBStore.init(InfluxDBStore.java:217)
+	at org.wso2.siddhi.core.table.record.AbstractRecordTable.init(AbstractRecordTable.java:69)
+	at org.wso2.siddhi.core.table.Table.initTable(Table.java:121)
+	at org.wso2.siddhi.core.util.parser.helper.DefinitionParserHelper.addTable(DefinitionParserHelper.java:212)
+	at org.wso2.siddhi.core.util.SiddhiAppRuntimeBuilder.defineTable(SiddhiAppRuntimeBuilder.java:125)
+	at org.wso2.siddhi.core.util.parser.SiddhiAppParser.defineTableDefinitions(SiddhiAppParser.java:348)
+	at org.wso2.siddhi.core.util.parser.SiddhiAppParser.parse(SiddhiAppParser.java:227)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:65)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:74)
+	at org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase.influxDBTableCreationWithoutPasswordTest(DefineInfluxDBTableTestCase.java:160)
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace244044847", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace244044847'><pre>org.wso2.siddhi.core.exception.SiddhiAppCreationException: Error on &apos;75fe40e4-e01e-424b-a9f5-abaab2323c3c&apos; @ Line: 2. Position: 99, near &apos;@Store(type=&quot;influxdb&quot;, url = &quot;http://localhost:8086&quot; ,username=&quot;root&quot;, password=&quot;&quot;, database = &quot;aTimeSeries&quot;)
+@Index(&quot;symbol&quot;, &quot;time&quot;)define table StockTable (symbol string, price float, volume long,time long)&apos;. Required parameter &apos;password&apos; for DB connectivity cannot be empty.
+	at org.wso2.extension.siddhi.store.influxdb.InfluxDBStore.init(InfluxDBStore.java:217)
+	at org.wso2.siddhi.core.table.record.AbstractRecordTable.init(AbstractRecordTable.java:69)
+	at org.wso2.siddhi.core.table.Table.initTable(Table.java:121)
+	at org.wso2.siddhi.core.util.parser.helper.DefinitionParserHelper.addTable(DefinitionParserHelper.java:212)
+	at org.wso2.siddhi.core.util.SiddhiAppRuntimeBuilder.defineTable(SiddhiAppRuntimeBuilder.java:125)
+	at org.wso2.siddhi.core.util.parser.SiddhiAppParser.defineTableDefinitions(SiddhiAppParser.java:348)
+	at org.wso2.siddhi.core.util.parser.SiddhiAppParser.parse(SiddhiAppParser.java:227)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:65)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:74)
+	at org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase.influxDBTableCreationWithoutPasswordTest(DefineInfluxDBTableTestCase.java:160)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:281)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:121)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+</pre></div></td>
+<td>0</td>
+<td>org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase@5a6d30e2</td></tr>
+<tr>
+<td title='org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase.influxDBTableDefinitionWithIncorrectPasswordTest()'><b>influxDBTableDefinitionWithIncorrectPasswordTest</b><br>Test class: org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase<br>Test method: Testing with incorrect password</td>
+<td></td>
+<td>0</td>
+<td>org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase@5a6d30e2</td></tr>
+<tr>
+<td title='org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase.influxDBTableDefinitionWithoutUrlTest()'><b>influxDBTableDefinitionWithoutUrlTest</b><br>Test class: org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase<br>Test method: testing without defining url value</td>
+<td><div><pre>org.wso2.siddhi.core.exception.SiddhiAppCreationException: Error on &apos;3a5a0109-510d-4143-ac8d-3802805d9bf7&apos; @ Line: 2. Position: 99, near &apos;@Store(type=&quot;influxdb&quot;, url = &quot;&quot; ,username=&quot;root&quot;, password=&quot;root&quot;, database = &quot;aTimeSeries&quot;)
+@Index(&quot;symbol&quot;, &quot;time&quot;)define table StockTable (symbol string, price float, volume long,time long)&apos;. Required parameter &apos;url&apos; for DB connectivity cannot be empty.
+	at org.wso2.extension.siddhi.store.influxdb.InfluxDBStore.init(InfluxDBStore.java:208)
+	at org.wso2.siddhi.core.table.record.AbstractRecordTable.init(AbstractRecordTable.java:69)
+	at org.wso2.siddhi.core.table.Table.initTable(Table.java:121)
+	at org.wso2.siddhi.core.util.parser.helper.DefinitionParserHelper.addTable(DefinitionParserHelper.java:212)
+	at org.wso2.siddhi.core.util.SiddhiAppRuntimeBuilder.defineTable(SiddhiAppRuntimeBuilder.java:125)
+	at org.wso2.siddhi.core.util.parser.SiddhiAppParser.defineTableDefinitions(SiddhiAppParser.java:348)
+	at org.wso2.siddhi.core.util.parser.SiddhiAppParser.parse(SiddhiAppParser.java:227)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:65)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:74)
+	at org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase.influxDBTableDefinitionWithoutUrlTest(DefineInfluxDBTableTestCase.java:113)
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace200452671", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace200452671'><pre>org.wso2.siddhi.core.exception.SiddhiAppCreationException: Error on &apos;3a5a0109-510d-4143-ac8d-3802805d9bf7&apos; @ Line: 2. Position: 99, near &apos;@Store(type=&quot;influxdb&quot;, url = &quot;&quot; ,username=&quot;root&quot;, password=&quot;root&quot;, database = &quot;aTimeSeries&quot;)
+@Index(&quot;symbol&quot;, &quot;time&quot;)define table StockTable (symbol string, price float, volume long,time long)&apos;. Required parameter &apos;url&apos; for DB connectivity cannot be empty.
+	at org.wso2.extension.siddhi.store.influxdb.InfluxDBStore.init(InfluxDBStore.java:208)
+	at org.wso2.siddhi.core.table.record.AbstractRecordTable.init(AbstractRecordTable.java:69)
+	at org.wso2.siddhi.core.table.Table.initTable(Table.java:121)
+	at org.wso2.siddhi.core.util.parser.helper.DefinitionParserHelper.addTable(DefinitionParserHelper.java:212)
+	at org.wso2.siddhi.core.util.SiddhiAppRuntimeBuilder.defineTable(SiddhiAppRuntimeBuilder.java:125)
+	at org.wso2.siddhi.core.util.parser.SiddhiAppParser.defineTableDefinitions(SiddhiAppParser.java:348)
+	at org.wso2.siddhi.core.util.parser.SiddhiAppParser.parse(SiddhiAppParser.java:227)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:65)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:74)
+	at org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase.influxDBTableDefinitionWithoutUrlTest(DefineInfluxDBTableTestCase.java:113)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:281)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:121)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+</pre></div></td>
+<td>0</td>
+<td>org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase@5a6d30e2</td></tr>
+<tr>
+<td title='org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase.influxDBTableWithIncorrectUsernameTest()'><b>influxDBTableWithIncorrectUsernameTest</b><br>Test class: org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase<br>Test method: Testing with incorrect username</td>
+<td></td>
+<td>0</td>
+<td>org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase@5a6d30e2</td></tr>
+<tr>
+<td title='org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase.influxDBTableWithoutUsernameTest()'><b>influxDBTableWithoutUsernameTest</b><br>Test class: org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase<br>Test method: testing without defining username</td>
+<td><div><pre>org.wso2.siddhi.core.exception.SiddhiAppCreationException: Error on &apos;bf574961-4990-4eac-b092-46f549b77873&apos; @ Line: 2. Position: 99, near &apos;@Store(type=&quot;influxdb&quot;, url = &quot;http://localhost:8086&quot; ,username=&quot;&quot;, password=&quot;root&quot;, database = &quot;aTimeSeries&quot;)
+@Index(&quot;symbol&quot;, &quot;time&quot;)define table StockTable (symbol string, price float, volume long,time long)&apos;. Required parameter &apos;username&apos; for DB connectivity cannot be empty.
+	at org.wso2.extension.siddhi.store.influxdb.InfluxDBStore.init(InfluxDBStore.java:212)
+	at org.wso2.siddhi.core.table.record.AbstractRecordTable.init(AbstractRecordTable.java:69)
+	at org.wso2.siddhi.core.table.Table.initTable(Table.java:121)
+	at org.wso2.siddhi.core.util.parser.helper.DefinitionParserHelper.addTable(DefinitionParserHelper.java:212)
+	at org.wso2.siddhi.core.util.SiddhiAppRuntimeBuilder.defineTable(SiddhiAppRuntimeBuilder.java:125)
+	at org.wso2.siddhi.core.util.parser.SiddhiAppParser.defineTableDefinitions(SiddhiAppParser.java:348)
+	at org.wso2.siddhi.core.util.parser.SiddhiAppParser.parse(SiddhiAppParser.java:227)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:65)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:74)
+	at org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase.influxDBTableWithoutUsernameTest(DefineInfluxDBTableTestCase.java:137)
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace125089688", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace125089688'><pre>org.wso2.siddhi.core.exception.SiddhiAppCreationException: Error on &apos;bf574961-4990-4eac-b092-46f549b77873&apos; @ Line: 2. Position: 99, near &apos;@Store(type=&quot;influxdb&quot;, url = &quot;http://localhost:8086&quot; ,username=&quot;&quot;, password=&quot;root&quot;, database = &quot;aTimeSeries&quot;)
+@Index(&quot;symbol&quot;, &quot;time&quot;)define table StockTable (symbol string, price float, volume long,time long)&apos;. Required parameter &apos;username&apos; for DB connectivity cannot be empty.
+	at org.wso2.extension.siddhi.store.influxdb.InfluxDBStore.init(InfluxDBStore.java:212)
+	at org.wso2.siddhi.core.table.record.AbstractRecordTable.init(AbstractRecordTable.java:69)
+	at org.wso2.siddhi.core.table.Table.initTable(Table.java:121)
+	at org.wso2.siddhi.core.util.parser.helper.DefinitionParserHelper.addTable(DefinitionParserHelper.java:212)
+	at org.wso2.siddhi.core.util.SiddhiAppRuntimeBuilder.defineTable(SiddhiAppRuntimeBuilder.java:125)
+	at org.wso2.siddhi.core.util.parser.SiddhiAppParser.defineTableDefinitions(SiddhiAppParser.java:348)
+	at org.wso2.siddhi.core.util.parser.SiddhiAppParser.parse(SiddhiAppParser.java:227)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:65)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:74)
+	at org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase.influxDBTableWithoutUsernameTest(DefineInfluxDBTableTestCase.java:137)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:281)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:121)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+</pre></div></td>
+<td>0</td>
+<td>org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase@5a6d30e2</td></tr>
+<tr>
+<td title='org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase.insertIntoTableTest()'><b>insertIntoTableTest</b><br>Test class: org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase<br>Test method: Insert successfully with extracting current time</td>
+<td></td>
+<td>0</td>
+<td>org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase@4faa298</td></tr>
+<tr>
+<td title='org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase.insertIntoTableWithIncorretTimeFormatTest()'><b>insertIntoTableWithIncorretTimeFormatTest</b><br>Test class: org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase<br>Test method: incorrect format for time</td>
+<td></td>
+<td>0</td>
+<td>org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase@4faa298</td></tr>
+<tr>
+<td title='org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase.insertIntoTableWithSingleTagKeyTest()'><b>insertIntoTableWithSingleTagKeyTest</b><br>Test class: org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase<br>Test method: Testing insertion with single tag key</td>
+<td></td>
+<td>0</td>
+<td>org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase@4faa298</td></tr>
+<tr>
+<td title='org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase.insertIntoTableWithTwoTagKeysTest()'><b>insertIntoTableWithTwoTagKeysTest</b><br>Test class: org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase<br>Test method: Testing insertion with two tag keys</td>
+<td></td>
+<td>0</td>
+<td>org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase@4faa298</td></tr>
+<tr>
+<td title='org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase.insertIntoTableWithoutTagKeysTest()'><b>insertIntoTableWithoutTagKeysTest</b><br>Test class: org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase<br>Test method: define Table without tag keys</td>
+<td></td>
+<td>0</td>
+<td>org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase@4faa298</td></tr>
+<tr>
+<td title='org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase.readEventInfluxTableTest()'><b>readEventInfluxTableTest</b><br>Test class: org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase<br>Test method: Read events from a InfluxDB table successfully.</td>
+<td></td>
+<td>0</td>
+<td>org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase@121bb45b</td></tr>
+<tr>
+<td title='org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase.readEventInfluxTableTestCase()'><b>readEventInfluxTableTestCase</b><br>Test class: org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase<br>Test method: Testing reading  multiple events from a InfluxDB table successfully</td>
+<td></td>
+<td>1</td>
+<td>org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase@121bb45b</td></tr>
+<tr>
+<td title='org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase.readEventInfluxTableTestCase6()'><b>readEventInfluxTableTestCase6</b><br>Test class: org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase<br>Test method: Testing reading multiple events from a influxDB table successfully</td>
+<td></td>
+<td>0</td>
+<td>org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase@121bb45b</td></tr>
+<tr>
+<td title='org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase.readEventWithoutDefineStreamTest()'><b>readEventWithoutDefineStreamTest</b><br>Test class: org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase<br>Test method: Read unsuccessfully without defining stream</td>
+<td><div><pre>org.wso2.siddhi.query.compiler.exception.SiddhiParserException: Error on &apos;f8dafc3a-90d3-4709-9533-a090c5ab0932&apos; @ Line: 10. Position: 85, near &apos;FooStream#window.length(2) join StockTable on StockTable.symbol==FooStream.name&apos;. Definition of &quot;FooStream&quot; is not given
+	at org.wso2.siddhi.core.util.parser.JoinInputStreamParser.setEventType(JoinInputStreamParser.java:263)
+	at org.wso2.siddhi.core.util.parser.JoinInputStreamParser.parseInputStream(JoinInputStreamParser.java:98)
+	at org.wso2.siddhi.core.util.parser.InputStreamParser.parse(InputStreamParser.java:90)
+	at org.wso2.siddhi.core.util.parser.QueryParser.parse(QueryParser.java:111)
+	at org.wso2.siddhi.core.util.parser.SiddhiAppParser.parse(SiddhiAppParser.java:245)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:65)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:74)
+	at org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase.readEventWithoutDefineStreamTest(ReadEventInfluxDBTestCase.java:186)
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1578673831", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1578673831'><pre>org.wso2.siddhi.query.compiler.exception.SiddhiParserException: Error on &apos;f8dafc3a-90d3-4709-9533-a090c5ab0932&apos; @ Line: 10. Position: 85, near &apos;FooStream#window.length(2) join StockTable on StockTable.symbol==FooStream.name&apos;. Definition of &quot;FooStream&quot; is not given
+	at org.wso2.siddhi.core.util.parser.JoinInputStreamParser.setEventType(JoinInputStreamParser.java:263)
+	at org.wso2.siddhi.core.util.parser.JoinInputStreamParser.parseInputStream(JoinInputStreamParser.java:98)
+	at org.wso2.siddhi.core.util.parser.InputStreamParser.parse(InputStreamParser.java:90)
+	at org.wso2.siddhi.core.util.parser.QueryParser.parse(QueryParser.java:111)
+	at org.wso2.siddhi.core.util.parser.SiddhiAppParser.parse(SiddhiAppParser.java:245)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:65)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:74)
+	at org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase.readEventWithoutDefineStreamTest(ReadEventInfluxDBTestCase.java:186)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:281)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:121)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+</pre></div></td>
+<td>0</td>
+<td>org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase@121bb45b</td></tr>
+<tr>
+<td title='org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase.readEventsInfluxTableTest()'><b>readEventsInfluxTableTest</b><br>Test class: org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase<br>Test method: Read  multiple events from a InfluxDB table successfully with window.length.</td>
+<td></td>
+<td>1</td>
+<td>org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase@121bb45b</td></tr>
+<tr>
+<td title='org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase.readEventsInfluxTableTestCase()'><b>readEventsInfluxTableTestCase</b><br>Test class: org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase<br>Test method: Read  multiple events from a InfluxDB table successfully(window.time).</td>
+<td></td>
+<td>2</td>
+<td>org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase@121bb45b</td></tr>
+<tr>
+<td title='org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase.readEventsWithoutConditionTest()'><b>readEventsWithoutConditionTest</b><br>Test class: org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase<br>Test method: Read events from a InfluxDB table successfully without any condition</td>
+<td></td>
+<td>0</td>
+<td>org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase@121bb45b</td></tr>
+<tr>
+<td title='org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase.readFromNonExistingTableTest()'><b>readFromNonExistingTableTest</b><br>Test class: org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase<br>Test method: Read unsuccessfully from non existing table</td>
+<td><div><pre>org.wso2.siddhi.query.compiler.exception.SiddhiParserException: Error on &apos;27aa774e-88e4-4e6a-8192-73e29ca98fef&apos; @ Line: 2. Position: 85, near &apos;FooStream#window.length(2) join StockTable on StockTable.symbol==FooStream.name&apos;. Definition of &quot;StockTable&quot; is not given
+	at org.wso2.siddhi.core.util.parser.JoinInputStreamParser.setEventType(JoinInputStreamParser.java:263)
+	at org.wso2.siddhi.core.util.parser.JoinInputStreamParser.parseInputStream(JoinInputStreamParser.java:100)
+	at org.wso2.siddhi.core.util.parser.InputStreamParser.parse(InputStreamParser.java:90)
+	at org.wso2.siddhi.core.util.parser.QueryParser.parse(QueryParser.java:111)
+	at org.wso2.siddhi.core.util.parser.SiddhiAppParser.parse(SiddhiAppParser.java:245)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:65)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:74)
+	at org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase.readFromNonExistingTableTest(ReadEventInfluxDBTestCase.java:150)
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace915793138", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace915793138'><pre>org.wso2.siddhi.query.compiler.exception.SiddhiParserException: Error on &apos;27aa774e-88e4-4e6a-8192-73e29ca98fef&apos; @ Line: 2. Position: 85, near &apos;FooStream#window.length(2) join StockTable on StockTable.symbol==FooStream.name&apos;. Definition of &quot;StockTable&quot; is not given
+	at org.wso2.siddhi.core.util.parser.JoinInputStreamParser.setEventType(JoinInputStreamParser.java:263)
+	at org.wso2.siddhi.core.util.parser.JoinInputStreamParser.parseInputStream(JoinInputStreamParser.java:100)
+	at org.wso2.siddhi.core.util.parser.InputStreamParser.parse(InputStreamParser.java:90)
+	at org.wso2.siddhi.core.util.parser.QueryParser.parse(QueryParser.java:111)
+	at org.wso2.siddhi.core.util.parser.SiddhiAppParser.parse(SiddhiAppParser.java:245)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:65)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:74)
+	at org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase.readFromNonExistingTableTest(ReadEventInfluxDBTestCase.java:150)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:281)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:121)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+</pre></div></td>
+<td>0</td>
+<td>org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase@121bb45b</td></tr>
+<tr>
+<td title='org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase.tableDefinitionWithNonExistingDatabaseTest()'><b>tableDefinitionWithNonExistingDatabaseTest</b><br>Test class: org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase<br>Test method: Testing with non existing database </td>
+<td></td>
+<td>0</td>
+<td>org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase@5a6d30e2</td></tr>
+<tr>
+<td title='org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase.updateOrInsertWithSingleConditionTest()'><b>updateOrInsertWithSingleConditionTest</b><br>Test class: org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase<br>Test method: Update or insert successfully with single condition</td>
+<td></td>
+<td>3</td>
+<td>org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase@151bf776</td></tr>
+<tr>
+<td title='org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase.updateOrInsertWithSingleConditionTest2()'><b>updateOrInsertWithSingleConditionTest2</b><br>Test class: org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase<br>Test method: Upadate or insert successfully with single condition </td>
+<td></td>
+<td>1</td>
+<td>org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase@151bf776</td></tr>
+</table><p>
+</body>
+</html>

@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 32, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 156.356 sec <<< FAILURE! - in TestSuite
+updateOrInsertWithTwoConditionsTest(org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase)  Time elapsed: 3.129 sec  <<< FAILURE!
+java.lang.AssertionError: updating failed expected [3] but found [1]
+	at org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase.updateOrInsertWithTwoConditionsTest(UpdateOrInsertIntoInfluxDBTestCase.java:173)
+

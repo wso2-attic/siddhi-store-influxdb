@@ -1,0 +1,649 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="1" total="32" passed="31">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Siddhi-Store-InfluxDB-Test-Suite" duration-ms="155394" started-at="2019-02-28T04:45:32Z" finished-at="2019-02-28T04:48:07Z">
+    <groups>
+    </groups>
+    <test name="Siddhi-store-influxdb-tests" duration-ms="155394" started-at="2019-02-28T04:45:32Z" finished-at="2019-02-28T04:48:07Z">
+      <class name="org.wso2.extension.siddhi.store.influxdb.ContainsInInfluxDBTestCase">
+        <test-method status="PASS" signature="startTest()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.ContainsInInfluxDBTestCase@1cd3b138]" name="startTest" is-config="true" duration-ms="0" started-at="2019-02-28T10:16:06Z" finished-at="2019-02-28T10:16:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTest -->
+        <test-method status="PASS" signature="init()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.ContainsInInfluxDBTestCase@1cd3b138]" name="init" is-config="true" duration-ms="1014" started-at="2019-02-28T10:16:06Z" finished-at="2019-02-28T10:16:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="containsCheckTestWithDefinedStream()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.ContainsInInfluxDBTestCase@1cd3b138]" name="containsCheckTestWithDefinedStream" duration-ms="30860" started-at="2019-02-28T10:16:07Z" description="Testing with already defined outputstream." finished-at="2019-02-28T10:16:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- containsCheckTestWithDefinedStream -->
+        <test-method status="PASS" signature="init()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.ContainsInInfluxDBTestCase@1cd3b138]" name="init" is-config="true" duration-ms="1037" started-at="2019-02-28T10:16:38Z" finished-at="2019-02-28T10:16:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="containsCheckTestWithSingleCondition()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.ContainsInInfluxDBTestCase@1cd3b138]" name="containsCheckTestWithSingleCondition" duration-ms="31283" started-at="2019-02-28T10:16:39Z" description="Test contains with one condition." finished-at="2019-02-28T10:17:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- containsCheckTestWithSingleCondition -->
+        <test-method status="PASS" signature="init()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.ContainsInInfluxDBTestCase@1cd3b138]" name="init" is-config="true" duration-ms="999" started-at="2019-02-28T10:17:10Z" finished-at="2019-02-28T10:17:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="containsCheckTestWithTwoConditions()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.ContainsInInfluxDBTestCase@1cd3b138]" name="containsCheckTestWithTwoConditions" duration-ms="30832" started-at="2019-02-28T10:17:11Z" description="Test contains with two conditions." finished-at="2019-02-28T10:17:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- containsCheckTestWithTwoConditions -->
+        <test-method status="PASS" signature="shutdown()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.ContainsInInfluxDBTestCase@1cd3b138]" name="shutdown" is-config="true" duration-ms="0" started-at="2019-02-28T10:17:42Z" finished-at="2019-02-28T10:17:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shutdown -->
+      </class> <!-- org.wso2.extension.siddhi.store.influxdb.ContainsInInfluxDBTestCase -->
+      <class name="org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase">
+        <test-method status="PASS" signature="startTest()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase@15639440]" name="startTest" is-config="true" duration-ms="16" started-at="2019-02-28T10:15:32Z" finished-at="2019-02-28T10:15:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTest -->
+        <test-method status="PASS" signature="init()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase@15639440]" name="init" is-config="true" duration-ms="1618" started-at="2019-02-28T10:15:32Z" finished-at="2019-02-28T10:15:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="deleteFromITableWithTwoConditionsTest()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase@15639440]" name="deleteFromITableWithTwoConditionsTest" duration-ms="2339" started-at="2019-02-28T10:15:33Z" description="Delete From influxDB table successfully test4" finished-at="2019-02-28T10:15:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteFromITableWithTwoConditionsTest -->
+        <test-method status="PASS" signature="init()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase@15639440]" name="init" is-config="true" duration-ms="981" started-at="2019-02-28T10:15:36Z" finished-at="2019-02-28T10:15:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="deleteFromInfluxDBTableTest()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase@15639440]" name="deleteFromInfluxDBTableTest" duration-ms="1434" started-at="2019-02-28T10:15:37Z" description="Delete From influxDB table successfully test3" finished-at="2019-02-28T10:15:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteFromInfluxDBTableTest -->
+        <test-method status="PASS" signature="init()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase@15639440]" name="init" is-config="true" duration-ms="1066" started-at="2019-02-28T10:15:38Z" finished-at="2019-02-28T10:15:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="deleteFromInfluxDBTableTestWithSingleCondition()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase@15639440]" name="deleteFromInfluxDBTableTestWithSingleCondition" duration-ms="1583" started-at="2019-02-28T10:15:39Z" description="Delete From InfluxDBTable successfully test1" finished-at="2019-02-28T10:15:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteFromInfluxDBTableTestWithSingleCondition -->
+        <test-method status="PASS" signature="init()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase@15639440]" name="init" is-config="true" duration-ms="983" started-at="2019-02-28T10:15:41Z" finished-at="2019-02-28T10:15:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="deleteFromTableTestWithSingleCondition()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase@15639440]" name="deleteFromTableTestWithSingleCondition" duration-ms="1430" started-at="2019-02-28T10:15:42Z" description="Delete From InfluxDB Table successfully test2" finished-at="2019-02-28T10:15:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteFromTableTestWithSingleCondition -->
+        <test-method status="PASS" signature="shutdown()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase@15639440]" name="shutdown" is-config="true" duration-ms="0" started-at="2019-02-28T10:15:43Z" finished-at="2019-02-28T10:15:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shutdown -->
+      </class> <!-- org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase -->
+      <class name="org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase">
+        <test-method status="PASS" signature="startTest()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase@121bb45b]" name="startTest" is-config="true" duration-ms="1" started-at="2019-02-28T10:15:43Z" finished-at="2019-02-28T10:15:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTest -->
+        <test-method status="PASS" signature="init()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase@121bb45b]" name="init" is-config="true" duration-ms="1055" started-at="2019-02-28T10:15:43Z" finished-at="2019-02-28T10:15:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="readEventInfluxTableTest()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase@121bb45b]" name="readEventInfluxTableTest" duration-ms="847" started-at="2019-02-28T10:15:44Z" description="Read events from a InfluxDB table successfully." finished-at="2019-02-28T10:15:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- readEventInfluxTableTest -->
+        <test-method status="PASS" signature="init()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase@121bb45b]" name="init" is-config="true" duration-ms="1020" started-at="2019-02-28T10:15:45Z" finished-at="2019-02-28T10:15:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="readEventInfluxTableTestCase()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase@121bb45b]" name="readEventInfluxTableTestCase" duration-ms="1329" started-at="2019-02-28T10:15:46Z" description="Testing reading  multiple events from a InfluxDB table successfully" finished-at="2019-02-28T10:15:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- readEventInfluxTableTestCase -->
+        <test-method status="PASS" signature="init()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase@121bb45b]" name="init" is-config="true" duration-ms="987" started-at="2019-02-28T10:15:47Z" finished-at="2019-02-28T10:15:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="readEventInfluxTableTestCase6()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase@121bb45b]" name="readEventInfluxTableTestCase6" duration-ms="876" started-at="2019-02-28T10:15:48Z" description="Testing reading multiple events from a influxDB table successfully" finished-at="2019-02-28T10:15:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- readEventInfluxTableTestCase6 -->
+        <test-method status="PASS" signature="init()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase@121bb45b]" name="init" is-config="true" duration-ms="1090" started-at="2019-02-28T10:15:49Z" finished-at="2019-02-28T10:15:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="readEventWithoutDefineStreamTest()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase@121bb45b]" name="readEventWithoutDefineStreamTest" duration-ms="19" started-at="2019-02-28T10:15:50Z" description="Read unsuccessfully without defining stream" finished-at="2019-02-28T10:15:50Z">
+          <exception class="org.wso2.siddhi.query.compiler.exception.SiddhiParserException">
+            <message>
+              <![CDATA[Error on 'f8dafc3a-90d3-4709-9533-a090c5ab0932' @ Line: 10. Position: 85, near 'FooStream#window.length(2) join StockTable on StockTable.symbol==FooStream.name'. Definition of "FooStream" is not given]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.wso2.siddhi.query.compiler.exception.SiddhiParserException: Error on 'f8dafc3a-90d3-4709-9533-a090c5ab0932' @ Line: 10. Position: 85, near 'FooStream#window.length(2) join StockTable on StockTable.symbol==FooStream.name'. Definition of "FooStream" is not given
+	at org.wso2.siddhi.core.util.parser.JoinInputStreamParser.setEventType(JoinInputStreamParser.java:263)
+	at org.wso2.siddhi.core.util.parser.JoinInputStreamParser.parseInputStream(JoinInputStreamParser.java:98)
+	at org.wso2.siddhi.core.util.parser.InputStreamParser.parse(InputStreamParser.java:90)
+	at org.wso2.siddhi.core.util.parser.QueryParser.parse(QueryParser.java:111)
+	at org.wso2.siddhi.core.util.parser.SiddhiAppParser.parse(SiddhiAppParser.java:245)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:65)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:74)
+	at org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase.readEventWithoutDefineStreamTest(ReadEventInfluxDBTestCase.java:186)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:281)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:121)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.wso2.siddhi.query.compiler.exception.SiddhiParserException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- readEventWithoutDefineStreamTest -->
+        <test-method status="PASS" signature="init()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase@121bb45b]" name="init" is-config="true" duration-ms="931" started-at="2019-02-28T10:15:50Z" finished-at="2019-02-28T10:15:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="readEventsInfluxTableTest()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase@121bb45b]" name="readEventsInfluxTableTest" duration-ms="1349" started-at="2019-02-28T10:15:51Z" description="Read  multiple events from a InfluxDB table successfully with window.length." finished-at="2019-02-28T10:15:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- readEventsInfluxTableTest -->
+        <test-method status="PASS" signature="init()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase@121bb45b]" name="init" is-config="true" duration-ms="984" started-at="2019-02-28T10:15:53Z" finished-at="2019-02-28T10:15:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="readEventsInfluxTableTestCase()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase@121bb45b]" name="readEventsInfluxTableTestCase" duration-ms="2299" started-at="2019-02-28T10:15:54Z" description="Read  multiple events from a InfluxDB table successfully(window.time)." finished-at="2019-02-28T10:15:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- readEventsInfluxTableTestCase -->
+        <test-method status="PASS" signature="init()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase@121bb45b]" name="init" is-config="true" duration-ms="959" started-at="2019-02-28T10:15:56Z" finished-at="2019-02-28T10:15:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="readEventsWithoutConditionTest()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase@121bb45b]" name="readEventsWithoutConditionTest" duration-ms="765" started-at="2019-02-28T10:15:57Z" description="Read events from a InfluxDB table successfully without any condition" finished-at="2019-02-28T10:15:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- readEventsWithoutConditionTest -->
+        <test-method status="PASS" signature="init()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase@121bb45b]" name="init" is-config="true" duration-ms="1026" started-at="2019-02-28T10:15:58Z" finished-at="2019-02-28T10:15:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="readFromNonExistingTableTest()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase@121bb45b]" name="readFromNonExistingTableTest" duration-ms="3" started-at="2019-02-28T10:15:59Z" description="Read unsuccessfully from non existing table" finished-at="2019-02-28T10:15:59Z">
+          <exception class="org.wso2.siddhi.query.compiler.exception.SiddhiParserException">
+            <message>
+              <![CDATA[Error on '27aa774e-88e4-4e6a-8192-73e29ca98fef' @ Line: 2. Position: 85, near 'FooStream#window.length(2) join StockTable on StockTable.symbol==FooStream.name'. Definition of "StockTable" is not given]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.wso2.siddhi.query.compiler.exception.SiddhiParserException: Error on '27aa774e-88e4-4e6a-8192-73e29ca98fef' @ Line: 2. Position: 85, near 'FooStream#window.length(2) join StockTable on StockTable.symbol==FooStream.name'. Definition of "StockTable" is not given
+	at org.wso2.siddhi.core.util.parser.JoinInputStreamParser.setEventType(JoinInputStreamParser.java:263)
+	at org.wso2.siddhi.core.util.parser.JoinInputStreamParser.parseInputStream(JoinInputStreamParser.java:100)
+	at org.wso2.siddhi.core.util.parser.InputStreamParser.parse(InputStreamParser.java:90)
+	at org.wso2.siddhi.core.util.parser.QueryParser.parse(QueryParser.java:111)
+	at org.wso2.siddhi.core.util.parser.SiddhiAppParser.parse(SiddhiAppParser.java:245)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:65)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:74)
+	at org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase.readFromNonExistingTableTest(ReadEventInfluxDBTestCase.java:150)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:281)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:121)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.wso2.siddhi.query.compiler.exception.SiddhiParserException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- readFromNonExistingTableTest -->
+        <test-method status="PASS" signature="shutdown()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase@121bb45b]" name="shutdown" is-config="true" duration-ms="0" started-at="2019-02-28T10:15:59Z" finished-at="2019-02-28T10:15:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shutdown -->
+      </class> <!-- org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase -->
+      <class name="org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase">
+        <test-method status="PASS" signature="startTest()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase@151bf776]" name="startTest" is-config="true" duration-ms="0" started-at="2019-02-28T10:17:42Z" finished-at="2019-02-28T10:17:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTest -->
+        <test-method status="PASS" signature="init()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase@151bf776]" name="init" is-config="true" duration-ms="1093" started-at="2019-02-28T10:17:42Z" finished-at="2019-02-28T10:17:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="updateOrInsertWithSingleConditionTest()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase@151bf776]" name="updateOrInsertWithSingleConditionTest" duration-ms="3282" started-at="2019-02-28T10:17:43Z" description="Update or insert successfully with single condition" finished-at="2019-02-28T10:17:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updateOrInsertWithSingleConditionTest -->
+        <test-method status="PASS" signature="init()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase@151bf776]" name="init" is-config="true" duration-ms="995" started-at="2019-02-28T10:17:46Z" finished-at="2019-02-28T10:17:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="updateOrInsertWithSingleConditionTest2()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase@151bf776]" name="updateOrInsertWithSingleConditionTest2" duration-ms="1300" started-at="2019-02-28T10:17:47Z" description="Upadate or insert successfully with single condition " finished-at="2019-02-28T10:17:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updateOrInsertWithSingleConditionTest2 -->
+        <test-method status="PASS" signature="init()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase@151bf776]" name="init" is-config="true" duration-ms="1077" started-at="2019-02-28T10:17:48Z" finished-at="2019-02-28T10:17:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="FAIL" signature="updateOrInsertWithTwoConditionsTest()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase@151bf776]" name="updateOrInsertWithTwoConditionsTest" duration-ms="3120" started-at="2019-02-28T10:17:49Z" description="Update or insert successfully with two conditions" finished-at="2019-02-28T10:17:53Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[updating failed expected [3] but found [1]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: updating failed expected [3] but found [1]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:513)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
+	at org.testng.Assert.assertEquals(Assert.java:116)
+	at org.testng.Assert.assertEquals(Assert.java:389)
+	at org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase.updateOrInsertWithTwoConditionsTest(UpdateOrInsertIntoInfluxDBTestCase.java:173)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:281)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:121)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updateOrInsertWithTwoConditionsTest -->
+        <test-method status="PASS" signature="shutdown()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase@151bf776]" name="shutdown" is-config="true" duration-ms="1" started-at="2019-02-28T10:17:53Z" finished-at="2019-02-28T10:17:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shutdown -->
+      </class> <!-- org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase -->
+      <class name="org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase">
+        <test-method status="PASS" signature="startTest()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase@4faa298]" name="startTest" is-config="true" duration-ms="0" started-at="2019-02-28T10:15:59Z" finished-at="2019-02-28T10:15:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTest -->
+        <test-method status="PASS" signature="init()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase@4faa298]" name="init" is-config="true" duration-ms="977" started-at="2019-02-28T10:15:59Z" finished-at="2019-02-28T10:16:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="insertIntoTableTest()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase@4faa298]" name="insertIntoTableTest" duration-ms="347" started-at="2019-02-28T10:16:00Z" description="Insert successfully with extracting current time" finished-at="2019-02-28T10:16:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- insertIntoTableTest -->
+        <test-method status="PASS" signature="init()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase@4faa298]" name="init" is-config="true" duration-ms="963" started-at="2019-02-28T10:16:00Z" finished-at="2019-02-28T10:16:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="insertIntoTableWithIncorretTimeFormatTest()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase@4faa298]" name="insertIntoTableWithIncorretTimeFormatTest" duration-ms="23" started-at="2019-02-28T10:16:01Z" description="incorrect format for time" finished-at="2019-02-28T10:16:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- insertIntoTableWithIncorretTimeFormatTest -->
+        <test-method status="PASS" signature="init()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase@4faa298]" name="init" is-config="true" duration-ms="1259" started-at="2019-02-28T10:16:01Z" finished-at="2019-02-28T10:16:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="insertIntoTableWithSingleTagKeyTest()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase@4faa298]" name="insertIntoTableWithSingleTagKeyTest" duration-ms="727" started-at="2019-02-28T10:16:02Z" description="Testing insertion with single tag key" finished-at="2019-02-28T10:16:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- insertIntoTableWithSingleTagKeyTest -->
+        <test-method status="PASS" signature="init()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase@4faa298]" name="init" is-config="true" duration-ms="1106" started-at="2019-02-28T10:16:03Z" finished-at="2019-02-28T10:16:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="insertIntoTableWithTwoTagKeysTest()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase@4faa298]" name="insertIntoTableWithTwoTagKeysTest" duration-ms="181" started-at="2019-02-28T10:16:04Z" description="Testing insertion with two tag keys" finished-at="2019-02-28T10:16:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- insertIntoTableWithTwoTagKeysTest -->
+        <test-method status="PASS" signature="init()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase@4faa298]" name="init" is-config="true" duration-ms="1045" started-at="2019-02-28T10:16:04Z" finished-at="2019-02-28T10:16:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="insertIntoTableWithoutTagKeysTest()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase@4faa298]" name="insertIntoTableWithoutTagKeysTest" duration-ms="235" started-at="2019-02-28T10:16:05Z" description="define Table without tag keys" finished-at="2019-02-28T10:16:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- insertIntoTableWithoutTagKeysTest -->
+        <test-method status="PASS" signature="shutdown()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase@4faa298]" name="shutdown" is-config="true" duration-ms="0" started-at="2019-02-28T10:16:06Z" finished-at="2019-02-28T10:16:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shutdown -->
+      </class> <!-- org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase -->
+      <class name="org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase">
+        <test-method status="PASS" signature="startTest()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase@5a6d30e2]" name="startTest" is-config="true" duration-ms="0" started-at="2019-02-28T10:17:53Z" finished-at="2019-02-28T10:17:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTest -->
+        <test-method status="PASS" signature="init()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase@5a6d30e2]" name="init" is-config="true" duration-ms="1135" started-at="2019-02-28T10:17:53Z" finished-at="2019-02-28T10:17:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="influxDBTablWithIncorrectUrlTest()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase@5a6d30e2]" name="influxDBTablWithIncorrectUrlTest" duration-ms="23" started-at="2019-02-28T10:17:54Z" description="testing with incorrect value for url" finished-at="2019-02-28T10:17:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- influxDBTablWithIncorrectUrlTest -->
+        <test-method status="PASS" signature="init()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase@5a6d30e2]" name="init" is-config="true" duration-ms="1379" started-at="2019-02-28T10:17:54Z" finished-at="2019-02-28T10:17:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="influxDBTableCreationTest()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase@5a6d30e2]" name="influxDBTableCreationTest" duration-ms="397" started-at="2019-02-28T10:17:55Z" description="Testing table creation. " finished-at="2019-02-28T10:17:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- influxDBTableCreationTest -->
+        <test-method status="PASS" signature="init()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase@5a6d30e2]" name="init" is-config="true" duration-ms="1263" started-at="2019-02-28T10:17:55Z" finished-at="2019-02-28T10:17:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="influxDBTableCreationWithoutDatabaseTest()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase@5a6d30e2]" name="influxDBTableCreationWithoutDatabaseTest" duration-ms="8" started-at="2019-02-28T10:17:57Z" description="Testing without defining database name" finished-at="2019-02-28T10:17:57Z">
+          <exception class="org.wso2.siddhi.core.exception.SiddhiAppCreationException">
+            <message>
+              <![CDATA[Error on '0ac20ba7-6427-447e-bcda-ab939ba30af7' @ Line: 2. Position: 91, near '@Store(type="influxdb", url = "http://localhost:8086" ,username="root", password="root", database = "")
+@Index("symbol")define table StockTable (symbol string, price float, volume long,time long)'. Required parameter 'database'for DB connectivity cannot be empty.]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.wso2.siddhi.core.exception.SiddhiAppCreationException: Error on '0ac20ba7-6427-447e-bcda-ab939ba30af7' @ Line: 2. Position: 91, near '@Store(type="influxdb", url = "http://localhost:8086" ,username="root", password="root", database = "")
+@Index("symbol")define table StockTable (symbol string, price float, volume long,time long)'. Required parameter 'database'for DB connectivity cannot be empty.
+	at org.wso2.extension.siddhi.store.influxdb.InfluxDBStore.init(InfluxDBStore.java:221)
+	at org.wso2.siddhi.core.table.record.AbstractRecordTable.init(AbstractRecordTable.java:69)
+	at org.wso2.siddhi.core.table.Table.initTable(Table.java:121)
+	at org.wso2.siddhi.core.util.parser.helper.DefinitionParserHelper.addTable(DefinitionParserHelper.java:212)
+	at org.wso2.siddhi.core.util.SiddhiAppRuntimeBuilder.defineTable(SiddhiAppRuntimeBuilder.java:125)
+	at org.wso2.siddhi.core.util.parser.SiddhiAppParser.defineTableDefinitions(SiddhiAppParser.java:348)
+	at org.wso2.siddhi.core.util.parser.SiddhiAppParser.parse(SiddhiAppParser.java:227)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:65)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:74)
+	at org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase.influxDBTableCreationWithoutDatabaseTest(DefineInfluxDBTableTestCase.java:183)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:281)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:121)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.wso2.siddhi.core.exception.SiddhiAppCreationException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- influxDBTableCreationWithoutDatabaseTest -->
+        <test-method status="PASS" signature="init()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase@5a6d30e2]" name="init" is-config="true" duration-ms="1964" started-at="2019-02-28T10:17:57Z" finished-at="2019-02-28T10:17:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="influxDBTableCreationWithoutPasswordTest()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase@5a6d30e2]" name="influxDBTableCreationWithoutPasswordTest" duration-ms="5" started-at="2019-02-28T10:17:59Z" description="testing without defining password" finished-at="2019-02-28T10:17:59Z">
+          <exception class="org.wso2.siddhi.core.exception.SiddhiAppCreationException">
+            <message>
+              <![CDATA[Error on '75fe40e4-e01e-424b-a9f5-abaab2323c3c' @ Line: 2. Position: 99, near '@Store(type="influxdb", url = "http://localhost:8086" ,username="root", password="", database = "aTimeSeries")
+@Index("symbol", "time")define table StockTable (symbol string, price float, volume long,time long)'. Required parameter 'password' for DB connectivity cannot be empty.]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.wso2.siddhi.core.exception.SiddhiAppCreationException: Error on '75fe40e4-e01e-424b-a9f5-abaab2323c3c' @ Line: 2. Position: 99, near '@Store(type="influxdb", url = "http://localhost:8086" ,username="root", password="", database = "aTimeSeries")
+@Index("symbol", "time")define table StockTable (symbol string, price float, volume long,time long)'. Required parameter 'password' for DB connectivity cannot be empty.
+	at org.wso2.extension.siddhi.store.influxdb.InfluxDBStore.init(InfluxDBStore.java:217)
+	at org.wso2.siddhi.core.table.record.AbstractRecordTable.init(AbstractRecordTable.java:69)
+	at org.wso2.siddhi.core.table.Table.initTable(Table.java:121)
+	at org.wso2.siddhi.core.util.parser.helper.DefinitionParserHelper.addTable(DefinitionParserHelper.java:212)
+	at org.wso2.siddhi.core.util.SiddhiAppRuntimeBuilder.defineTable(SiddhiAppRuntimeBuilder.java:125)
+	at org.wso2.siddhi.core.util.parser.SiddhiAppParser.defineTableDefinitions(SiddhiAppParser.java:348)
+	at org.wso2.siddhi.core.util.parser.SiddhiAppParser.parse(SiddhiAppParser.java:227)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:65)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:74)
+	at org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase.influxDBTableCreationWithoutPasswordTest(DefineInfluxDBTableTestCase.java:160)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:281)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:121)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.wso2.siddhi.core.exception.SiddhiAppCreationException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- influxDBTableCreationWithoutPasswordTest -->
+        <test-method status="PASS" signature="init()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase@5a6d30e2]" name="init" is-config="true" duration-ms="1505" started-at="2019-02-28T10:17:59Z" finished-at="2019-02-28T10:18:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="influxDBTableDefinitionWithIncorrectPasswordTest()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase@5a6d30e2]" name="influxDBTableDefinitionWithIncorrectPasswordTest" duration-ms="87" started-at="2019-02-28T10:18:00Z" description="Testing with incorrect password" finished-at="2019-02-28T10:18:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- influxDBTableDefinitionWithIncorrectPasswordTest -->
+        <test-method status="PASS" signature="init()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase@5a6d30e2]" name="init" is-config="true" duration-ms="1383" started-at="2019-02-28T10:18:00Z" finished-at="2019-02-28T10:18:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="influxDBTableDefinitionWithoutUrlTest()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase@5a6d30e2]" name="influxDBTableDefinitionWithoutUrlTest" duration-ms="8" started-at="2019-02-28T10:18:02Z" description="testing without defining url value" finished-at="2019-02-28T10:18:02Z">
+          <exception class="org.wso2.siddhi.core.exception.SiddhiAppCreationException">
+            <message>
+              <![CDATA[Error on '3a5a0109-510d-4143-ac8d-3802805d9bf7' @ Line: 2. Position: 99, near '@Store(type="influxdb", url = "" ,username="root", password="root", database = "aTimeSeries")
+@Index("symbol", "time")define table StockTable (symbol string, price float, volume long,time long)'. Required parameter 'url' for DB connectivity cannot be empty.]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.wso2.siddhi.core.exception.SiddhiAppCreationException: Error on '3a5a0109-510d-4143-ac8d-3802805d9bf7' @ Line: 2. Position: 99, near '@Store(type="influxdb", url = "" ,username="root", password="root", database = "aTimeSeries")
+@Index("symbol", "time")define table StockTable (symbol string, price float, volume long,time long)'. Required parameter 'url' for DB connectivity cannot be empty.
+	at org.wso2.extension.siddhi.store.influxdb.InfluxDBStore.init(InfluxDBStore.java:208)
+	at org.wso2.siddhi.core.table.record.AbstractRecordTable.init(AbstractRecordTable.java:69)
+	at org.wso2.siddhi.core.table.Table.initTable(Table.java:121)
+	at org.wso2.siddhi.core.util.parser.helper.DefinitionParserHelper.addTable(DefinitionParserHelper.java:212)
+	at org.wso2.siddhi.core.util.SiddhiAppRuntimeBuilder.defineTable(SiddhiAppRuntimeBuilder.java:125)
+	at org.wso2.siddhi.core.util.parser.SiddhiAppParser.defineTableDefinitions(SiddhiAppParser.java:348)
+	at org.wso2.siddhi.core.util.parser.SiddhiAppParser.parse(SiddhiAppParser.java:227)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:65)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:74)
+	at org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase.influxDBTableDefinitionWithoutUrlTest(DefineInfluxDBTableTestCase.java:113)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:281)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:121)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.wso2.siddhi.core.exception.SiddhiAppCreationException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- influxDBTableDefinitionWithoutUrlTest -->
+        <test-method status="PASS" signature="init()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase@5a6d30e2]" name="init" is-config="true" duration-ms="1755" started-at="2019-02-28T10:18:02Z" finished-at="2019-02-28T10:18:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="influxDBTableWithIncorrectUsernameTest()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase@5a6d30e2]" name="influxDBTableWithIncorrectUsernameTest" duration-ms="509" started-at="2019-02-28T10:18:03Z" description="Testing with incorrect username" finished-at="2019-02-28T10:18:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- influxDBTableWithIncorrectUsernameTest -->
+        <test-method status="PASS" signature="init()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase@5a6d30e2]" name="init" is-config="true" duration-ms="1234" started-at="2019-02-28T10:18:04Z" finished-at="2019-02-28T10:18:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="influxDBTableWithoutUsernameTest()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase@5a6d30e2]" name="influxDBTableWithoutUsernameTest" duration-ms="6" started-at="2019-02-28T10:18:05Z" description="testing without defining username" finished-at="2019-02-28T10:18:05Z">
+          <exception class="org.wso2.siddhi.core.exception.SiddhiAppCreationException">
+            <message>
+              <![CDATA[Error on 'bf574961-4990-4eac-b092-46f549b77873' @ Line: 2. Position: 99, near '@Store(type="influxdb", url = "http://localhost:8086" ,username="", password="root", database = "aTimeSeries")
+@Index("symbol", "time")define table StockTable (symbol string, price float, volume long,time long)'. Required parameter 'username' for DB connectivity cannot be empty.]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.wso2.siddhi.core.exception.SiddhiAppCreationException: Error on 'bf574961-4990-4eac-b092-46f549b77873' @ Line: 2. Position: 99, near '@Store(type="influxdb", url = "http://localhost:8086" ,username="", password="root", database = "aTimeSeries")
+@Index("symbol", "time")define table StockTable (symbol string, price float, volume long,time long)'. Required parameter 'username' for DB connectivity cannot be empty.
+	at org.wso2.extension.siddhi.store.influxdb.InfluxDBStore.init(InfluxDBStore.java:212)
+	at org.wso2.siddhi.core.table.record.AbstractRecordTable.init(AbstractRecordTable.java:69)
+	at org.wso2.siddhi.core.table.Table.initTable(Table.java:121)
+	at org.wso2.siddhi.core.util.parser.helper.DefinitionParserHelper.addTable(DefinitionParserHelper.java:212)
+	at org.wso2.siddhi.core.util.SiddhiAppRuntimeBuilder.defineTable(SiddhiAppRuntimeBuilder.java:125)
+	at org.wso2.siddhi.core.util.parser.SiddhiAppParser.defineTableDefinitions(SiddhiAppParser.java:348)
+	at org.wso2.siddhi.core.util.parser.SiddhiAppParser.parse(SiddhiAppParser.java:227)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:65)
+	at org.wso2.siddhi.core.SiddhiManager.createSiddhiAppRuntime(SiddhiManager.java:74)
+	at org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase.influxDBTableWithoutUsernameTest(DefineInfluxDBTableTestCase.java:137)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:643)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:281)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:121)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:290)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:242)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:121)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.wso2.siddhi.core.exception.SiddhiAppCreationException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- influxDBTableWithoutUsernameTest -->
+        <test-method status="PASS" signature="init()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase@5a6d30e2]" name="init" is-config="true" duration-ms="1900" started-at="2019-02-28T10:18:05Z" finished-at="2019-02-28T10:18:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="tableDefinitionWithNonExistingDatabaseTest()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase@5a6d30e2]" name="tableDefinitionWithNonExistingDatabaseTest" duration-ms="12" started-at="2019-02-28T10:18:07Z" description="Testing with non existing database " finished-at="2019-02-28T10:18:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tableDefinitionWithNonExistingDatabaseTest -->
+        <test-method status="PASS" signature="shutdown()[pri:0, instance:org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase@5a6d30e2]" name="shutdown" is-config="true" duration-ms="0" started-at="2019-02-28T10:18:07Z" finished-at="2019-02-28T10:18:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shutdown -->
+      </class> <!-- org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase -->
+    </test> <!-- Siddhi-store-influxdb-tests -->
+  </suite> <!-- Siddhi-Store-InfluxDB-Test-Suite -->
+</testng-results>

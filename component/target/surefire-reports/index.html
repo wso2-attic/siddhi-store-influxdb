@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <meta charset='utf-8'>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />  
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <br/>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" class="collapse-all-link" title="Collapse/expand all the suites">
+          <img class="collapse-all-icon" src="collapseall.gif">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" class="navigator-link" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite">
+              <span class="suite-name border-failed">Siddhi-Store-InfluxDB-Test-Suite</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="test-xml-Siddhi-Store-InfluxDB-Test-Suite">
+                    <span>testng.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="testlist-Siddhi-Store-InfluxDB-Test-Suite">
+                    <span class="test-stats">1 test</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="group-Siddhi-Store-InfluxDB-Test-Suite">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="times-Siddhi-Store-InfluxDB-Test-Suite">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="reporter-Siddhi-Store-InfluxDB-Test-Suite">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-Siddhi-Store-InfluxDB-Test-Suite">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="chronological-Siddhi-Store-InfluxDB-Test-Suite">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">32 methods, 1 failed,   31 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" class="hide-methods failed suite-Siddhi-Store-InfluxDB-Test-Suite"> (hide)</a> <!-- hide-methods failed suite-Siddhi-Store-InfluxDB-Test-Suite -->
+                      <a href="#" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" class="show-methods failed suite-Siddhi-Store-InfluxDB-Test-Suite"> (show)</a> <!-- show-methods failed suite-Siddhi-Store-InfluxDB-Test-Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Siddhi-Store-InfluxDB-Test-Suite">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" title="org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase" hash-for-method="updateOrInsertWithTwoConditionsTest">updateOrInsertWithTwoConditionsTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Siddhi-Store-InfluxDB-Test-Suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" class="hide-methods passed suite-Siddhi-Store-InfluxDB-Test-Suite"> (hide)</a> <!-- hide-methods passed suite-Siddhi-Store-InfluxDB-Test-Suite -->
+                      <a href="#" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" class="show-methods passed suite-Siddhi-Store-InfluxDB-Test-Suite"> (show)</a> <!-- show-methods passed suite-Siddhi-Store-InfluxDB-Test-Suite -->
+                    </span>
+                    <div class="method-list-content passed suite-Siddhi-Store-InfluxDB-Test-Suite">
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" title="org.wso2.extension.siddhi.store.influxdb.ContainsInInfluxDBTestCase" hash-for-method="containsCheckTestWithDefinedStream">containsCheckTestWithDefinedStream</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" title="org.wso2.extension.siddhi.store.influxdb.ContainsInInfluxDBTestCase" hash-for-method="containsCheckTestWithSingleCondition">containsCheckTestWithSingleCondition</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" title="org.wso2.extension.siddhi.store.influxdb.ContainsInInfluxDBTestCase" hash-for-method="containsCheckTestWithTwoConditions">containsCheckTestWithTwoConditions</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" title="org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase" hash-for-method="deleteFromITableWithTwoConditionsTest">deleteFromITableWithTwoConditionsTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" title="org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase" hash-for-method="deleteFromInfluxDBTableTest">deleteFromInfluxDBTableTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" title="org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase" hash-for-method="deleteFromInfluxDBTableTestWithSingleCondition">deleteFromInfluxDBTableTestWithSingleCondition</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" title="org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase" hash-for-method="deleteFromTableTestWithSingleCondition">deleteFromTableTestWithSingleCondition</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" title="org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase" hash-for-method="influxDBTablWithIncorrectUrlTest">influxDBTablWithIncorrectUrlTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" title="org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase" hash-for-method="influxDBTableCreationTest">influxDBTableCreationTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" title="org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase" hash-for-method="influxDBTableCreationWithoutDatabaseTest">influxDBTableCreationWithoutDatabaseTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" title="org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase" hash-for-method="influxDBTableCreationWithoutPasswordTest">influxDBTableCreationWithoutPasswordTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" title="org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase" hash-for-method="influxDBTableDefinitionWithIncorrectPasswordTest">influxDBTableDefinitionWithIncorrectPasswordTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" title="org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase" hash-for-method="influxDBTableDefinitionWithoutUrlTest">influxDBTableDefinitionWithoutUrlTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" title="org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase" hash-for-method="influxDBTableWithIncorrectUsernameTest">influxDBTableWithIncorrectUsernameTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" title="org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase" hash-for-method="influxDBTableWithoutUsernameTest">influxDBTableWithoutUsernameTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" title="org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase" hash-for-method="insertIntoTableTest">insertIntoTableTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" title="org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase" hash-for-method="insertIntoTableWithIncorretTimeFormatTest">insertIntoTableWithIncorretTimeFormatTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" title="org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase" hash-for-method="insertIntoTableWithSingleTagKeyTest">insertIntoTableWithSingleTagKeyTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" title="org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase" hash-for-method="insertIntoTableWithTwoTagKeysTest">insertIntoTableWithTwoTagKeysTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" title="org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase" hash-for-method="insertIntoTableWithoutTagKeysTest">insertIntoTableWithoutTagKeysTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" title="org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase" hash-for-method="readEventInfluxTableTest">readEventInfluxTableTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" title="org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase" hash-for-method="readEventInfluxTableTestCase">readEventInfluxTableTestCase</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" title="org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase" hash-for-method="readEventInfluxTableTestCase6">readEventInfluxTableTestCase6</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" title="org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase" hash-for-method="readEventWithoutDefineStreamTest">readEventWithoutDefineStreamTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" title="org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase" hash-for-method="readEventsInfluxTableTest">readEventsInfluxTableTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" title="org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase" hash-for-method="readEventsInfluxTableTestCase">readEventsInfluxTableTestCase</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" title="org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase" hash-for-method="readEventsWithoutConditionTest">readEventsWithoutConditionTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" title="org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase" hash-for-method="readFromNonExistingTableTest">readFromNonExistingTableTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" title="org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase" hash-for-method="tableDefinitionWithNonExistingDatabaseTest">tableDefinitionWithNonExistingDatabaseTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" title="org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase" hash-for-method="updateOrInsertWithSingleConditionTest">updateOrInsertWithSingleConditionTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" title="org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase" hash-for-method="updateOrInsertWithSingleConditionTest2">updateOrInsertWithSingleConditionTest2</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Siddhi-Store-InfluxDB-Test-Suite -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-Siddhi-Store-InfluxDB-Test-Suite" class="panel Siddhi-Store-InfluxDB-Test-Suite">
+          <div class="suite-Siddhi-Store-InfluxDB-Test-Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="updateOrInsertWithTwoConditionsTest">
+                  </a> <!-- updateOrInsertWithTwoConditionsTest -->
+                  <span class="method-name">updateOrInsertWithTwoConditionsTest</span>
+                  <div class="stack-trace">java.lang.AssertionError: updating failed expected [3] but found [1]
+	at org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase.updateOrInsertWithTwoConditionsTest(UpdateOrInsertIntoInfluxDBTestCase.java:173)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Update or insert successfully with two conditions)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Siddhi-Store-InfluxDB-Test-Suite-class-failed -->
+          <div class="suite-Siddhi-Store-InfluxDB-Test-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="updateOrInsertWithSingleConditionTest">
+                  </a> <!-- updateOrInsertWithSingleConditionTest -->
+                  <span class="method-name">updateOrInsertWithSingleConditionTest</span>
+                  <em>
+(Update or insert successfully with single condition)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="updateOrInsertWithSingleConditionTest2">
+                  </a> <!-- updateOrInsertWithSingleConditionTest2 -->
+                  <span class="method-name">updateOrInsertWithSingleConditionTest2</span>
+                  <em>
+(Upadate or insert successfully with single condition )                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Siddhi-Store-InfluxDB-Test-Suite-class-passed -->
+          <div class="suite-Siddhi-Store-InfluxDB-Test-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="deleteFromITableWithTwoConditionsTest">
+                  </a> <!-- deleteFromITableWithTwoConditionsTest -->
+                  <span class="method-name">deleteFromITableWithTwoConditionsTest</span>
+                  <em>
+(Delete From influxDB table successfully test4)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="deleteFromInfluxDBTableTest">
+                  </a> <!-- deleteFromInfluxDBTableTest -->
+                  <span class="method-name">deleteFromInfluxDBTableTest</span>
+                  <em>
+(Delete From influxDB table successfully test3)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="deleteFromInfluxDBTableTestWithSingleCondition">
+                  </a> <!-- deleteFromInfluxDBTableTestWithSingleCondition -->
+                  <span class="method-name">deleteFromInfluxDBTableTestWithSingleCondition</span>
+                  <em>
+(Delete From InfluxDBTable successfully test1)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="deleteFromTableTestWithSingleCondition">
+                  </a> <!-- deleteFromTableTestWithSingleCondition -->
+                  <span class="method-name">deleteFromTableTestWithSingleCondition</span>
+                  <em>
+(Delete From InfluxDB Table successfully test2)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Siddhi-Store-InfluxDB-Test-Suite-class-passed -->
+          <div class="suite-Siddhi-Store-InfluxDB-Test-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="influxDBTablWithIncorrectUrlTest">
+                  </a> <!-- influxDBTablWithIncorrectUrlTest -->
+                  <span class="method-name">influxDBTablWithIncorrectUrlTest</span>
+                  <em>
+(testing with incorrect value for url)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="influxDBTableCreationTest">
+                  </a> <!-- influxDBTableCreationTest -->
+                  <span class="method-name">influxDBTableCreationTest</span>
+                  <em>
+(Testing table creation. )                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="influxDBTableCreationWithoutDatabaseTest">
+                  </a> <!-- influxDBTableCreationWithoutDatabaseTest -->
+                  <span class="method-name">influxDBTableCreationWithoutDatabaseTest</span>
+                  <em>
+(Testing without defining database name)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="influxDBTableCreationWithoutPasswordTest">
+                  </a> <!-- influxDBTableCreationWithoutPasswordTest -->
+                  <span class="method-name">influxDBTableCreationWithoutPasswordTest</span>
+                  <em>
+(testing without defining password)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="influxDBTableDefinitionWithIncorrectPasswordTest">
+                  </a> <!-- influxDBTableDefinitionWithIncorrectPasswordTest -->
+                  <span class="method-name">influxDBTableDefinitionWithIncorrectPasswordTest</span>
+                  <em>
+(Testing with incorrect password)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="influxDBTableDefinitionWithoutUrlTest">
+                  </a> <!-- influxDBTableDefinitionWithoutUrlTest -->
+                  <span class="method-name">influxDBTableDefinitionWithoutUrlTest</span>
+                  <em>
+(testing without defining url value)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="influxDBTableWithIncorrectUsernameTest">
+                  </a> <!-- influxDBTableWithIncorrectUsernameTest -->
+                  <span class="method-name">influxDBTableWithIncorrectUsernameTest</span>
+                  <em>
+(Testing with incorrect username)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="influxDBTableWithoutUsernameTest">
+                  </a> <!-- influxDBTableWithoutUsernameTest -->
+                  <span class="method-name">influxDBTableWithoutUsernameTest</span>
+                  <em>
+(testing without defining username)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="tableDefinitionWithNonExistingDatabaseTest">
+                  </a> <!-- tableDefinitionWithNonExistingDatabaseTest -->
+                  <span class="method-name">tableDefinitionWithNonExistingDatabaseTest</span>
+                  <em>
+(Testing with non existing database )                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Siddhi-Store-InfluxDB-Test-Suite-class-passed -->
+          <div class="suite-Siddhi-Store-InfluxDB-Test-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">org.wso2.extension.siddhi.store.influxdb.ContainsInInfluxDBTestCase</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="containsCheckTestWithDefinedStream">
+                  </a> <!-- containsCheckTestWithDefinedStream -->
+                  <span class="method-name">containsCheckTestWithDefinedStream</span>
+                  <em>
+(Testing with already defined outputstream.)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="containsCheckTestWithSingleCondition">
+                  </a> <!-- containsCheckTestWithSingleCondition -->
+                  <span class="method-name">containsCheckTestWithSingleCondition</span>
+                  <em>
+(Test contains with one condition.)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="containsCheckTestWithTwoConditions">
+                  </a> <!-- containsCheckTestWithTwoConditions -->
+                  <span class="method-name">containsCheckTestWithTwoConditions</span>
+                  <em>
+(Test contains with two conditions.)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Siddhi-Store-InfluxDB-Test-Suite-class-passed -->
+          <div class="suite-Siddhi-Store-InfluxDB-Test-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="insertIntoTableTest">
+                  </a> <!-- insertIntoTableTest -->
+                  <span class="method-name">insertIntoTableTest</span>
+                  <em>
+(Insert successfully with extracting current time)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="insertIntoTableWithIncorretTimeFormatTest">
+                  </a> <!-- insertIntoTableWithIncorretTimeFormatTest -->
+                  <span class="method-name">insertIntoTableWithIncorretTimeFormatTest</span>
+                  <em>
+(incorrect format for time)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="insertIntoTableWithSingleTagKeyTest">
+                  </a> <!-- insertIntoTableWithSingleTagKeyTest -->
+                  <span class="method-name">insertIntoTableWithSingleTagKeyTest</span>
+                  <em>
+(Testing insertion with single tag key)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="insertIntoTableWithTwoTagKeysTest">
+                  </a> <!-- insertIntoTableWithTwoTagKeysTest -->
+                  <span class="method-name">insertIntoTableWithTwoTagKeysTest</span>
+                  <em>
+(Testing insertion with two tag keys)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="insertIntoTableWithoutTagKeysTest">
+                  </a> <!-- insertIntoTableWithoutTagKeysTest -->
+                  <span class="method-name">insertIntoTableWithoutTagKeysTest</span>
+                  <em>
+(define Table without tag keys)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Siddhi-Store-InfluxDB-Test-Suite-class-passed -->
+          <div class="suite-Siddhi-Store-InfluxDB-Test-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="readEventInfluxTableTest">
+                  </a> <!-- readEventInfluxTableTest -->
+                  <span class="method-name">readEventInfluxTableTest</span>
+                  <em>
+(Read events from a InfluxDB table successfully.)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="readEventInfluxTableTestCase">
+                  </a> <!-- readEventInfluxTableTestCase -->
+                  <span class="method-name">readEventInfluxTableTestCase</span>
+                  <em>
+(Testing reading  multiple events from a InfluxDB table successfully)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="readEventInfluxTableTestCase6">
+                  </a> <!-- readEventInfluxTableTestCase6 -->
+                  <span class="method-name">readEventInfluxTableTestCase6</span>
+                  <em>
+(Testing reading multiple events from a influxDB table successfully)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="readEventWithoutDefineStreamTest">
+                  </a> <!-- readEventWithoutDefineStreamTest -->
+                  <span class="method-name">readEventWithoutDefineStreamTest</span>
+                  <em>
+(Read unsuccessfully without defining stream)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="readEventsInfluxTableTest">
+                  </a> <!-- readEventsInfluxTableTest -->
+                  <span class="method-name">readEventsInfluxTableTest</span>
+                  <em>
+(Read  multiple events from a InfluxDB table successfully with window.length.)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="readEventsInfluxTableTestCase">
+                  </a> <!-- readEventsInfluxTableTestCase -->
+                  <span class="method-name">readEventsInfluxTableTestCase</span>
+                  <em>
+(Read  multiple events from a InfluxDB table successfully(window.time).)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="readEventsWithoutConditionTest">
+                  </a> <!-- readEventsWithoutConditionTest -->
+                  <span class="method-name">readEventsWithoutConditionTest</span>
+                  <em>
+(Read events from a InfluxDB table successfully without any condition)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="readFromNonExistingTableTest">
+                  </a> <!-- readFromNonExistingTableTest -->
+                  <span class="method-name">readFromNonExistingTableTest</span>
+                  <em>
+(Read unsuccessfully from non existing table)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Siddhi-Store-InfluxDB-Test-Suite-class-passed -->
+        </div> <!-- panel Siddhi-Store-InfluxDB-Test-Suite -->
+        <div panel-name="test-xml-Siddhi-Store-InfluxDB-Test-Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">/home/malki/Desktop/Influx/siddhi-store-influxdb/component/src/test/resources/testng.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;0&quot; name=&quot;Siddhi-Store-InfluxDB-Test-Suite&quot;&gt;
+  &lt;test name=&quot;Siddhi-store-influxdb-tests&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase&quot;/&gt;
+      &lt;class name=&quot;org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase&quot;/&gt;
+      &lt;class name=&quot;org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase&quot;/&gt;
+      &lt;class name=&quot;org.wso2.extension.siddhi.store.influxdb.ContainsInInfluxDBTestCase&quot;/&gt;
+      &lt;class name=&quot;org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase&quot;/&gt;
+      &lt;class name=&quot;org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Siddhi-store-influxdb-tests --&gt;
+&lt;/suite&gt; &lt;!-- Siddhi-Store-InfluxDB-Test-Suite --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-Siddhi-Store-InfluxDB-Test-Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for Siddhi-Store-InfluxDB-Test-Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">Siddhi-store-influxdb-tests (6 classes)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-Siddhi-Store-InfluxDB-Test-Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for Siddhi-Store-InfluxDB-Test-Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-Siddhi-Store-InfluxDB-Test-Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for Siddhi-Store-InfluxDB-Test-Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_Siddhi-Store-InfluxDB-Test-Suite');
+function tableData_Siddhi-Store-InfluxDB-Test-Suite() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(32);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'containsCheckTestWithSingleCondition')
+data.setCell(0, 2, 'org.wso2.extension.siddhi.store.influxdb.ContainsInInfluxDBTestCase')
+data.setCell(0, 3, 31283);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'containsCheckTestWithDefinedStream')
+data.setCell(1, 2, 'org.wso2.extension.siddhi.store.influxdb.ContainsInInfluxDBTestCase')
+data.setCell(1, 3, 30860);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'containsCheckTestWithTwoConditions')
+data.setCell(2, 2, 'org.wso2.extension.siddhi.store.influxdb.ContainsInInfluxDBTestCase')
+data.setCell(2, 3, 30832);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'updateOrInsertWithSingleConditionTest')
+data.setCell(3, 2, 'org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase')
+data.setCell(3, 3, 3282);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'updateOrInsertWithTwoConditionsTest')
+data.setCell(4, 2, 'org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase')
+data.setCell(4, 3, 3120);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'deleteFromITableWithTwoConditionsTest')
+data.setCell(5, 2, 'org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase')
+data.setCell(5, 3, 2339);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'readEventsInfluxTableTestCase')
+data.setCell(6, 2, 'org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase')
+data.setCell(6, 3, 2299);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'deleteFromInfluxDBTableTestWithSingleCondition')
+data.setCell(7, 2, 'org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase')
+data.setCell(7, 3, 1583);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'deleteFromInfluxDBTableTest')
+data.setCell(8, 2, 'org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase')
+data.setCell(8, 3, 1434);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'deleteFromTableTestWithSingleCondition')
+data.setCell(9, 2, 'org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase')
+data.setCell(9, 3, 1430);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'readEventsInfluxTableTest')
+data.setCell(10, 2, 'org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase')
+data.setCell(10, 3, 1349);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'readEventInfluxTableTestCase')
+data.setCell(11, 2, 'org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase')
+data.setCell(11, 3, 1329);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'updateOrInsertWithSingleConditionTest2')
+data.setCell(12, 2, 'org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase')
+data.setCell(12, 3, 1300);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'readEventInfluxTableTestCase6')
+data.setCell(13, 2, 'org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase')
+data.setCell(13, 3, 876);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'readEventInfluxTableTest')
+data.setCell(14, 2, 'org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase')
+data.setCell(14, 3, 847);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'readEventsWithoutConditionTest')
+data.setCell(15, 2, 'org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase')
+data.setCell(15, 3, 765);
+data.setCell(16, 0, 16)
+data.setCell(16, 1, 'insertIntoTableWithSingleTagKeyTest')
+data.setCell(16, 2, 'org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase')
+data.setCell(16, 3, 727);
+data.setCell(17, 0, 17)
+data.setCell(17, 1, 'influxDBTableWithIncorrectUsernameTest')
+data.setCell(17, 2, 'org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase')
+data.setCell(17, 3, 509);
+data.setCell(18, 0, 18)
+data.setCell(18, 1, 'influxDBTableCreationTest')
+data.setCell(18, 2, 'org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase')
+data.setCell(18, 3, 397);
+data.setCell(19, 0, 19)
+data.setCell(19, 1, 'insertIntoTableTest')
+data.setCell(19, 2, 'org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase')
+data.setCell(19, 3, 347);
+data.setCell(20, 0, 20)
+data.setCell(20, 1, 'insertIntoTableWithoutTagKeysTest')
+data.setCell(20, 2, 'org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase')
+data.setCell(20, 3, 235);
+data.setCell(21, 0, 21)
+data.setCell(21, 1, 'insertIntoTableWithTwoTagKeysTest')
+data.setCell(21, 2, 'org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase')
+data.setCell(21, 3, 181);
+data.setCell(22, 0, 22)
+data.setCell(22, 1, 'influxDBTableDefinitionWithIncorrectPasswordTest')
+data.setCell(22, 2, 'org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase')
+data.setCell(22, 3, 87);
+data.setCell(23, 0, 23)
+data.setCell(23, 1, 'insertIntoTableWithIncorretTimeFormatTest')
+data.setCell(23, 2, 'org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase')
+data.setCell(23, 3, 23);
+data.setCell(24, 0, 24)
+data.setCell(24, 1, 'influxDBTablWithIncorrectUrlTest')
+data.setCell(24, 2, 'org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase')
+data.setCell(24, 3, 23);
+data.setCell(25, 0, 25)
+data.setCell(25, 1, 'readEventWithoutDefineStreamTest')
+data.setCell(25, 2, 'org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase')
+data.setCell(25, 3, 19);
+data.setCell(26, 0, 26)
+data.setCell(26, 1, 'tableDefinitionWithNonExistingDatabaseTest')
+data.setCell(26, 2, 'org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase')
+data.setCell(26, 3, 12);
+data.setCell(27, 0, 27)
+data.setCell(27, 1, 'influxDBTableCreationWithoutDatabaseTest')
+data.setCell(27, 2, 'org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase')
+data.setCell(27, 3, 8);
+data.setCell(28, 0, 28)
+data.setCell(28, 1, 'influxDBTableDefinitionWithoutUrlTest')
+data.setCell(28, 2, 'org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase')
+data.setCell(28, 3, 8);
+data.setCell(29, 0, 29)
+data.setCell(29, 1, 'influxDBTableWithoutUsernameTest')
+data.setCell(29, 2, 'org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase')
+data.setCell(29, 3, 6);
+data.setCell(30, 0, 30)
+data.setCell(30, 1, 'influxDBTableCreationWithoutPasswordTest')
+data.setCell(30, 2, 'org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase')
+data.setCell(30, 3, 5);
+data.setCell(31, 0, 31)
+data.setCell(31, 1, 'readFromNonExistingTableTest')
+data.setCell(31, 2, 'org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase')
+data.setCell(31, 3, 3);
+window.suiteTableData['Siddhi-Store-InfluxDB-Test-Suite']= { tableData: data, tableDiv: 'times-div-Siddhi-Store-InfluxDB-Test-Suite'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <div id="times-div-Siddhi-Store-InfluxDB-Test-Suite">
+              </div> <!-- times-div-Siddhi-Store-InfluxDB-Test-Suite -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-Siddhi-Store-InfluxDB-Test-Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for Siddhi-Store-InfluxDB-Test-Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-Siddhi-Store-InfluxDB-Test-Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-Siddhi-Store-InfluxDB-Test-Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">startTest</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-method before">
+                <span class="method-name">init</span>
+                <span class="method-start">27 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">deleteFromITableWithTwoConditionsTest</span>
+                <span class="method-start">1645 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">init</span>
+                <span class="method-start">3986 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">deleteFromInfluxDBTableTest</span>
+                <span class="method-start">4967 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">init</span>
+                <span class="method-start">6402 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">deleteFromInfluxDBTableTestWithSingleCondition</span>
+                <span class="method-start">7468 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">init</span>
+                <span class="method-start">9051 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">deleteFromTableTestWithSingleCondition</span>
+                <span class="method-start">10034 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">shutdown</span>
+                <span class="method-start">11465 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">startTest</span>
+                <span class="method-start">11468 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-method before">
+                <span class="method-name">init</span>
+                <span class="method-start">11470 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">readEventInfluxTableTest</span>
+                <span class="method-start">12525 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">init</span>
+                <span class="method-start">13373 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">readEventInfluxTableTestCase</span>
+                <span class="method-start">14393 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">init</span>
+                <span class="method-start">15723 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">readEventInfluxTableTestCase6</span>
+                <span class="method-start">16711 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">init</span>
+                <span class="method-start">17588 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">readEventWithoutDefineStreamTest</span>
+                <span class="method-start">18678 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">init</span>
+                <span class="method-start">18698 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">readEventsInfluxTableTest</span>
+                <span class="method-start">19629 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">init</span>
+                <span class="method-start">20979 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">readEventsInfluxTableTestCase</span>
+                <span class="method-start">21963 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">init</span>
+                <span class="method-start">24264 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">readEventsWithoutConditionTest</span>
+                <span class="method-start">25224 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">init</span>
+                <span class="method-start">25990 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">readFromNonExistingTableTest</span>
+                <span class="method-start">27016 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">shutdown</span>
+                <span class="method-start">27020 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">startTest</span>
+                <span class="method-start">27021 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-method before">
+                <span class="method-name">init</span>
+                <span class="method-start">27022 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">insertIntoTableTest</span>
+                <span class="method-start">27999 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">init</span>
+                <span class="method-start">28346 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">insertIntoTableWithIncorretTimeFormatTest</span>
+                <span class="method-start">29309 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">init</span>
+                <span class="method-start">29332 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">insertIntoTableWithSingleTagKeyTest</span>
+                <span class="method-start">30591 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">init</span>
+                <span class="method-start">31319 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">insertIntoTableWithTwoTagKeysTest</span>
+                <span class="method-start">32425 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">init</span>
+                <span class="method-start">32606 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">insertIntoTableWithoutTagKeysTest</span>
+                <span class="method-start">33651 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">shutdown</span>
+                <span class="method-start">33887 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">org.wso2.extension.siddhi.store.influxdb.ContainsInInfluxDBTestCase</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">startTest</span>
+                <span class="method-start">33887 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-method before">
+                <span class="method-name">init</span>
+                <span class="method-start">33888 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">containsCheckTestWithDefinedStream</span>
+                <span class="method-start">34902 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">init</span>
+                <span class="method-start">65763 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">containsCheckTestWithSingleCondition</span>
+                <span class="method-start">66800 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">init</span>
+                <span class="method-start">98084 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">containsCheckTestWithTwoConditions</span>
+                <span class="method-start">99083 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">shutdown</span>
+                <span class="method-start">129916 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">startTest</span>
+                <span class="method-start">129916 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-method before">
+                <span class="method-name">init</span>
+                <span class="method-start">129917 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">updateOrInsertWithSingleConditionTest</span>
+                <span class="method-start">131010 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">init</span>
+                <span class="method-start">134293 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">updateOrInsertWithSingleConditionTest2</span>
+                <span class="method-start">135288 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">init</span>
+                <span class="method-start">136589 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">updateOrInsertWithTwoConditionsTest</span>
+                <span class="method-start">137666 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">shutdown</span>
+                <span class="method-start">140798 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">startTest</span>
+                <span class="method-start">140799 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-method before">
+                <span class="method-name">init</span>
+                <span class="method-start">140800 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">influxDBTablWithIncorrectUrlTest</span>
+                <span class="method-start">141936 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">init</span>
+                <span class="method-start">141960 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">influxDBTableCreationTest</span>
+                <span class="method-start">143339 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">init</span>
+                <span class="method-start">143737 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">influxDBTableCreationWithoutDatabaseTest</span>
+                <span class="method-start">145000 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">init</span>
+                <span class="method-start">145009 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">influxDBTableCreationWithoutPasswordTest</span>
+                <span class="method-start">146973 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">init</span>
+                <span class="method-start">146979 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">influxDBTableDefinitionWithIncorrectPasswordTest</span>
+                <span class="method-start">148484 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">init</span>
+                <span class="method-start">148571 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">influxDBTableDefinitionWithoutUrlTest</span>
+                <span class="method-start">149954 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">init</span>
+                <span class="method-start">149962 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">influxDBTableWithIncorrectUsernameTest</span>
+                <span class="method-start">151717 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">init</span>
+                <span class="method-start">152227 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">influxDBTableWithoutUsernameTest</span>
+                <span class="method-start">153461 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method before">
+                <span class="method-name">init</span>
+                <span class="method-start">153468 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">tableDefinitionWithNonExistingDatabaseTest</span>
+                <span class="method-start">155368 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">shutdown</span>
+                <span class="method-start">155380 ms</span>
+              </div> <!-- configuration-class after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+</html>
