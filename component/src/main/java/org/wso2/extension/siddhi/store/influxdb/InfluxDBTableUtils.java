@@ -88,7 +88,6 @@ public class InfluxDBTableUtils {
      * @param timePositions contains position of time attribute
      * @return
      */
-
     public static long mapTimeToAttributeValue(Object[] record, String tableName,
                                                int timePositions) {
 
