@@ -30,7 +30,6 @@ import java.util.TreeMap;
  * Class which is used by the Siddhi runtime for instructions on converting the SiddhiQL condition to the condition
  * format understood by the  InfluxDB
  */
-
 public class InfluxDBConditionVisitor extends BaseExpressionVisitor {
 
     private StringBuilder condition;
@@ -377,5 +376,4 @@ public class InfluxDBConditionVisitor extends BaseExpressionVisitor {
         this.constantCount++;
         return name;
     }
-
 }

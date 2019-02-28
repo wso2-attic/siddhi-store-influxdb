@@ -24,7 +24,6 @@ import java.util.SortedMap;
 /**
  * Implementation of class corresponding to the InfluxDB store
  */
-
 public class InfluxDBCompiledCondition implements CompiledCondition {
 
     private String compiledQuery;
