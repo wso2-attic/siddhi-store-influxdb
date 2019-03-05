@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/component/siddhi-store-influxdb.iml" filepath="$PROJECT_DIR$/component/siddhi-store-influxdb.iml" />
-      <module fileurl="file://$PROJECT_DIR$/siddhi-store-influxdb-parent.iml" filepath="$PROJECT_DIR$/siddhi-store-influxdb-parent.iml" />
-    </modules>
-  </component>
-</project>
