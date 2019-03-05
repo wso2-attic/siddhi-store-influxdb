@@ -63,7 +63,12 @@
     </profiles>
     <properties>
         <siddhi.version>4.4.8</siddhi.version>
+        <siddhi.version.range>[4.1.38,5.0)</siddhi.version.range>
         <log4j.version>1.2.17.wso2v1</log4j.version>
+        <datasource.version>1.1.4</datasource.version>
+        <logging.test.version>1.1.1</logging.test.version>
+        <commons.logging.version>1.2</commons.logging.version>
+        <commons.logging.version.range>[1.1.1,2.0)</commons.logging.version.range>
         <testng.version>6.9.10</testng.version>
         <jacoco.maven.version>0.7.8</jacoco.maven.version>
         <influxdb.java.version>2.14</influxdb.java.version>
@@ -72,6 +77,7 @@
         <retrofit.version>2.5.0</retrofit.version>
         <msgpack-core.version>0.8.16</msgpack-core.version>
         <okio.version>1.15.0</okio.version>
+        <bundle.plugin.versin>3.5.0</bundle.plugin.versin>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -84,6 +90,23 @@
                 <groupId>org.wso2.siddhi</groupId>
                 <artifactId>siddhi-query-api</artifactId>
                 <version>${siddhi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon.datasources</groupId>
+                <artifactId>org.wso2.carbon.datasource.core</artifactId>
+                <version>${datasource.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+                <version>${logging.test.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+                <version>${commons.logging.version}</version>
+                <scope>compile</scope>
             </dependency>
             <dependency>
                 <groupId>org.apache.log4j.wso2</groupId>

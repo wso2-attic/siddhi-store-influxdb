@@ -81,7 +81,6 @@ public class ReadEventInfluxDBTestCase {
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
                 "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", database = \"" + DATABASE
                 + "\")\n" +
-
                 "@Index(\"symbol\")" +
                 "define table StockTable (symbol string, price float, volume long,time long);\n";
 
@@ -106,7 +105,6 @@ public class ReadEventInfluxDBTestCase {
 
                 EventPrinter.print(timeStamp, inEvents, removeEvents);
                 if (inEvents != null) {
-
                     eventArrived = true;
                 }
                 if (removeEvents != null) {
@@ -114,7 +112,6 @@ public class ReadEventInfluxDBTestCase {
                 }
             }
         });
-
         siddhiAppRuntime.start();
 
         stockStream.send(new Object[]{"WSO2", 58.6f, 100L, 1548181800001L});
@@ -123,7 +120,6 @@ public class ReadEventInfluxDBTestCase {
         fooStream.send(new Object[]{"WSO2"});
         fooStream.send(new Object[]{"IBM"});
         fooStream.send(new Object[]{"CSC"});
-
         Thread.sleep(500);
 
         Assert.assertEquals(eventArrived, true, "Event arrived");
@@ -136,7 +132,6 @@ public class ReadEventInfluxDBTestCase {
 
         log.info("readFromNonExistingTableTest");
         SiddhiManager siddhiManager = new SiddhiManager();
-
         String streams = "" +
                 "define stream FooStream (symbol string);";
 
@@ -146,13 +141,10 @@ public class ReadEventInfluxDBTestCase {
                 "select StockTable.symbol as checkName, StockTable.price as checkCategory, " +
                 "StockTable.volume as checkVolume,StockTable.time as checkTime\n" +
                 "insert into OutputStream;";
-
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query);
         InputHandler fooStream = siddhiAppRuntime.getInputHandler("FooStream");
-
         siddhiAppRuntime.start();
         fooStream.send(new Object[]{"WSO2"});
-
         siddhiAppRuntime.shutdown();
     }
 
@@ -160,7 +152,6 @@ public class ReadEventInfluxDBTestCase {
     public void readEventWithoutDefineStreamTest() throws InterruptedException, InfluxDBException {
 
         log.info("readEventWithoutDefineStreamTest");
-
         SiddhiManager siddhiManager = new SiddhiManager();
         String streams = "" +
                 "define stream StockStream (symbol string, price float, volume long,time long);\n" +
@@ -202,7 +193,6 @@ public class ReadEventInfluxDBTestCase {
         });
 
         siddhiAppRuntime.start();
-
         stockStream.send(new Object[]{"WSO2", 58.6f, 100L, 1548181800001L});
         stockStream.send(new Object[]{"WSO2", 57.6f, 100L, 1548181800009L});
         stockStream.send(new Object[]{"IBM", 97.6f, 100L, 1548181800007L});
@@ -313,7 +303,6 @@ public class ReadEventInfluxDBTestCase {
 
                 EventPrinter.print(timeStamp, inEvents, removeEvents);
                 if (inEvents != null) {
-
                     eventArrived = true;
                 }
                 if (removeEvents != null) {
@@ -375,7 +364,6 @@ public class ReadEventInfluxDBTestCase {
 
                 EventPrinter.print(timeStamp, inEvents, removeEvents);
                 if (inEvents != null) {
-
                     eventArrived = true;
                 }
                 if (removeEvents != null) {
@@ -442,7 +430,6 @@ public class ReadEventInfluxDBTestCase {
                 }
             }
         });
-
         siddhiAppRuntime.start();
 
         stockStream.send(new Object[]{"WSO2", 58.6f, 110L, 1548181800001L});

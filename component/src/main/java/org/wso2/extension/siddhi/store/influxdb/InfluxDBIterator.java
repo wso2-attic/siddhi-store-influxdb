@@ -28,7 +28,6 @@ import java.util.List;
  * A class representing a RecordIterator which is responsible for processing Influxdb Event Table find() operations in
  * a streaming fashion.
  */
-
 public class InfluxDBIterator implements RecordIterator<Object[]> {
 
     private QueryResult queryResult;
@@ -81,7 +80,6 @@ public class InfluxDBIterator implements RecordIterator<Object[]> {
                 .getValues()
                 .get(index);
         index = index + 1;
-
         return record.toArray();
     }
 
@@ -89,5 +87,4 @@ public class InfluxDBIterator implements RecordIterator<Object[]> {
     public void close() throws IOException {
 
     }
-
 }

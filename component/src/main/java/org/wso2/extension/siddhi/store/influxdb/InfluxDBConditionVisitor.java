@@ -36,7 +36,6 @@ public class InfluxDBConditionVisitor extends BaseExpressionVisitor {
     private String finalCompiledCondition;
     private int streamVarCount;
     private int constantCount;
-
     private Map<String, Object> placeholders;
     private Map<String, Object> placeholdersConstant;
     private SortedMap<Integer, Object> parameters;
@@ -226,10 +225,8 @@ public class InfluxDBConditionVisitor extends BaseExpressionVisitor {
     @Override
     public void beginVisitConstant(Object value, Attribute.Type type) {
 
-        String name;
-        name = this.generateConstantName();
-        this.placeholdersConstant.put(name, value);
-        condition.append("[").append(name).append("]").append(InfluxDBTableConstants.WHITESPACE);
+        this.placeholdersConstant.put(this.generateConstantName(), value);
+        condition.append("[").append(this.generateConstantName()).append("]").append(InfluxDBTableConstants.WHITESPACE);
     }
 
     @Override
@@ -359,7 +356,6 @@ public class InfluxDBConditionVisitor extends BaseExpressionVisitor {
         for (String placeholder : this.placeholdersConstant.keySet()) {
             query = query.replace("[" + placeholder + "]", "'*'");
         }
-
         this.finalCompiledCondition = query;
     }
 

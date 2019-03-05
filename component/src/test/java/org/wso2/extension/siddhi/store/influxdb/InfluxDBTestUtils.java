@@ -64,7 +64,6 @@ public class InfluxDBTestUtils {
                 .getValues()
                 .get(0)
                 .get(1);
-
         int count = (int) ((double) size);
         return count;
     }

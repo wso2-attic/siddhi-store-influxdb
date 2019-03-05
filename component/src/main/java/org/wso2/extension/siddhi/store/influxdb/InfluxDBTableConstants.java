@@ -56,5 +56,4 @@ public class InfluxDBTableConstants {
     private InfluxDBTableConstants() {
         //preventing initialization
     }
-
 }

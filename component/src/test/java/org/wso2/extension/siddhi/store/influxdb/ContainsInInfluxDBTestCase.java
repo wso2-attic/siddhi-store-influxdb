@@ -46,7 +46,8 @@ public class ContainsInInfluxDBTestCase {
     private static final Log log = LogFactory.getLog(ContainsInInfluxDBTestCase.class);
 
     private AtomicInteger eventCount = new AtomicInteger(0);
-    private int waitTime = 50;
+    private int inEventCount;
+    private int waitTime = 500;
     private int timeout = 30000;
     private boolean eventArrived;
 
@@ -66,6 +67,8 @@ public class ContainsInInfluxDBTestCase {
     public void init() {
 
         try {
+            inEventCount = 0;
+            eventArrived = false;
             InfluxDBTestUtils.initDatabaseTable(TABLE_NAME);
         } catch (InfluxDBException e) {
             log.info("Test case inored due to :" + e.getMessage());
@@ -99,7 +102,6 @@ public class ContainsInInfluxDBTestCase {
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query);
         InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
         InputHandler fooStream = siddhiAppRuntime.getInputHandler("FooStream");
-
         siddhiAppRuntime.addCallback("query2", new QueryCallback() {
             @Override
             public void receive(long l, Event[] events, Event[] events1) {
@@ -107,25 +109,32 @@ public class ContainsInInfluxDBTestCase {
                 EventPrinter.print(l, events, events1);
                 if (events != null) {
                     eventArrived = true;
+                    inEventCount++;
+                    for (Event event : events) {
+                        switch (inEventCount) {
+                            case 1:
+                                Assert.assertEquals(new Object[]{"WSO2", 100}, event.getData());
+                                break;
+                            case 2:
+                                Assert.assertEquals(new Object[]{"IBM", 10}, event.getData());
+                                break;
+                        }
+                    }
                 } else {
                     eventArrived = false;
                 }
             }
         });
-
         siddhiAppRuntime.start();
-
         stockStream.send(new Object[]{"WSO2", 55.6f, 100L, 1548181800007L});
         stockStream.send(new Object[]{"IBM", 65.6f, 10L, 1548181800500L});
         stockStream.send(new Object[]{"CSC", 65.6f, 10L, 1548181800800L});
-
         fooStream.send(new Object[]{"WSO2", 100});
         fooStream.send(new Object[]{"IBM", 10});
         fooStream.send(new Object[]{"WSO22", 100});
-
         SiddhiTestHelper.waitForEvents(waitTime, 2, eventCount, timeout);
 
-        Thread.sleep(1000);
+        Assert.assertEquals(inEventCount, 2, "Number of success events");
         Assert.assertEquals(eventArrived, true, "success");
         siddhiAppRuntime.shutdown();
     }
@@ -165,25 +174,32 @@ public class ContainsInInfluxDBTestCase {
                 EventPrinter.print(l, events, events1);
                 if (events != null) {
                     eventArrived = true;
+                    inEventCount++;
+                    for (Event event : events) {
+                        switch (inEventCount) {
+                            case 1:
+                                Assert.assertEquals(new Object[]{"WSO2", 100}, event.getData());
+                                break;
+                            case 2:
+                                Assert.assertEquals(new Object[]{"IBM", 101}, event.getData());
+                                break;
+                        }
+                    }
                 } else {
                     eventArrived = false;
                 }
             }
         });
-
         siddhiAppRuntime.start();
-
         stockStream.send(new Object[]{"WSO2", 55.6f, 100L, 1548181800007L});
         stockStream.send(new Object[]{"IBM", 65.6f, 10L, 1548181800500L});
         stockStream.send(new Object[]{"CSC", 65.6f, 10L, 1548181800800L});
-
         fooStream.send(new Object[]{"WSO2", 100});
         fooStream.send(new Object[]{"IBM", 101});
         fooStream.send(new Object[]{"WSO22", 100});
-
         SiddhiTestHelper.waitForEvents(waitTime, 2, eventCount, timeout);
 
-        Thread.sleep(500);
+        Assert.assertEquals(inEventCount, 1, "Number of success events");
         Assert.assertEquals(eventArrived, true, "success");
         siddhiAppRuntime.shutdown();
     }
@@ -225,25 +241,32 @@ public class ContainsInInfluxDBTestCase {
                 EventPrinter.print(l, events, events1);
                 if (events != null) {
                     eventArrived = true;
+                    inEventCount++;
+                    for (Event event : events) {
+                        switch (inEventCount) {
+                            case 1:
+                                Assert.assertEquals(new Object[]{"WSO2", 100}, event.getData());
+                                break;
+                            case 2:
+                                Assert.assertEquals(new Object[]{"IBM", 10}, event.getData());
+                                break;
+                        }
+                    }
                 } else {
                     eventArrived = false;
                 }
             }
         });
-
         siddhiAppRuntime.start();
-
         stockStream.send(new Object[]{"WSO2", 55.6f, 100L, 1548181800007L});
         stockStream.send(new Object[]{"IBM", 65.6f, 10L, 1548181800500L});
         stockStream.send(new Object[]{"CSC", 65.6f, 10L, 1548181800800L});
-
         fooStream.send(new Object[]{"WSO2", 100});
         fooStream.send(new Object[]{"IBM", 10});
         fooStream.send(new Object[]{"WSO22", 100});
-
         SiddhiTestHelper.waitForEvents(waitTime, 2, eventCount, timeout);
 
-        Thread.sleep(500);
+        Assert.assertEquals(inEventCount, 2, "Number of success events");
         Assert.assertEquals(eventArrived, true, "success");
         siddhiAppRuntime.shutdown();
     }

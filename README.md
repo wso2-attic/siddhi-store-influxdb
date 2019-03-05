@@ -1,7 +1,19 @@
 ﻿siddhi-store-influxdb
 ======================================
 
+The **siddhi-store-influxdb extension** is an extension to <a></a> that can be used to persist events to a InfluxDB instance of the users choice.
+Find some useful links below.
 
+* <a target= "_blank" href="https://github.com/wso2-extensions/siddhi-store-influxdb">Source code</a>
+* <a target= "_blank" href="https://github.com/wso2-extensions/siddhi-store-influxdb/releases">Releases</a>
+* <a target= "_blank" href="https://github.com/wso2-extensions/siddhi-store-influxdb/issues">Issue tracker</a>
+
+## Prerequisites
+
+* A InfluxDB server instance should be started.
+* User should have the necessary privileges and access rights to connect to the InfluxDB data store of choice.
+
+## How to use
 
 **Using the extension in <a target="_blank" href="https://github.com/wso2/product-sp">WSO2 Stream Processor</a>**
 
@@ -21,6 +33,8 @@
      </dependency>
 ```
 
+## Contact us
+
  * Post your questions with the <a target="_blank" href="http://stackoverflow.com/search?q=siddhi">"Siddhi"</a> tag in <a target="_blank" href="http://stackoverflow.com/search?q=siddhi">Stackoverflow</a>.
 
  * Siddhi developers can be contacted via the mailing lists:
@@ -29,6 +43,7 @@
 
     Architecture List : [architecture@wso2.org](mailto:architecture@wso2.org)
 
+## Support
 
 * We are committed to ensuring support for this extension in production. Our unique approach ensures that all support leverages our open development methodology and is provided by the very same engineers who build the technology.
 

@@ -71,7 +71,6 @@ public class InsertIntoInfluxDBTestCase {
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
                 "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", database = \"" + DATABASE
                 + "\")\n" +
-
                 "@Index(\"symbol\",\"time\")" +
                 "define table StockTable (symbol string, price float, volume long,time long); ";
 
@@ -97,7 +96,6 @@ public class InsertIntoInfluxDBTestCase {
     public void insertIntoTableWithTwoTagKeysTest() throws InterruptedException, InfluxDBException {
 
         log.info("insertIntoTableWithTwoTagKeysTest");
-
         SiddhiManager siddhiManager = new SiddhiManager();
         String streams = "" +
                 "define stream StockStream (symbol string, price float, volume long,time long); " +
@@ -116,7 +114,6 @@ public class InsertIntoInfluxDBTestCase {
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query2);
         InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
         siddhiAppRuntime.start();
-
         stockStream.send(new Object[]{"WSO2", 425.6f, 100L, 1548181800013L});
         siddhiAppRuntime.shutdown();
 
@@ -146,7 +143,6 @@ public class InsertIntoInfluxDBTestCase {
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query2);
         InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
         siddhiAppRuntime.start();
-
         stockStream.send(new Object[]{"WSO2", 425.6f, 100L});
         stockStream.send(new Object[]{"WSO2", 425.6f, 100L});
         siddhiAppRuntime.shutdown();
@@ -176,7 +172,6 @@ public class InsertIntoInfluxDBTestCase {
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query1);
         InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
         siddhiAppRuntime.start();
-
         stockStream.send(new Object[]{"WSO2", 325.6f, 100L, 1548181800003L});
         stockStream.send(new Object[]{"IBM", 75.6f, 100L, 1548181800000L});
 

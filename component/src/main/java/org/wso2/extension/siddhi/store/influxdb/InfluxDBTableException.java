@@ -23,7 +23,6 @@ import org.wso2.siddhi.core.exception.SiddhiAppRuntimeException;
  * Represents an unchecked exception which may be thrown during runtime, from which we may not expect the Siddhi runtime
  * to reasonable recover.
  */
-
 public class InfluxDBTableException extends SiddhiAppRuntimeException {
 
     public InfluxDBTableException(String message) {

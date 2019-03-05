@@ -92,7 +92,6 @@ public class DeleteFromInfluxDBTestCase {
         stockStream.send(new Object[]{"IBM", 75.6F, 100L, 1548181800000L});
         stockStream.send(new Object[]{"WSO2", 57.6F, 100L, 1548181800006L});
         stockStream.send(new Object[]{"CSC", 157.6F, 100L, 1548181800006L});
-
         deleteStockStream.send(new Object[]{"WSO2"});
         deleteStockStream.send(new Object[]{"IBM"});
         Thread.sleep(1000);
@@ -135,7 +134,6 @@ public class DeleteFromInfluxDBTestCase {
         stockStream.send(new Object[]{"IBM", 75.6F, 100L, 1548181800000L});
         stockStream.send(new Object[]{"WSO2", 57.6F, 100L, 1548181800006L});
         stockStream.send(new Object[]{"CSC", 158.6F, 100L, 1548181800006L});
-
         deleteStockStream.send(new Object[]{"WSO2"});
         deleteStockStream.send(new Object[]{"IBM"});
         Thread.sleep(1000);
@@ -178,7 +176,6 @@ public class DeleteFromInfluxDBTestCase {
         stockStream.send(new Object[]{"IBM", "IBM2", 75.6F, 100L, 1548181800000L});
         stockStream.send(new Object[]{"WSO2", "WSO22", 57.6F, 100L, 1548181800006L});
         stockStream.send(new Object[]{"CSC", "CSC2", 157.6F, 100L, 1548181800006L});
-
         deleteStockStream.send(new Object[]{"WSO2", "WSO22"});
         deleteStockStream.send(new Object[]{"IBM", "IBM2"});
         Thread.sleep(1000);
@@ -222,7 +219,6 @@ public class DeleteFromInfluxDBTestCase {
         stockStream.send(new Object[]{"IBM", "IBM2", 75.6F, 100L, 1548181800000L});
         stockStream.send(new Object[]{"WSO2", "WSO22", 57.6F, 100L, 1548181800006L});
         stockStream.send(new Object[]{"CSC", "CSC2", 157.6F, 100L, 1548181800006L});
-
         deleteStockStream.send(new Object[]{"WSO2", "WSO22"});
         deleteStockStream.send(new Object[]{"IBM", "IBM"});
         Thread.sleep(1000);

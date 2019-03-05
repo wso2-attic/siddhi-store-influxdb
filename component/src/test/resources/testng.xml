@@ -30,7 +30,6 @@
             <class name="org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase"/>
             <class name="org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase"/>
 
-
         </classes>
     </test>
 </suite>

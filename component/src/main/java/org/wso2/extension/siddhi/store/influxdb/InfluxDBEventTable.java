@@ -70,7 +70,6 @@ import static org.wso2.siddhi.core.util.SiddhiConstants.ANNOTATION_STORE;
 /**
  * Class representing the InfluxDB store implementation
  */
-
 @Extension(
         name = "influxdb",
         namespace = "store",
@@ -168,15 +167,16 @@ import static org.wso2.siddhi.core.util.SiddhiConstants.ANNOTATION_STORE;
         }
 )
 
-public class InfluxDBStore extends AbstractQueryableRecordTable {
+public class InfluxDBEventTable extends AbstractQueryableRecordTable {
 
-    private static final Log log = LogFactory.getLog(InfluxDBStore.class);
+    private static final Log log = LogFactory.getLog(InfluxDBEventTable.class);
 
     private String tableName;
     private String database;
     private String url;
     private String username;
     private String password;
+    private boolean connected;
     private int timePosition;
     private Annotation storeAnnotation;
     private Annotation indices;
@@ -190,11 +190,10 @@ public class InfluxDBStore extends AbstractQueryableRecordTable {
      * @param tableDefinition definintion of the table with annotations if any
      * @param configReader    this hold the {@link AbstractQueryableRecordTable} configuration reader.
      */
-
     @Override
     protected void init(TableDefinition tableDefinition, ConfigReader configReader) {
 
-        attributeNames =
+        this.attributeNames =
                 tableDefinition.getAttributeList().stream().map(Attribute::getName).
                         collect(Collectors.toList());
         storeAnnotation = AnnotationHelper.getAnnotation(ANNOTATION_STORE, tableDefinition.getAnnotations());
@@ -204,24 +203,29 @@ public class InfluxDBStore extends AbstractQueryableRecordTable {
         username = storeAnnotation.getElement(ANNOTATION_ELEMENT_USERNAME);
         password = storeAnnotation.getElement(ANNOTATION_ELEMENT_PASSWORD);
 
+        String tableName = storeAnnotation.getElement(ANNOTATION_ELEMENT_TABLE_NAME);
+        this.tableName = InfluxDBTableUtils.isEmpty(tableName) ? tableDefinition.getId() : tableName;
+
         if (InfluxDBTableUtils.isEmpty(url)) {
             throw new SiddhiAppCreationException("Required parameter '" + ANNOTATION_ELEMENT_URL + "' for DB " +
-                    "connectivity cannot be empty.");
+                    "connectivity cannot be empty" + "for creating table : " + this.tableName);
         }
         if (InfluxDBTableUtils.isEmpty(username)) {
             throw new SiddhiAppCreationException("Required parameter '" + ANNOTATION_ELEMENT_USERNAME + "' for DB " +
-                    "connectivity cannot be empty.");
+                    "connectivity cannot be empty" + "for creating table : " + this.tableName);
         }
-
         if (InfluxDBTableUtils.isEmpty(password)) {
             throw new SiddhiAppCreationException("Required parameter '" + ANNOTATION_ELEMENT_PASSWORD + "' for DB " +
-                    "connectivity cannot be empty.");
+                    "connectivity cannot be empty " + "for creating table : " + this.tableName);
         }
         if (InfluxDBTableUtils.isEmpty(database)) {
             throw new SiddhiAppCreationException("Required parameter '" + ANNOTATION_ELEMENT_DATABASE + "'for DB "
-                    + "connectivity cannot be empty.");
+                    + "connectivity cannot be empty " + "for creating table : " + this.tableName);
         }
-
+        if (!InfluxDBTableUtils.validateTimeAttribute(attributeNames)) {
+            throw new SiddhiAppCreationException("time attribute cannot be empty in table definition of table : "
+                    + tableName);
+        }
         tagPositions = new ArrayList<>();
 
         if (indices != null) {
@@ -235,9 +239,6 @@ public class InfluxDBStore extends AbstractQueryableRecordTable {
                 }
             });
         }
-
-        String tableName = storeAnnotation.getElement(ANNOTATION_ELEMENT_TABLE_NAME);
-        this.tableName = InfluxDBTableUtils.isEmpty(tableName) ? tableDefinition.getId() : tableName;
     }
 
     /**
@@ -264,7 +265,6 @@ public class InfluxDBStore extends AbstractQueryableRecordTable {
      * @param compiledCondition         the compiledCondition against which records should be matched
      * @return RecordIterator of matching records
      */
-
     @Override
     protected RecordIterator<Object[]> find(Map<String, Object> findConditionParameterMap,
                                             CompiledCondition compiledCondition) {
@@ -276,7 +276,6 @@ public class InfluxDBStore extends AbstractQueryableRecordTable {
         try {
             QueryResult queryResult = this.getSelectQueryResult(findConditionParameterMap, condition, constantMap);
             return new InfluxDBIterator(queryResult);
-
         } catch (InfluxDBException e) {
             throw new InfluxDBTableException("Error retrieving records from table : '" + this.tableName + "': "
                     + e.getMessage(), e);
@@ -301,13 +300,11 @@ public class InfluxDBStore extends AbstractQueryableRecordTable {
 
         try {
             QueryResult queryResult = this.getSelectQueryResult(containsConditionParameterMap, condition, constantMap);
-
             if (queryResult.getResults().get(0).getSeries() == null) {
                 return false;
             } else {
                 return true;
             }
-
         } catch (InfluxDBException e) {
             throw new InfluxDBTableException("Error performing 'contains'  on the table : '" + this.tableName + "': "
                     + e.getMessage(), e);
@@ -347,10 +344,8 @@ public class InfluxDBStore extends AbstractQueryableRecordTable {
                 condition = condition.replaceFirst(Pattern.quote("*"), myObject.toString());
             }
             findCondition = findCondition + condition;
-
             query = new Query(findCondition, database);
             influxdb.query(query);
-
         } catch (InfluxDBException e) {
             throw new InfluxDBTableException("Error deleting records from table '" + this.tableName + "': "
                     + e.getMessage(), e);
@@ -361,6 +356,8 @@ public class InfluxDBStore extends AbstractQueryableRecordTable {
     protected void update(CompiledCondition compiledCondition, List<Map<String, Object>> list,
                           Map<String, CompiledExpression> map, List<Map<String, Object>> list1)
             throws ConnectionUnavailableException {
+
+        log.error("update operation is not defined for influxDB store implementation");
 
     }
 
@@ -380,9 +377,7 @@ public class InfluxDBStore extends AbstractQueryableRecordTable {
                                List<Object[]> listToUpdate) {
 
         try {
-
             this.writePoints(listToUpdate);
-
         } catch (InfluxDBException e) {
             throw new InfluxDBTableException("Error in updating or inserting records to table '" + this.tableName
                     + "': " + e.getMessage(), e);
@@ -433,13 +428,17 @@ public class InfluxDBStore extends AbstractQueryableRecordTable {
             influxdb = InfluxDBFactory.connect(url, username, password);
             if (!this.checkDatabaseExists(database)) {
 
-                throw new ConnectionUnavailableException("database " + database + " does not exist");
+                connected = false;
+                throw new InfluxDBTableException("database " + database + " does not exist");
             }
             influxdb.setDatabase(database);
+            connected = true;
         } catch (InfluxDBIOException e) {
+            connected = false;
             throw new ConnectionUnavailableException("failed to initialize influxDB store " + e.getMessage(), e);
         } catch (InfluxDBException.AuthorizationFailedException e) {
-            throw new ConnectionUnavailableException("wrong url or username " + e.getMessage(), e);
+            connected = false;
+            throw new InfluxDBTableException("wrong url or username " + e.getMessage(), e);
         }
 
     }
@@ -447,22 +446,24 @@ public class InfluxDBStore extends AbstractQueryableRecordTable {
     @Override
     protected void disconnect() {
 
+        if (connected) {
+            this.influxdb.close();
+        }
     }
 
     @Override
     protected void destroy() {
 
+        this.disconnect();
     }
 
     public QueryResult getSelectQueryResult(Map<String, Object> selectConditionParameterMap,
                                             String condition, Map<Integer, Object> constantMap) {
 
         String findCondition;
-
         influxdb.setDatabase(database);
         Query query;
         QueryResult queryResult;
-
         StringBuilder line = new StringBuilder();
         line.append(SELECT_QUERY).append(this.tableName);
 
@@ -471,7 +472,6 @@ public class InfluxDBStore extends AbstractQueryableRecordTable {
 
         } else {
             line.append(INFLUXQL_WHERE);
-
             for (Map.Entry<String, Object> entry : selectConditionParameterMap.entrySet()) {
                 Object myObject = entry.getValue();
                 if (myObject instanceof String) {
@@ -482,18 +482,15 @@ public class InfluxDBStore extends AbstractQueryableRecordTable {
             }
             for (Map.Entry<Integer, Object> entry : constantMap.entrySet()) {
                 Object myObject = entry.getValue();
-
                 if (myObject instanceof String) {
                     condition = condition.replaceFirst(Pattern.quote("*"), myObject.toString());
                 } else {
                     condition = condition.replaceFirst(Pattern.quote("'*'"), myObject.toString());
                 }
             }
-
             findCondition = line.toString();
             findCondition = findCondition + condition;
         }
-
         influxdb.setDatabase(database);
         query = new Query(findCondition, database);
         influxdb.query(query);
@@ -510,7 +507,6 @@ public class InfluxDBStore extends AbstractQueryableRecordTable {
                     this.attributeNames, this.tagPositions);
             long times = InfluxDBTableUtils.mapTimeToAttributeValue(record, this.tableName,
                     this.timePosition);
-
             influxdb.setDatabase(database);
             BatchPoints batchPoints = BatchPoints.database(database).build();
             Point point = Point.measurement(tableName)
@@ -533,7 +529,6 @@ public class InfluxDBStore extends AbstractQueryableRecordTable {
                 .getSeries()
                 .get(0)
                 .getValues();
-
         for (int i = 0; i < databaseList.size(); i++) {
             if (databaseList.get(i).get(0).equals(dbName)) {
                 isExists = true;
@@ -541,7 +536,6 @@ public class InfluxDBStore extends AbstractQueryableRecordTable {
                 isExists = false;
             }
         }
-
         return isExists;
     }
 

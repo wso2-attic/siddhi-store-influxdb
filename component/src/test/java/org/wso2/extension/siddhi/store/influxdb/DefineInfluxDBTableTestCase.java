@@ -84,7 +84,7 @@ public class DefineInfluxDBTableTestCase {
         InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
         siddhiAppRuntime.start();
 
-        stockStream.send(new Object[]{"WSO2", 325.6f, 100L, 1548181800003L});
+        stockStream.send(new Object[]{"WSO2", 325.6f, 100L, 154818180004L});
         stockStream.send(new Object[]{"IBM", 75.6f, 100L, 1548181800000L});
 
         int pointsInTable = InfluxDBTestUtils.getPointsCount(TABLE_NAME);

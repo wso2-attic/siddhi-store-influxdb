@@ -24,7 +24,6 @@ import java.util.Map;
 /**
  * Class which holds the utility methods which are used by various units in the Influxdb Event Table implementation.
  */
-
 public class InfluxDBTableUtils {
 
     private InfluxDBTableUtils() {
@@ -104,5 +103,17 @@ public class InfluxDBTableUtils {
             throw new InfluxDBTableException("Specify 'time' attribute in type Long in the table definition "
                     + e.getMessage() + " in " + tableName, e);
         }
+    }
+
+    public static boolean validateTimeAttribute(List<String> attributeNames) {
+
+        boolean timeExist = false;
+
+        for (int i = 0; i < attributeNames.size(); i++) {
+            if (attributeNames.get(i).equals("time")) {
+                timeExist = true;
+            }
+        }
+        return timeExist;
     }
 }
