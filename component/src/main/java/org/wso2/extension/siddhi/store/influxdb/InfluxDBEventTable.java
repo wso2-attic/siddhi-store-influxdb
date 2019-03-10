@@ -45,11 +45,15 @@ import org.wso2.siddhi.query.api.annotation.Annotation;
 
 import org.wso2.siddhi.query.api.definition.Attribute;
 import org.wso2.siddhi.query.api.definition.TableDefinition;
+import org.wso2.siddhi.query.api.execution.query.selection.OrderByAttribute;
 import org.wso2.siddhi.query.api.util.AnnotationHelper;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.SortedMap;
+import java.util.TreeMap;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -62,8 +66,11 @@ import static org.wso2.extension.siddhi.store.influxdb.InfluxDBTableConstants.AN
 import static org.wso2.extension.siddhi.store.influxdb.InfluxDBTableConstants.ANNOTATION_ELEMENT_USERNAME;
 
 import static org.wso2.extension.siddhi.store.influxdb.InfluxDBTableConstants.DELETE_QUERY;
+import static org.wso2.extension.siddhi.store.influxdb.InfluxDBTableConstants.INFLUXQL_AS;
 import static org.wso2.extension.siddhi.store.influxdb.InfluxDBTableConstants.INFLUXQL_WHERE;
 import static org.wso2.extension.siddhi.store.influxdb.InfluxDBTableConstants.SELECT_QUERY;
+import static org.wso2.extension.siddhi.store.influxdb.InfluxDBTableConstants.SEPARATOR;
+import static org.wso2.extension.siddhi.store.influxdb.InfluxDBTableConstants.WHITESPACE;
 import static org.wso2.siddhi.core.util.SiddhiConstants.ANNOTATION_INDEX;
 import static org.wso2.siddhi.core.util.SiddhiConstants.ANNOTATION_STORE;
 
@@ -544,7 +551,77 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
                                              CompiledSelection compiledSelection, Attribute[] outputAttributes)
             throws ConnectionUnavailableException {
 
-        return null;
+        InfluxDBCompiledSelection influxDBCompiledSelection = (InfluxDBCompiledSelection) compiledSelection;
+        InfluxDBCompiledCondition influxDBCompiledCondition = (InfluxDBCompiledCondition) compiledCondition;
+
+        Map<Integer, Object> consMap = influxDBCompiledCondition.getParametersConstants();
+        Query query1;
+        QueryResult queryResult;
+        String query = getSelectQuery(influxDBCompiledCondition, influxDBCompiledSelection, parameterMap, consMap);
+        try {
+            query1 = new Query(query, database);
+        } catch (InfluxDBException e) {
+            throw new InfluxDBTableException("Error when preparing to execute query: '" + query
+                    + "' in '" + this.tableName + "' store: " + e.getMessage(), e);
+        }
+        try {
+            queryResult = influxdb.query(query1);
+            return new InfluxDBIterator(queryResult);
+        } catch (InfluxDBException e) {
+            throw new InfluxDBTableException("Error when executing query: '" + query
+                    + "' in '" + this.tableName + "' store: " + e.getMessage(), e);
+        }
+    }
+
+    private String getSelectQuery(InfluxDBCompiledCondition influxDBCompiledCondition, InfluxDBCompiledSelection
+            influxDBCompiledSelection, Map<String, Object> parameterMap, Map<Integer, Object> constantMap) {
+
+        String selectors = influxDBCompiledSelection.getCompiledSelectClause().getCompiledQuery();
+        String condition = influxDBCompiledCondition.getCompiledQuery();
+        StringBuilder selectQuery = new StringBuilder("select ");
+        selectQuery.append(selectors)
+                .append(" from ").append(this.tableName);
+
+        if (condition.equals("'*'")) {
+
+        } else {
+            selectQuery.append(INFLUXQL_WHERE);
+            for (Map.Entry<String, Object> entry : parameterMap.entrySet()) {
+                Object myObject = entry.getValue();
+                if (myObject instanceof String) {
+                    condition = condition.replaceFirst(Pattern.quote("?"), myObject.toString());
+                } else {
+                    condition = condition.replaceFirst(Pattern.quote("'?'"), myObject.toString());
+                }
+            }
+            for (Map.Entry<Integer, Object> entry : constantMap.entrySet()) {
+                Object myObject = entry.getValue();
+                if (myObject instanceof String) {
+                    condition = condition.replaceFirst(Pattern.quote("*"), myObject.toString());
+                } else {
+                    condition = condition.replaceFirst(Pattern.quote("'*'"), myObject.toString());
+                }
+            }
+            selectQuery.append(condition);
+        }
+        InfluxDBCompiledCondition compiledGroupByClause = influxDBCompiledSelection.getCompiledGroupByClause();
+        if (compiledGroupByClause != null) {
+            String groupByClause = "group by " + compiledGroupByClause.getCompiledQuery();
+            selectQuery.append(WHITESPACE).append(groupByClause);
+        }
+        if (influxDBCompiledSelection.getLimit() != null) {
+            selectQuery.append(" limit ").append(influxDBCompiledSelection.getLimit());
+        }
+        if (influxDBCompiledSelection.getOffset() != null) {
+            selectQuery.append(" offset ").append(influxDBCompiledSelection.getOffset());
+        }
+        InfluxDBCompiledCondition compiledHavingClause = influxDBCompiledSelection.getCompiledHavingClause();
+
+        if (compiledHavingClause != null) {
+            log.error("Having clause is defined in the query for " + this.tableName +
+                    " But it is not defined for influxDB store implementation  ");
+        }
+        return selectQuery.toString();
     }
 
     @Override
@@ -554,6 +631,127 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
                                                  List<OrderByAttributeBuilder> orderByAttributeBuilders, Long limit,
                                                  Long offset) {
 
-        return null;
+        return new InfluxDBCompiledSelection(
+                compileSelectClause(selectAttributeBuilders),
+                (groupByExpressionBuilder == null) ? null : compileClause(groupByExpressionBuilder),
+                (havingExpressionBuilder == null) ? null :
+                        compileClause(Collections.singletonList(havingExpressionBuilder)),
+                (orderByAttributeBuilders == null) ? null : compileOrderByClause(orderByAttributeBuilders),
+                limit, offset);
     }
+
+    private InfluxDBCompiledCondition compileSelectClause(List<SelectAttributeBuilder> selectAttributeBuilders) {
+
+        StringBuilder compiledSelectionList = new StringBuilder();
+        SortedMap<Integer, Object> paramMap = new TreeMap<>();
+        SortedMap<Integer, Object> paramCons = new TreeMap<>();
+        int offset = 0;
+
+        for (SelectAttributeBuilder selectAttributeBuilder : selectAttributeBuilders) {
+            InfluxDBConditionVisitor visitor = new InfluxDBConditionVisitor();
+            selectAttributeBuilder.getExpressionBuilder().build(visitor);
+
+            String compiledCondition = visitor.returnCondition();
+            compiledSelectionList.append(compiledCondition);
+            if (selectAttributeBuilder.getRename() != null && !selectAttributeBuilder.getRename().isEmpty()) {
+                compiledSelectionList.append(INFLUXQL_AS).
+                        append(selectAttributeBuilder.getRename());
+            }
+            compiledSelectionList.append(SEPARATOR);
+            Map<Integer, Object> conditionParamMap = visitor.getParameters();
+            int maxOrdinal = 0;
+            for (Map.Entry<Integer, Object> entry : conditionParamMap.entrySet()) {
+                Integer ordinal = entry.getKey();
+                paramMap.put(ordinal + offset, entry.getValue());
+                if (ordinal > maxOrdinal) {
+                    maxOrdinal = ordinal;
+                }
+            }
+            offset = maxOrdinal;
+        }
+
+        if (compiledSelectionList.length() > 0) {
+            compiledSelectionList.setLength(compiledSelectionList.length() - 2);
+        }
+        return new InfluxDBCompiledCondition(compiledSelectionList.toString(), paramMap, paramCons);
+    }
+
+    private InfluxDBCompiledCondition compileClause(List<ExpressionBuilder> expressionBuilders) {
+
+        StringBuilder compiledSelectionList = new StringBuilder();
+        SortedMap<Integer, Object> paramMap = new TreeMap<>();
+        SortedMap<Integer, Object> paramCons = new TreeMap<>();
+        int offset = 0;
+
+        for (ExpressionBuilder expressionBuilder : expressionBuilders) {
+            InfluxDBConditionVisitor visitor = new InfluxDBConditionVisitor();
+            expressionBuilder.build(visitor);
+
+            String compiledCondition = visitor.returnCondition();
+            compiledSelectionList.append(compiledCondition).append(SEPARATOR);
+
+            Map<Integer, Object> conditionParamMap = visitor.getParameters();
+            Map<Integer, Object> conditionConsMap = visitor.getParametersConstant();
+
+            int maxOrdinal = 0;
+            for (Map.Entry<Integer, Object> entry : conditionParamMap.entrySet()) {
+                Integer ordinal = entry.getKey();
+                paramMap.put(ordinal + offset, entry.getValue());
+                if (ordinal > maxOrdinal) {
+                    maxOrdinal = ordinal;
+                }
+            }
+            for (Map.Entry<Integer, Object> entry : conditionConsMap.entrySet()) {
+                Integer ordinal = entry.getKey();
+                paramCons.put(ordinal + offset, entry.getValue());
+                if (ordinal > maxOrdinal) {
+                    maxOrdinal = ordinal;
+                }
+            }
+            offset = maxOrdinal;
+        }
+
+        if (compiledSelectionList.length() > 0) {
+            compiledSelectionList.setLength(compiledSelectionList.length() - 2); // Removing the last comma separator.
+        }
+
+        return new InfluxDBCompiledCondition(compiledSelectionList.toString(), paramMap, paramCons);
+    }
+
+    private InfluxDBCompiledCondition compileOrderByClause(List<OrderByAttributeBuilder> orderByAttributeBuilders) {
+
+        StringBuilder compiledSelectionList = new StringBuilder();
+        SortedMap<Integer, Object> paramMap = new TreeMap<>();
+        int offset = 0;
+
+        for (OrderByAttributeBuilder orderByAttributeBuilder : orderByAttributeBuilders) {
+            InfluxDBConditionVisitor visitor = new InfluxDBConditionVisitor();
+            orderByAttributeBuilder.getExpressionBuilder().build(visitor);
+
+            String compiledCondition = visitor.returnCondition();
+            compiledSelectionList.append(compiledCondition);
+            OrderByAttribute.Order order = orderByAttributeBuilder.getOrder();
+            if (order == null) {
+                compiledSelectionList.append(SEPARATOR);
+            } else {
+                compiledSelectionList.append(WHITESPACE).append(order.toString()).append(SEPARATOR);
+            }
+
+            Map<Integer, Object> conditionParamMap = visitor.getParameters();
+            int maxOrdinal = 0;
+            for (Map.Entry<Integer, Object> entry : conditionParamMap.entrySet()) {
+                Integer ordinal = entry.getKey();
+                paramMap.put(ordinal + offset, entry.getValue());
+                if (ordinal > maxOrdinal) {
+                    maxOrdinal = ordinal;
+                }
+            }
+            offset = maxOrdinal;
+        }
+        if (compiledSelectionList.length() > 0) {
+            compiledSelectionList.setLength(compiledSelectionList.length() - 2);
+        }
+        return new InfluxDBCompiledCondition(compiledSelectionList.toString(), paramMap, null);
+    }
+
 }

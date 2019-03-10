@@ -225,8 +225,9 @@ public class InfluxDBConditionVisitor extends BaseExpressionVisitor {
     @Override
     public void beginVisitConstant(Object value, Attribute.Type type) {
 
-        this.placeholdersConstant.put(this.generateConstantName(), value);
-        condition.append("[").append(this.generateConstantName()).append("]").append(InfluxDBTableConstants.WHITESPACE);
+        String name = this.generateConstantName();
+        this.placeholdersConstant.put(name, value);
+        condition.append("[").append(name).append("]").append(InfluxDBTableConstants.WHITESPACE);
     }
 
     @Override

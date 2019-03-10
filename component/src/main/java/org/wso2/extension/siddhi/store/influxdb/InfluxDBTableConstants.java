@@ -48,7 +48,8 @@ public class InfluxDBTableConstants {
     public static final String DELETE_QUERY = "DELETE FROM ";
     public static final String SELECT_QUERY = "SELECT * FROM ";
     public static final String INFLUXQL_WHERE = " WHERE ";
-
+    public static final String INFLUXQL_AS = " AS ";
+    public static final String SEPARATOR = ", ";
     public static final String WHITESPACE = " ";
     public static final String OPEN_PARENTHESIS = "(";
     public static final String CLOSE_PARENTHESIS = ")";

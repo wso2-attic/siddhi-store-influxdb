@@ -32,21 +32,25 @@ public class InfluxDBIterator implements RecordIterator<Object[]> {
 
     private QueryResult queryResult;
     private int index = 0;
+    private int indexSeries = 0;
     private List<List<Object>> result;
+    private List<QueryResult.Series> resultSeries;
 
     public InfluxDBIterator(QueryResult queryResult) {
 
         this.queryResult = queryResult;
         if (queryResult.getResults().get(0).getSeries() != null) {
-            this.result = queryResult.getResults().get(0).getSeries().get(0).getValues();
+            this.resultSeries = queryResult.getResults().get(0).getSeries();
+            this.result = queryResult.getResults().get(0).getSeries().get(indexSeries).getValues();
         } else {
-            result = null;
+            this.resultSeries = null;
         }
     }
 
     @Override
     public boolean hasNext() {
 
+        this.result = queryResult.getResults().get(0).getSeries().get(indexSeries).getValues();
         if (result == null) {
             return false;
         } else if (result.size() > index) {
@@ -76,10 +80,16 @@ public class InfluxDBIterator implements RecordIterator<Object[]> {
                 .getResults()
                 .get(0)
                 .getSeries()
-                .get(0)
+                .get(indexSeries)
                 .getValues()
                 .get(index);
         index = index + 1;
+        while (indexSeries < resultSeries.size() - 1) {
+            if (index <= result.size()) {
+                index = 0;
+                indexSeries++;
+            }
+        }
         return record.toArray();
     }
 

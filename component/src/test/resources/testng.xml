@@ -29,7 +29,7 @@
             <class name="org.wso2.extension.siddhi.store.influxdb.ContainsInInfluxDBTestCase"/>
             <class name="org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase"/>
             <class name="org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase"/>
-
+            <class name="org.wso2.extension.siddhi.store.influxdb.InfluxDBStoreQuery"/>
         </classes>
     </test>
 </suite>
