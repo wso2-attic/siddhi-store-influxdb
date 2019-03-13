@@ -74,7 +74,6 @@ public class DefineInfluxDBTableTestCase {
                 + "\")\n" +
                 "@Index(\"symbol\", \"time\")" +
                 "define table StockTable (symbol string, price float, volume long,time long); ";
-
         String query1 = "" +
                 "@info(name = 'query1') " +
                 "from StockStream\n" +
@@ -83,10 +82,8 @@ public class DefineInfluxDBTableTestCase {
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query1);
         InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
         siddhiAppRuntime.start();
-
         stockStream.send(new Object[]{"WSO2", 325.6f, 100L, 154818180004L});
         stockStream.send(new Object[]{"IBM", 75.6f, 100L, 1548181800000L});
-
         int pointsInTable = InfluxDBTestUtils.getPointsCount(TABLE_NAME);
         Assert.assertEquals(pointsInTable, 2, "Definition/Insertion failed");
         siddhiAppRuntime.shutdown();
@@ -104,7 +101,6 @@ public class DefineInfluxDBTableTestCase {
                 + "\")\n" +
                 "@Index(\"symbol\", \"time\")" +
                 "define table StockTable (symbol string, price float, volume long,time long); ";
-
         String query = "" +
                 "@info(name = 'query1') " +
                 "from StockStream\n" +
@@ -113,7 +109,6 @@ public class DefineInfluxDBTableTestCase {
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query);
         siddhiAppRuntime.start();
         siddhiAppRuntime.shutdown();
-
     }
 
     @Test(expectedExceptions = SiddhiAppCreationException.class, description = "testing without defining username")
@@ -128,7 +123,6 @@ public class DefineInfluxDBTableTestCase {
                 + "\")\n" +
                 "@Index(\"symbol\", \"time\")" +
                 "define table StockTable (symbol string, price float, volume long,time long); ";
-
         String query = "" +
                 "@info(name = 'query1') " +
                 "from StockStream\n" +
@@ -151,7 +145,6 @@ public class DefineInfluxDBTableTestCase {
                 + "\")\n" +
                 "@Index(\"symbol\", \"time\")" +
                 "define table StockTable (symbol string, price float, volume long,time long); ";
-
         String query = "" +
                 "@info(name = 'query1') " +
                 "from StockStream\n" +
@@ -174,7 +167,6 @@ public class DefineInfluxDBTableTestCase {
                 + "\")\n" +
                 "@Index(\"symbol\")" +
                 "define table StockTable (symbol string, price float, volume long,time long); ";
-
         String query = "" +
                 "@info(name = 'query1') " +
                 "from StockStream\n" +
@@ -183,7 +175,6 @@ public class DefineInfluxDBTableTestCase {
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query);
         siddhiAppRuntime.start();
         siddhiAppRuntime.shutdown();
-
     }
 
     @Test(description = "testing with incorrect value for url")
@@ -198,7 +189,6 @@ public class DefineInfluxDBTableTestCase {
                 + "\")\n" +
                 "@Index(\"symbol\")" +
                 "define table StockTable (symbol string, price float, volume long,time long); ";
-
         String query = "" +
                 "@info(name = 'query1') " +
                 "from StockStream\n" +
@@ -207,7 +197,6 @@ public class DefineInfluxDBTableTestCase {
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query);
         siddhiAppRuntime.start();
         siddhiAppRuntime.shutdown();
-
     }
 
     @Test(description = "Testing with incorrect username")
@@ -222,7 +211,6 @@ public class DefineInfluxDBTableTestCase {
                 + "\")\n" +
                 "@Index(\"symbol\", \"time\")" +
                 "define table StockTable (symbol string, price float, volume long,time long); ";
-
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams);
         siddhiAppRuntime.start();
         Thread.sleep(500);
@@ -241,7 +229,6 @@ public class DefineInfluxDBTableTestCase {
                 + "\")\n" +
                 "@Index(\"symbol\", \"time\")" +
                 "define table StockTable (symbol string, price float, volume long,time long); ";
-
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams);
         siddhiAppRuntime.start();
         siddhiAppRuntime.shutdown();
@@ -259,7 +246,6 @@ public class DefineInfluxDBTableTestCase {
                 + "\")\n" +
                 "@Index(\"symbol\", \"time\")" +
                 "define table StockTable (symbol string, price float, volume long,time long); ";
-
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams);
         siddhiAppRuntime.start();
         siddhiAppRuntime.shutdown();

@@ -83,7 +83,6 @@ public class ReadEventInfluxDBTestCase {
                 + "\")\n" +
                 "@Index(\"symbol\")" +
                 "define table StockTable (symbol string, price float, volume long,time long);\n";
-
         String query = "" +
                 "@info(name = 'query1')\n" +
                 "from StockStream\n" +
@@ -94,11 +93,9 @@ public class ReadEventInfluxDBTestCase {
                 "select StockTable.symbol as checkName, StockTable.price as checkCategory, " +
                 "StockTable.volume as checkVolume,StockTable.time as checkTime\n" +
                 "insert into OutputStream;";
-
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query);
         InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
         InputHandler fooStream = siddhiAppRuntime.getInputHandler("FooStream");
-
         siddhiAppRuntime.addCallback("query2", new QueryCallback() {
             @Override
             public void receive(long timeStamp, Event[] inEvents, Event[] removeEvents) {
@@ -113,7 +110,6 @@ public class ReadEventInfluxDBTestCase {
             }
         });
         siddhiAppRuntime.start();
-
         stockStream.send(new Object[]{"WSO2", 58.6f, 100L, 1548181800001L});
         stockStream.send(new Object[]{"IBM", 57.6f, 100L, 1548181800009L});
         stockStream.send(new Object[]{"WSO2", 97.6f, 100L, 1548181800007L});
@@ -121,7 +117,6 @@ public class ReadEventInfluxDBTestCase {
         fooStream.send(new Object[]{"IBM"});
         fooStream.send(new Object[]{"CSC"});
         Thread.sleep(500);
-
         Assert.assertEquals(eventArrived, true, "Event arrived");
         Assert.assertEquals(removeEventCount, 0, "Number of remove events");
         siddhiAppRuntime.shutdown();
@@ -134,7 +129,6 @@ public class ReadEventInfluxDBTestCase {
         SiddhiManager siddhiManager = new SiddhiManager();
         String streams = "" +
                 "define stream FooStream (symbol string);";
-
         String query = "" +
                 "@info(name = 'query2')\n " +
                 "from FooStream#window.length(2) join StockTable on StockTable.symbol==FooStream.name \n" +
@@ -162,7 +156,6 @@ public class ReadEventInfluxDBTestCase {
                 + "\")\n" +
                 "@Index(\"symbol\")" +
                 "define table StockTable (symbol string, price float, volume long,time long);\n";
-
         String query = "" +
                 "@info(name = 'query1')\n" +
                 "from StockStream\n" +
@@ -173,11 +166,9 @@ public class ReadEventInfluxDBTestCase {
                 "select StockTable.symbol as checkName, StockTable.price as checkCategory, " +
                 "StockTable.volume as checkVolume,StockTable.time as checkTime\n" +
                 "insert into OutputStream;";
-
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query);
         InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
         InputHandler fooStream = siddhiAppRuntime.getInputHandler("FooStream");
-
         siddhiAppRuntime.addCallback("query2", new QueryCallback() {
             @Override
             public void receive(long timeStamp, Event[] inEvents, Event[] removeEvents) {
@@ -191,18 +182,15 @@ public class ReadEventInfluxDBTestCase {
                 }
             }
         });
-
         siddhiAppRuntime.start();
         stockStream.send(new Object[]{"WSO2", 58.6f, 100L, 1548181800001L});
         stockStream.send(new Object[]{"WSO2", 57.6f, 100L, 1548181800009L});
         stockStream.send(new Object[]{"IBM", 97.6f, 100L, 1548181800007L});
         fooStream.send(new Object[]{"WSO2"});
-
         Thread.sleep(1000);
         Assert.assertEquals(eventArrived, true, "Event arrived");
         Assert.assertEquals(removeEventCount, 0, "Number of remove events");
         siddhiAppRuntime.shutdown();
-
     }
 
     @Test(description = "Read  multiple events from a InfluxDB table successfully with window.length.")
@@ -220,7 +208,6 @@ public class ReadEventInfluxDBTestCase {
                 + "\")\n" +
                 "@Index(\"symbol\")" +
                 "define table StockTable (symbol string, price float, volume long,time long);\n";
-
         String query = "" +
                 "@info(name = 'query1')\n" +
                 "from StockStream\n" +
@@ -231,11 +218,9 @@ public class ReadEventInfluxDBTestCase {
                 "select StockTable.symbol as checkName, StockTable.price as checkCategory, " +
                 "StockTable.volume as checkVolume,StockTable.time as checkTime\n" +
                 "insert into OutputStream;";
-
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query);
         InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
         InputHandler fooStream = siddhiAppRuntime.getInputHandler("FooStream");
-
         siddhiAppRuntime.addCallback("query2", new QueryCallback() {
             @Override
             public void receive(long timeStamp, Event[] inEvents, Event[] removeEvents) {
@@ -249,9 +234,7 @@ public class ReadEventInfluxDBTestCase {
                 }
             }
         });
-
         siddhiAppRuntime.start();
-
         stockStream.send(new Object[]{"WSO2", 58.6f, 110L, 1548181800001L});
         stockStream.send(new Object[]{"IBM", 57.6f, 100L, 1548181800009L});
         stockStream.send(new Object[]{"CSC", 97.6f, 50L, 1548181800707L});
@@ -260,7 +243,6 @@ public class ReadEventInfluxDBTestCase {
         fooStream.send(new Object[]{"IBM"});
         fooStream.send(new Object[]{"MIT"});
         Thread.sleep(1000);
-
         Assert.assertEquals(eventArrived, true, "Event arrived");
         Assert.assertEquals(removeEventCount, 0, "Number of remove events");
         siddhiAppRuntime.shutdown();
@@ -281,7 +263,6 @@ public class ReadEventInfluxDBTestCase {
                 + "\")\n" +
                 "@Index(\"symbol\")" +
                 "define table StockTable (symbol string, price float, volume long,time long);\n";
-
         String query = "" +
                 "@info(name = 'query1')\n" +
                 "from StockStream\n" +
@@ -292,11 +273,9 @@ public class ReadEventInfluxDBTestCase {
                 "select StockTable.symbol as checkName, StockTable.price as checkCategory, " +
                 "StockTable.volume as checkVolume,StockTable.time as checkTime\n" +
                 "insert into OutputStream;";
-
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query);
         InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
         InputHandler fooStream = siddhiAppRuntime.getInputHandler("FooStream");
-
         siddhiAppRuntime.addCallback("query2", new QueryCallback() {
             @Override
             public void receive(long timeStamp, Event[] inEvents, Event[] removeEvents) {
@@ -311,7 +290,6 @@ public class ReadEventInfluxDBTestCase {
             }
         });
         siddhiAppRuntime.start();
-
         stockStream.send(new Object[]{"WSO2", 58.6f, 110L, 1548181800001L});
         stockStream.send(new Object[]{"IBM", 57.6f, 100L, 1548181800009L});
         stockStream.send(new Object[]{"CSC", 97.6f, 50L, 1548181800707L});
@@ -320,7 +298,6 @@ public class ReadEventInfluxDBTestCase {
         fooStream.send(new Object[]{"IBM"});
         fooStream.send(new Object[]{"MIT"});
         Thread.sleep(1000);
-
         Assert.assertEquals(eventArrived, true, "Event arrived");
         Assert.assertEquals(removeEventCount, 0, "Number of remove events");
         siddhiAppRuntime.shutdown();
@@ -341,7 +318,6 @@ public class ReadEventInfluxDBTestCase {
                 + "\")\n" +
                 "@Index(\"symbol\")" +
                 "define table StockTable (symbol string, price float, volume long,time long);\n";
-
         String query = "" +
                 "@info(name = 'query1')\n" +
                 "from StockStream\n" +
@@ -353,11 +329,9 @@ public class ReadEventInfluxDBTestCase {
                 "StockTable.volume as checkVolume,StockTable.time as checkTime\n" +
                 "group by StockTable.symbol\n" +
                 "insert into OutputStream;";
-
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query);
         InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
         InputHandler fooStream = siddhiAppRuntime.getInputHandler("FooStream");
-
         siddhiAppRuntime.addCallback("query2", new QueryCallback() {
             @Override
             public void receive(long timeStamp, Event[] inEvents, Event[] removeEvents) {
@@ -372,14 +346,12 @@ public class ReadEventInfluxDBTestCase {
             }
         });
         siddhiAppRuntime.start();
-
         stockStream.send(new Object[]{"WSO2", 58.6f, 110L, 1548181800001L});
         stockStream.send(new Object[]{"IBM", 57.6f, 100L, 1548181800009L});
         stockStream.send(new Object[]{"CSC", 97.6f, 50L, 1548181800707L});
         stockStream.send(new Object[]{"MIT", 97.6f, 10L, 1548181800507L});
         fooStream.send(new Object[]{50});
         Thread.sleep(500);
-
         Assert.assertEquals(eventArrived, true, "Event arrived");
         Assert.assertEquals(removeEventCount, 0, "Number of remove events");
         siddhiAppRuntime.shutdown();
@@ -400,7 +372,6 @@ public class ReadEventInfluxDBTestCase {
                 + "\")\n" +
                 "@Index(\"symbol\")" +
                 "define table StockTable (symbol string, price float, volume long,time long);\n";
-
         String query = "" +
                 "@info(name = 'query1')\n" +
                 "from StockStream\n" +
@@ -412,11 +383,9 @@ public class ReadEventInfluxDBTestCase {
                 "select StockTable.symbol as checkName, StockTable.price as checkCategory, " +
                 "StockTable.volume as checkVolume,StockTable.time as checkTime\n" +
                 "insert into OutputStream;";
-
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query);
         InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
         InputHandler fooStream = siddhiAppRuntime.getInputHandler("FooStream");
-
         siddhiAppRuntime.addCallback("query2", new QueryCallback() {
             @Override
             public void receive(long timeStamp, Event[] inEvents, Event[] removeEvents) {
@@ -431,7 +400,6 @@ public class ReadEventInfluxDBTestCase {
             }
         });
         siddhiAppRuntime.start();
-
         stockStream.send(new Object[]{"WSO2", 58.6f, 110L, 1548181800001L});
         stockStream.send(new Object[]{"IBM", 57.6f, 100L, 1548181800009L});
         stockStream.send(new Object[]{"CSC", 97.6f, 50L, 1548181800707L});
@@ -439,7 +407,6 @@ public class ReadEventInfluxDBTestCase {
         fooStream.send(new Object[]{"WSO2", 110});
         fooStream.send(new Object[]{"IBM", 50});
         Thread.sleep(1000);
-
         Assert.assertEquals(eventArrived, true, "Event arrived");
         Assert.assertEquals(removeEventCount, 0, "Number of remove events");
         siddhiAppRuntime.shutdown();
@@ -460,7 +427,6 @@ public class ReadEventInfluxDBTestCase {
                 + "\")\n" +
                 "@Index(\"symbol\")" +
                 "define table StockTable (symbol string, price float, volume long,time long);\n";
-
         String query = "" +
                 "@info(name = 'query1')\n" +
                 "from StockStream\n" +
@@ -471,11 +437,9 @@ public class ReadEventInfluxDBTestCase {
                 "select StockTable.symbol as checkName, StockTable.price as checkCategory, " +
                 "StockTable.volume as checkVolume,StockTable.time as checkTime\n" +
                 "insert into OutputStream;";
-
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query);
         InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
         InputHandler fooStream = siddhiAppRuntime.getInputHandler("FooStream");
-
         siddhiAppRuntime.addCallback("query2", new QueryCallback() {
             @Override
             public void receive(long timeStamp, Event[] inEvents, Event[] removeEvents) {
@@ -490,13 +454,11 @@ public class ReadEventInfluxDBTestCase {
             }
         });
         siddhiAppRuntime.start();
-
         stockStream.send(new Object[]{"WSO2", 58.6f, 100L, 1548181800001L});
         stockStream.send(new Object[]{"IBM", 57.6f, 101L, 1548181800009L});
         stockStream.send(new Object[]{"WSO2", 97.6f, 102L, 1548181800007L});
         fooStream.send(new Object[]{"WSO2"});
         Thread.sleep(500);
-
         Assert.assertEquals(eventArrived, true, "Event arrived");
         Assert.assertEquals(removeEventCount, 0, "Number of remove events");
         siddhiAppRuntime.shutdown();

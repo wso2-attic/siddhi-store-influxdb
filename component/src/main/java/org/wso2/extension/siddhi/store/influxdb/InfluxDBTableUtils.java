@@ -108,7 +108,6 @@ public class InfluxDBTableUtils {
     public static boolean validateTimeAttribute(List<String> attributeNames) {
 
         boolean timeExist = false;
-
         for (int i = 0; i < attributeNames.size(); i++) {
             if (attributeNames.get(i).equals("time")) {
                 timeExist = true;

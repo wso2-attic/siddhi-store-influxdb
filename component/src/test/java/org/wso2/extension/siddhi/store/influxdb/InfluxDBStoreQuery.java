@@ -226,14 +226,14 @@ public class InfluxDBStoreQuery {
         Thread.sleep(500);
 
         Event[] events = siddhiAppRuntime.query("" +
-//                "from StockTable " +
-//                "on volume > 10 " +
-//                "select symbol, price, time ");
-//        EventPrinter.print(events);
-//        AssertJUnit.assertEquals(3, events.length);
-//        AssertJUnit.assertEquals(3, events[0].getData().length);
-//
-//        events = siddhiAppRuntime.query("" +
+                "from StockTable " +
+                "on volume > 10 " +
+                "select symbol, price, time ");
+        EventPrinter.print(events);
+        AssertJUnit.assertEquals(3, events.length);
+        AssertJUnit.assertEquals(3, events[0].getData().length);
+
+        events = siddhiAppRuntime.query("" +
                 "from StockTable " +
                 "select symbol, volume,time ");
         EventPrinter.print(events);

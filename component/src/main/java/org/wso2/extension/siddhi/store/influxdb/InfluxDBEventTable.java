@@ -22,7 +22,6 @@ import org.apache.commons.logging.LogFactory;
 import org.influxdb.InfluxDB;
 import org.influxdb.InfluxDBException;
 import org.influxdb.InfluxDBFactory;
-
 import org.influxdb.InfluxDBIOException;
 import org.influxdb.dto.BatchPoints;
 import org.influxdb.dto.Point;
@@ -42,7 +41,6 @@ import org.wso2.siddhi.core.util.collection.operator.CompiledExpression;
 import org.wso2.siddhi.core.util.collection.operator.CompiledSelection;
 import org.wso2.siddhi.core.util.config.ConfigReader;
 import org.wso2.siddhi.query.api.annotation.Annotation;
-
 import org.wso2.siddhi.query.api.definition.Attribute;
 import org.wso2.siddhi.query.api.definition.TableDefinition;
 import org.wso2.siddhi.query.api.execution.query.selection.OrderByAttribute;
@@ -59,12 +57,11 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import static org.wso2.extension.siddhi.store.influxdb.InfluxDBTableConstants.ANNOTATION_ELEMENT_DATABASE;
-
 import static org.wso2.extension.siddhi.store.influxdb.InfluxDBTableConstants.ANNOTATION_ELEMENT_PASSWORD;
+import static org.wso2.extension.siddhi.store.influxdb.InfluxDBTableConstants.ANNOTATION_ELEMENT_RETENTION_POLICY;
 import static org.wso2.extension.siddhi.store.influxdb.InfluxDBTableConstants.ANNOTATION_ELEMENT_TABLE_NAME;
 import static org.wso2.extension.siddhi.store.influxdb.InfluxDBTableConstants.ANNOTATION_ELEMENT_URL;
 import static org.wso2.extension.siddhi.store.influxdb.InfluxDBTableConstants.ANNOTATION_ELEMENT_USERNAME;
-
 import static org.wso2.extension.siddhi.store.influxdb.InfluxDBTableConstants.DELETE_QUERY;
 import static org.wso2.extension.siddhi.store.influxdb.InfluxDBTableConstants.INFLUXQL_AS;
 import static org.wso2.extension.siddhi.store.influxdb.InfluxDBTableConstants.INFLUXQL_WHERE;
@@ -104,6 +101,13 @@ import static org.wso2.siddhi.core.util.SiddhiConstants.ANNOTATION_STORE;
                         description = " The database to which the data should be entered. ",
                         type = {DataType.STRING}
                 ),
+                @Parameter(
+                        name = "retention",
+                        description = " Describes how long InfluxDB keeps data. ",
+                        optional = true,
+                        defaultValue = "autogen",
+                        type = {DataType.STRING}
+        ),
                 @Parameter(name = "table.name",
                         description = "The name with which the event table should be persisted in the store. If no " +
                                 "name is specified via this parameter, the event table is persisted with the same " +
@@ -177,12 +181,12 @@ import static org.wso2.siddhi.core.util.SiddhiConstants.ANNOTATION_STORE;
 public class InfluxDBEventTable extends AbstractQueryableRecordTable {
 
     private static final Log log = LogFactory.getLog(InfluxDBEventTable.class);
-
     private String tableName;
     private String database;
     private String url;
     private String username;
     private String password;
+    private String retention;
     private boolean connected;
     private int timePosition;
     private Annotation storeAnnotation;
@@ -193,7 +197,6 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
 
     /**
      * Initializing the Record Table
-     *
      * @param tableDefinition definintion of the table with annotations if any
      * @param configReader    this hold the {@link AbstractQueryableRecordTable} configuration reader.
      */
@@ -209,10 +212,9 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
         url = storeAnnotation.getElement(ANNOTATION_ELEMENT_URL);
         username = storeAnnotation.getElement(ANNOTATION_ELEMENT_USERNAME);
         password = storeAnnotation.getElement(ANNOTATION_ELEMENT_PASSWORD);
-
         String tableName = storeAnnotation.getElement(ANNOTATION_ELEMENT_TABLE_NAME);
+        retention = storeAnnotation.getElement(ANNOTATION_ELEMENT_RETENTION_POLICY);
         this.tableName = InfluxDBTableUtils.isEmpty(tableName) ? tableDefinition.getId() : tableName;
-
         if (InfluxDBTableUtils.isEmpty(url)) {
             throw new SiddhiAppCreationException("Required parameter '" + ANNOTATION_ELEMENT_URL + "' for DB " +
                     "connectivity cannot be empty" + "for creating table : " + this.tableName);
@@ -234,7 +236,6 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
                     + tableName);
         }
         tagPositions = new ArrayList<>();
-
         if (indices != null) {
             indices.getElements().forEach(elem -> {
                 for (int i = 0; i < this.attributeNames.size(); i++) {
@@ -279,7 +280,6 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
         InfluxDBCompiledCondition influxCompiledCondition = (InfluxDBCompiledCondition) compiledCondition;
         String condition = influxCompiledCondition.getCompiledQuery();
         Map<Integer, Object> constantMap = influxCompiledCondition.getParametersConstants();
-
         try {
             QueryResult queryResult = this.getSelectQueryResult(findConditionParameterMap, condition, constantMap);
             return new InfluxDBIterator(queryResult);
@@ -304,7 +304,6 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
         InfluxDBCompiledCondition influxCompiledCondition = (InfluxDBCompiledCondition) compiledCondition;
         String condition = influxCompiledCondition.getCompiledQuery();
         Map<Integer, Object> constantMap = influxCompiledCondition.getParametersConstants();
-
         try {
             QueryResult queryResult = this.getSelectQueryResult(containsConditionParameterMap, condition, constantMap);
             if (queryResult.getResults().get(0).getSeries() == null) {
@@ -332,15 +331,12 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
         String condition = influxCompiledCondition.getCompiledQuery();
         Map<Integer, Object> constantMap = influxCompiledCondition.getParametersConstants();
         String findCondition;
-
         influxdb.setDatabase(database);
         Query query;
-
         try {
             StringBuilder lines = new StringBuilder();
             lines.append(DELETE_QUERY).append(this.tableName).append(INFLUXQL_WHERE);
             findCondition = lines.toString();
-
             for (Map<String, Object> map : deleteConditionParameterMaps) {
                 for (Map.Entry<String, Object> entry : map.entrySet()) {
                     condition = condition.replaceFirst(Pattern.quote("?"), entry.getValue().toString());
@@ -365,7 +361,6 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
             throws ConnectionUnavailableException {
 
         log.error("update operation is not defined for influxDB store implementation");
-
     }
 
     /**
@@ -405,7 +400,6 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
         expressionBuilder.build(visitor);
         return new InfluxDBCompiledCondition(visitor.returnCondition(), visitor.getParameters(),
                 visitor.getParametersConstant());
-
     }
 
     /**
@@ -434,9 +428,11 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
         try {
             influxdb = InfluxDBFactory.connect(url, username, password);
             if (!this.checkDatabaseExists(database)) {
-
                 connected = false;
                 throw new InfluxDBTableException("database " + database + " does not exist");
+            }
+            if (!InfluxDBTableUtils.isEmpty(retention)) {
+                influxdb.setRetentionPolicy(retention);
             }
             influxdb.setDatabase(database);
             connected = true;
@@ -447,7 +443,6 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
             connected = false;
             throw new InfluxDBTableException("wrong url or username " + e.getMessage(), e);
         }
-
     }
 
     @Override
@@ -473,10 +468,8 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
         QueryResult queryResult;
         StringBuilder line = new StringBuilder();
         line.append(SELECT_QUERY).append(this.tableName);
-
         if (condition.equals("'*'")) {
             findCondition = line.toString();
-
         } else {
             line.append(INFLUXQL_WHERE);
             for (Map.Entry<String, Object> entry : selectConditionParameterMap.entrySet()) {
@@ -529,19 +522,19 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
     public boolean checkDatabaseExists(String dbName) {
 
         boolean isExists = false;
+        int index = 0;
         Query query = new Query("SHOW DATABASES", database);
-        QueryResult queryResult = influxdb.query(query);
+        QueryResult queryResult = this.influxdb.query(query);
         List<List<Object>> databaseList = queryResult.getResults()
                 .get(0)
                 .getSeries()
                 .get(0)
                 .getValues();
-        for (int i = 0; i < databaseList.size(); i++) {
-            if (databaseList.get(i).get(0).equals(dbName)) {
+        while (!isExists && index < databaseList.size()) {
+            if (databaseList.get(index).get(0).equals(dbName)) {
                 isExists = true;
-            } else {
-                isExists = false;
             }
+            index++;
         }
         return isExists;
     }
@@ -553,7 +546,6 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
 
         InfluxDBCompiledSelection influxDBCompiledSelection = (InfluxDBCompiledSelection) compiledSelection;
         InfluxDBCompiledCondition influxDBCompiledCondition = (InfluxDBCompiledCondition) compiledCondition;
-
         Map<Integer, Object> consMap = influxDBCompiledCondition.getParametersConstants();
         Query query1;
         QueryResult queryResult;
@@ -581,9 +573,7 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
         StringBuilder selectQuery = new StringBuilder("select ");
         selectQuery.append(selectors)
                 .append(" from ").append(this.tableName);
-
         if (condition.equals("'*'")) {
-
         } else {
             selectQuery.append(INFLUXQL_WHERE);
             for (Map.Entry<String, Object> entry : parameterMap.entrySet()) {
@@ -616,7 +606,6 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
             selectQuery.append(" offset ").append(influxDBCompiledSelection.getOffset());
         }
         InfluxDBCompiledCondition compiledHavingClause = influxDBCompiledSelection.getCompiledHavingClause();
-
         if (compiledHavingClause != null) {
             log.error("Having clause is defined in the query for " + this.tableName +
                     " But it is not defined for influxDB store implementation  ");
@@ -646,11 +635,9 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
         SortedMap<Integer, Object> paramMap = new TreeMap<>();
         SortedMap<Integer, Object> paramCons = new TreeMap<>();
         int offset = 0;
-
         for (SelectAttributeBuilder selectAttributeBuilder : selectAttributeBuilders) {
             InfluxDBConditionVisitor visitor = new InfluxDBConditionVisitor();
             selectAttributeBuilder.getExpressionBuilder().build(visitor);
-
             String compiledCondition = visitor.returnCondition();
             compiledSelectionList.append(compiledCondition);
             if (selectAttributeBuilder.getRename() != null && !selectAttributeBuilder.getRename().isEmpty()) {
@@ -669,7 +656,6 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
             }
             offset = maxOrdinal;
         }
-
         if (compiledSelectionList.length() > 0) {
             compiledSelectionList.setLength(compiledSelectionList.length() - 2);
         }
@@ -682,17 +668,13 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
         SortedMap<Integer, Object> paramMap = new TreeMap<>();
         SortedMap<Integer, Object> paramCons = new TreeMap<>();
         int offset = 0;
-
         for (ExpressionBuilder expressionBuilder : expressionBuilders) {
             InfluxDBConditionVisitor visitor = new InfluxDBConditionVisitor();
             expressionBuilder.build(visitor);
-
             String compiledCondition = visitor.returnCondition();
             compiledSelectionList.append(compiledCondition).append(SEPARATOR);
-
             Map<Integer, Object> conditionParamMap = visitor.getParameters();
             Map<Integer, Object> conditionConsMap = visitor.getParametersConstant();
-
             int maxOrdinal = 0;
             for (Map.Entry<Integer, Object> entry : conditionParamMap.entrySet()) {
                 Integer ordinal = entry.getKey();
@@ -710,11 +692,9 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
             }
             offset = maxOrdinal;
         }
-
         if (compiledSelectionList.length() > 0) {
             compiledSelectionList.setLength(compiledSelectionList.length() - 2); // Removing the last comma separator.
         }
-
         return new InfluxDBCompiledCondition(compiledSelectionList.toString(), paramMap, paramCons);
     }
 
@@ -723,11 +703,9 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
         StringBuilder compiledSelectionList = new StringBuilder();
         SortedMap<Integer, Object> paramMap = new TreeMap<>();
         int offset = 0;
-
         for (OrderByAttributeBuilder orderByAttributeBuilder : orderByAttributeBuilders) {
             InfluxDBConditionVisitor visitor = new InfluxDBConditionVisitor();
             orderByAttributeBuilder.getExpressionBuilder().build(visitor);
-
             String compiledCondition = visitor.returnCondition();
             compiledSelectionList.append(compiledCondition);
             OrderByAttribute.Order order = orderByAttributeBuilder.getOrder();
@@ -736,7 +714,6 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
             } else {
                 compiledSelectionList.append(WHITESPACE).append(order.toString()).append(SEPARATOR);
             }
-
             Map<Integer, Object> conditionParamMap = visitor.getParameters();
             int maxOrdinal = 0;
             for (Map.Entry<Integer, Object> entry : conditionParamMap.entrySet()) {
@@ -753,5 +730,4 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
         }
         return new InfluxDBCompiledCondition(compiledSelectionList.toString(), paramMap, null);
     }
-
 }

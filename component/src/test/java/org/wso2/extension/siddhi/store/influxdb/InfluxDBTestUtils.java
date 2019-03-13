@@ -55,7 +55,6 @@ public class InfluxDBTestUtils {
         InfluxDB influxDB = InfluxDBFactory.connect(URL, USERNAME, PASSWORD);
         Query query1 = new Query("select count(volume) from " + TABLE_NAME, DATABASE);
         QueryResult queryResult1 = influxDB.query(query1);
-
         Object size = queryResult1
                 .getResults()
                 .get(0)

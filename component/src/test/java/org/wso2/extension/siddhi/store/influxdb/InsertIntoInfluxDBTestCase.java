@@ -73,7 +73,6 @@ public class InsertIntoInfluxDBTestCase {
                 + "\")\n" +
                 "@Index(\"symbol\",\"time\")" +
                 "define table StockTable (symbol string, price float, volume long,time long); ";
-
         String query1 = "" +
                 "@info(name = 'query1') " +
                 "from StockStream\n" +
@@ -82,11 +81,9 @@ public class InsertIntoInfluxDBTestCase {
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query1);
         InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
         siddhiAppRuntime.start();
-
         stockStream.send(new Object[]{"WSO2", 325.6f, 100L, 1548181800003L});
         stockStream.send(new Object[]{"IBM", 75.6f, 100L, 1548181800000L});
         Thread.sleep(500);
-
         int pointsInTable = InfluxDBTestUtils.getPointsCount(TABLE_NAME);
         Assert.assertEquals(pointsInTable, 2, "Definition/Insertion failed");
         siddhiAppRuntime.shutdown();
@@ -104,19 +101,16 @@ public class InsertIntoInfluxDBTestCase {
                 + "\")\n" +
                 "@Index(\"symbol\",\"price\",\"time\")" +
                 "define table StockTable (symbol string, price float, volume long,time long); ";
-
         String query2 = "" +
                 "@info(name='query2') " +
                 "from StockStream\n" +
                 "select symbol,price,volume,time\n" +
                 "insert into StockTable ;";
-
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query2);
         InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
         siddhiAppRuntime.start();
         stockStream.send(new Object[]{"WSO2", 425.6f, 100L, 1548181800013L});
         siddhiAppRuntime.shutdown();
-
         int pointsInTable = InfluxDBTestUtils.getPointsCount(TABLE_NAME);
         Assert.assertEquals(pointsInTable, 1, "Insertion failed");
     }
@@ -133,20 +127,17 @@ public class InsertIntoInfluxDBTestCase {
                 + "\")\n" +
                 "@Index(\"symbol\",\"time\")" +
                 "define table StockTable (symbol string, price float, volume long,time long); ";
-
         String query2 = "" +
                 "@info(name='query2') " +
                 "from StockStream\n" +
                 "select symbol,price,volume,currentTimeMillis() as time\n" +
                 "insert into StockTable ;";
-
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query2);
         InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
         siddhiAppRuntime.start();
         stockStream.send(new Object[]{"WSO2", 425.6f, 100L});
         stockStream.send(new Object[]{"WSO2", 425.6f, 100L});
         siddhiAppRuntime.shutdown();
-
         int pointsInTable = InfluxDBTestUtils.getPointsCount(TABLE_NAME);
         Assert.assertEquals(pointsInTable, 2, "Insertion failed");
     }
@@ -163,7 +154,6 @@ public class InsertIntoInfluxDBTestCase {
                 + "\")\n" +
                 "@Index(\"time\")" +
                 "define table StockTable (symbol string, price float, volume long,time long); ";
-
         String query1 = "" +
                 "@info(name = 'query1') " +
                 "from StockStream\n" +
@@ -174,7 +164,6 @@ public class InsertIntoInfluxDBTestCase {
         siddhiAppRuntime.start();
         stockStream.send(new Object[]{"WSO2", 325.6f, 100L, 1548181800003L});
         stockStream.send(new Object[]{"IBM", 75.6f, 100L, 1548181800000L});
-
         int pointsInTable = InfluxDBTestUtils.getPointsCount(TABLE_NAME);
         Assert.assertEquals(pointsInTable, 2, "Definition/Insertion failed");
         siddhiAppRuntime.shutdown();
@@ -192,7 +181,6 @@ public class InsertIntoInfluxDBTestCase {
                 + "\")\n" +
                 "@Index(\"symbol\",\"time\")" +
                 "define table StockTable (symbol string, price float, volume long,time string); ";
-
         String query1 = "" +
                 "@info(name = 'query1') " +
                 "from StockStream\n" +

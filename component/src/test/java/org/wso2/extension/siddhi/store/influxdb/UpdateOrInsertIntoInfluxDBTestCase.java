@@ -65,7 +65,6 @@ public class UpdateOrInsertIntoInfluxDBTestCase {
     public void updateOrInsertWithSingleConditionTest() throws InterruptedException, InfluxDBException {
 
         log.info("updateOrInsertWithSingleConditionTest");
-
         SiddhiManager siddhiManager = new SiddhiManager();
         String streams = "" +
                 "define stream StockStream (symbol string, price float, volume long,time long); " +
@@ -84,19 +83,16 @@ public class UpdateOrInsertIntoInfluxDBTestCase {
                 "from UpdateStockStream#window.timeBatch(1 sec) " +
                 "update or insert into StockTable " +
                 "   on StockTable.symbol==symbol and StockTable.time==time;";
-
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query);
         InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
         InputHandler updateStockStream = siddhiAppRuntime.getInputHandler("UpdateStockStream");
         siddhiAppRuntime.start();
-
         stockStream.send(new Object[]{"WSO2", 95.6F, 100L, 1548181800000L});
         stockStream.send(new Object[]{"IBM", 75.6F, 100L, 1548181800000L});
         stockStream.send(new Object[]{"WSO2", 67.6F, 100L, 1548181800500L});
         updateStockStream.send(new Object[]{"GOOG", 12.6F, 100L, 1548181800000L});
         updateStockStream.send(new Object[]{"IBM", 27.6F, 101L, 1548181800000L});
         Thread.sleep(3000);
-
         siddhiAppRuntime.shutdown();
         int pointsInTable = InfluxDBTestUtils.getPointsCount(TABLE_NAME);
         Assert.assertEquals(pointsInTable, 4, "updating failed");
@@ -106,7 +102,6 @@ public class UpdateOrInsertIntoInfluxDBTestCase {
     public void updateOrInsertWithSingleConditionTest2() throws InterruptedException, InfluxDBException {
 
         log.info("updateOrInsertWithSingleConditionTest2");
-
         SiddhiManager siddhiManager = new SiddhiManager();
         String streams = "" +
                 "define stream StockStream (symbol string, price float, volume long,time long); " +
@@ -125,12 +120,10 @@ public class UpdateOrInsertIntoInfluxDBTestCase {
                 "from UpdateStockStream " +
                 "update or insert into StockTable " +
                 "   on StockTable.symbol=='IBM' and StockTable.time==time;";
-
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query);
         InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
         InputHandler updateStockStream = siddhiAppRuntime.getInputHandler("UpdateStockStream");
         siddhiAppRuntime.start();
-
         stockStream.send(new Object[]{"WSO2", 95.6F, 100L, 1548181800000L});
         updateStockStream.send(new Object[]{"WSO2", 27.6F, 101L, 1548181800000L});
         Thread.sleep(1000);
@@ -143,7 +136,6 @@ public class UpdateOrInsertIntoInfluxDBTestCase {
     public void updateOrInsertWithTwoConditionsTest() throws InterruptedException, InfluxDBException {
 
         log.info("updateOrInsertWithTwoConditionsTest");
-
         SiddhiManager siddhiManager = new SiddhiManager();
         String streams = "" +
                 "define stream StockStream (symbol string, price float, volume long,time long); " +
@@ -158,16 +150,13 @@ public class UpdateOrInsertIntoInfluxDBTestCase {
                 "from UpdateStockStream#window.timeBatch(1 sec) " +
                 "update or insert into StockTable " +
                 "   on StockTable.symbol==symbol and StockTable.time==time;";
-
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query);
         InputHandler updateStockStream = siddhiAppRuntime.getInputHandler("UpdateStockStream");
         siddhiAppRuntime.start();
-
         updateStockStream.send(new Object[]{"GOOG", 12.6F, 100L, 1548181800000L});
         updateStockStream.send(new Object[]{"IBM", 27.6F, 101L, 1548181800000L});
         updateStockStream.send(new Object[]{"WSO2", 27.6F, 101L, 1548181800500L});
         Thread.sleep(3000);
-
         siddhiAppRuntime.shutdown();
         int pointsInTable = InfluxDBTestUtils.getPointsCount(TABLE_NAME);
         Assert.assertEquals(pointsInTable, 3, "updating failed");

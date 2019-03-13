@@ -82,12 +82,10 @@ public class DeleteFromInfluxDBTestCase {
                 "from DeleteStockStream " +
                 "delete StockTable " +
                 "   on StockTable.symbol == symbol ;";
-
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query);
         InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
         InputHandler deleteStockStream = siddhiAppRuntime.getInputHandler("DeleteStockStream");
         siddhiAppRuntime.start();
-
         stockStream.send(new Object[]{"WSO2", 55.6F, 100L, 1548181800000L});
         stockStream.send(new Object[]{"IBM", 75.6F, 100L, 1548181800000L});
         stockStream.send(new Object[]{"WSO2", 57.6F, 100L, 1548181800006L});
@@ -95,9 +93,7 @@ public class DeleteFromInfluxDBTestCase {
         deleteStockStream.send(new Object[]{"WSO2"});
         deleteStockStream.send(new Object[]{"IBM"});
         Thread.sleep(1000);
-
         siddhiAppRuntime.shutdown();
-
         int pointsInTable = InfluxDBTestUtils.getPointsCount(TABLE_NAME);
         Assert.assertEquals(pointsInTable, 1, "deletion failed");
     }
@@ -124,12 +120,10 @@ public class DeleteFromInfluxDBTestCase {
                 "from DeleteStockStream " +
                 "delete StockTable " +
                 "   on  symbols == StockTable.symbol;";
-
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query);
         InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
         InputHandler deleteStockStream = siddhiAppRuntime.getInputHandler("DeleteStockStream");
         siddhiAppRuntime.start();
-
         stockStream.send(new Object[]{"WSO2", 55.6F, 100L, 1548181800000L});
         stockStream.send(new Object[]{"IBM", 75.6F, 100L, 1548181800000L});
         stockStream.send(new Object[]{"WSO2", 57.6F, 100L, 1548181800006L});
@@ -137,9 +131,7 @@ public class DeleteFromInfluxDBTestCase {
         deleteStockStream.send(new Object[]{"WSO2"});
         deleteStockStream.send(new Object[]{"IBM"});
         Thread.sleep(1000);
-
         siddhiAppRuntime.shutdown();
-
         int pointsInTable = InfluxDBTestUtils.getPointsCount(TABLE_NAME);
         Assert.assertEquals(pointsInTable, 1, "deletion failed");
     }
@@ -166,12 +158,10 @@ public class DeleteFromInfluxDBTestCase {
                 "from DeleteStockStream " +
                 "delete StockTable " +
                 "   on StockTable.symbol == symbol and StockTable.symbol2==symbol2 ;";
-
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query);
         InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
         InputHandler deleteStockStream = siddhiAppRuntime.getInputHandler("DeleteStockStream");
         siddhiAppRuntime.start();
-
         stockStream.send(new Object[]{"WSO2", "WSO22", 55.6F, 100L, 1548181800000L});
         stockStream.send(new Object[]{"IBM", "IBM2", 75.6F, 100L, 1548181800000L});
         stockStream.send(new Object[]{"WSO2", "WSO22", 57.6F, 100L, 1548181800006L});
@@ -179,9 +169,7 @@ public class DeleteFromInfluxDBTestCase {
         deleteStockStream.send(new Object[]{"WSO2", "WSO22"});
         deleteStockStream.send(new Object[]{"IBM", "IBM2"});
         Thread.sleep(1000);
-
         siddhiAppRuntime.shutdown();
-
         int pointsInTable = InfluxDBTestUtils.getPointsCount(TABLE_NAME);
         Assert.assertEquals(pointsInTable, 1, "deletion failed");
     }
@@ -197,7 +185,6 @@ public class DeleteFromInfluxDBTestCase {
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
                 "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", database = \"" + DATABASE
                 + "\")\n" +
-
                 "@index(\"symbol\",\"symbol2\")" +
                 "define table StockTable (symbol string,symbol2 string, price float, volume long,time long ); ";
         String query = "" +
@@ -209,12 +196,10 @@ public class DeleteFromInfluxDBTestCase {
                 "from DeleteStockStream " +
                 "delete StockTable " +
                 "   on StockTable.symbol == symbol and StockTable.symbol2==symbol2 ;";
-
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query);
         InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
         InputHandler deleteStockStream = siddhiAppRuntime.getInputHandler("DeleteStockStream");
         siddhiAppRuntime.start();
-
         stockStream.send(new Object[]{"WSO2", "WSO22", 55.6F, 100L, 1548181800000L});
         stockStream.send(new Object[]{"IBM", "IBM2", 75.6F, 100L, 1548181800000L});
         stockStream.send(new Object[]{"WSO2", "WSO22", 57.6F, 100L, 1548181800006L});
@@ -222,9 +207,7 @@ public class DeleteFromInfluxDBTestCase {
         deleteStockStream.send(new Object[]{"WSO2", "WSO22"});
         deleteStockStream.send(new Object[]{"IBM", "IBM"});
         Thread.sleep(1000);
-
         siddhiAppRuntime.shutdown();
-
         int pointsInTable = InfluxDBTestUtils.getPointsCount(TABLE_NAME);
         Assert.assertEquals(pointsInTable, 2, "deletion failed");
     }

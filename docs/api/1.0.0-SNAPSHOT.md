@@ -8,7 +8,7 @@
 
 <span id="syntax" class="md-typeset" style="display: block; font-weight: bold;">Syntax</span>
 ```
-@Store(type="influxdb", url="<STRING>", username="<STRING>", password="<STRING>", database="<STRING>", table.name="<STRING>")
+@Store(type="influxdb", url="<STRING>", username="<STRING>", password="<STRING>", database="<STRING>", retention="<STRING>", table.name="<STRING>")
 @PrimaryKey("PRIMARY_KEY")
 @Index("INDEX")
 ```
@@ -53,6 +53,14 @@
         <td style="vertical-align: top"></td>
         <td style="vertical-align: top">STRING</td>
         <td style="vertical-align: top">No</td>
+        <td style="vertical-align: top">No</td>
+    </tr>
+    <tr>
+        <td style="vertical-align: top">retention</td>
+        <td style="vertical-align: top; word-wrap: break-word"> Describes how long InfluxDB keeps data. </td>
+        <td style="vertical-align: top">autogen </td>
+        <td style="vertical-align: top">STRING</td>
+        <td style="vertical-align: top">Yes</td>
         <td style="vertical-align: top">No</td>
     </tr>
     <tr>

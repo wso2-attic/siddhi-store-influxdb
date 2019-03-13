@@ -44,7 +44,6 @@ import static org.wso2.extension.siddhi.store.influxdb.InfluxDBTestUtils.USERNAM
 public class ContainsInInfluxDBTestCase {
 
     private static final Log log = LogFactory.getLog(ContainsInInfluxDBTestCase.class);
-
     private AtomicInteger eventCount = new AtomicInteger(0);
     private int inEventCount;
     private int waitTime = 500;
@@ -88,7 +87,6 @@ public class ContainsInInfluxDBTestCase {
                 + "\")\n" +
                 "@Index(\"symbol\",\"time\")" +
                 "define table StockTable (symbol string, price float, volume long,time long);\n";
-
         String query = "" +
                 "@info(name = 'query1')\n" +
                 "from StockStream\n" +
@@ -98,7 +96,6 @@ public class ContainsInInfluxDBTestCase {
                 "from FooStream \n" +
                 "[(StockTable.symbol ==name ) in StockTable]\n" +
                 "insert into OutputStream;";
-
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query);
         InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
         InputHandler fooStream = siddhiAppRuntime.getInputHandler("FooStream");
@@ -133,7 +130,6 @@ public class ContainsInInfluxDBTestCase {
         fooStream.send(new Object[]{"IBM", 10});
         fooStream.send(new Object[]{"WSO22", 100});
         SiddhiTestHelper.waitForEvents(waitTime, 2, eventCount, timeout);
-
         Assert.assertEquals(inEventCount, 2, "Number of success events");
         Assert.assertEquals(eventArrived, true, "success");
         siddhiAppRuntime.shutdown();
@@ -152,7 +148,6 @@ public class ContainsInInfluxDBTestCase {
                 + "\")\n" +
                 "@Index(\"symbol\",\"time\")" +
                 "define table StockTable (symbol string, price float, volume long,time long);\n";
-
         String query = "" +
                 "@info(name = 'query1')\n" +
                 "from StockStream\n" +
@@ -162,11 +157,9 @@ public class ContainsInInfluxDBTestCase {
                 "from FooStream \n" +
                 "[(StockTable.symbol == name and StockTable.volume == value) in StockTable]\n" +
                 "insert into OutputStream;";
-
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query);
         InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
         InputHandler fooStream = siddhiAppRuntime.getInputHandler("FooStream");
-
         siddhiAppRuntime.addCallback("query2", new QueryCallback() {
             @Override
             public void receive(long l, Event[] events, Event[] events1) {
@@ -198,7 +191,6 @@ public class ContainsInInfluxDBTestCase {
         fooStream.send(new Object[]{"IBM", 101});
         fooStream.send(new Object[]{"WSO22", 100});
         SiddhiTestHelper.waitForEvents(waitTime, 2, eventCount, timeout);
-
         Assert.assertEquals(inEventCount, 1, "Number of success events");
         Assert.assertEquals(eventArrived, true, "success");
         siddhiAppRuntime.shutdown();
@@ -219,7 +211,6 @@ public class ContainsInInfluxDBTestCase {
                 + "\")\n" +
                 "@Index(\"symbol\")" +
                 "define table StockTable (symbol string, price float, volume long,time long);\n";
-
         String query = "" +
                 "@info(name = 'query1')\n" +
                 "from StockStream\n" +
@@ -229,11 +220,9 @@ public class ContainsInInfluxDBTestCase {
                 "from FooStream \n" +
                 "[(StockTable.symbol ==name ) in StockTable]\n" +
                 "insert into OutputStream;";
-
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query);
         InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
         InputHandler fooStream = siddhiAppRuntime.getInputHandler("FooStream");
-
         siddhiAppRuntime.addCallback("query2", new QueryCallback() {
             @Override
             public void receive(long l, Event[] events, Event[] events1) {
@@ -265,7 +254,6 @@ public class ContainsInInfluxDBTestCase {
         fooStream.send(new Object[]{"IBM", 10});
         fooStream.send(new Object[]{"WSO22", 100});
         SiddhiTestHelper.waitForEvents(waitTime, 2, eventCount, timeout);
-
         Assert.assertEquals(inEventCount, 2, "Number of success events");
         Assert.assertEquals(eventArrived, true, "success");
         siddhiAppRuntime.shutdown();
