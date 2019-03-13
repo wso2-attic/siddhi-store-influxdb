@@ -70,7 +70,7 @@ public class DeleteFromInfluxDBTestCase {
                 "define stream StockStream (symbol string, price float, volume long,time long ); " +
                 "define stream DeleteStockStream (symbol string); " +
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
-                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", database = \"" + DATABASE
+                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", influxdb.database = \"" + DATABASE
                 + "\")\n" +
                 "@index(\"symbol\")" +
                 "define table StockTable (symbol string, price float, volume long,time long ); ";
@@ -107,7 +107,7 @@ public class DeleteFromInfluxDBTestCase {
                 "define stream StockStream (symbol string, price float, volume long,time long ); " +
                 "define stream DeleteStockStream (symbols string); " +
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
-                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", database = \"" + DATABASE
+                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", influxdb.database = \"" + DATABASE
                 + "\")\n" +
                 "@index(\"symbol\")" +
                 "define table StockTable (symbol string, price float, volume long,time long ); ";
@@ -145,7 +145,7 @@ public class DeleteFromInfluxDBTestCase {
                 "define stream StockStream (symbol string,symbol2 String, price float, volume long,time long ); " +
                 "define stream DeleteStockStream (symbol string,symbol2 string); " +
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
-                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", database = \"" + DATABASE
+                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", influxdb.database = \"" + DATABASE
                 + "\")\n" +
                 "@index(\"symbol\",\"symbol2\")" +
                 "define table StockTable (symbol string,symbol2 string, price float, volume long,time long ); ";
@@ -183,7 +183,7 @@ public class DeleteFromInfluxDBTestCase {
                 "define stream StockStream (symbol string,symbol2 String, price float, volume long,time long ); " +
                 "define stream DeleteStockStream (symbol string,symbol2 string); " +
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
-                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", database = \"" + DATABASE
+                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", influxdb.database = \"" + DATABASE
                 + "\")\n" +
                 "@index(\"symbol\",\"symbol2\")" +
                 "define table StockTable (symbol string,symbol2 string, price float, volume long,time long ); ";

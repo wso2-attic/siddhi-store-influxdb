@@ -83,7 +83,7 @@ public class ContainsInInfluxDBTestCase {
                 "define stream FooStream (name string,value long);\n" +
                 "define stream StockStream (symbol string, price float, volume long,time long);\n" +
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
-                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", database = \"" + DATABASE
+                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", influxdb.database = \"" + DATABASE
                 + "\")\n" +
                 "@Index(\"symbol\",\"time\")" +
                 "define table StockTable (symbol string, price float, volume long,time long);\n";
@@ -144,7 +144,7 @@ public class ContainsInInfluxDBTestCase {
                 "define stream FooStream (name string,value long);\n" +
                 "define stream StockStream (symbol string, price float, volume long,time long);\n" +
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
-                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", database = \"" + DATABASE
+                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", influxdb.database = \"" + DATABASE
                 + "\")\n" +
                 "@Index(\"symbol\",\"time\")" +
                 "define table StockTable (symbol string, price float, volume long,time long);\n";
@@ -207,10 +207,10 @@ public class ContainsInInfluxDBTestCase {
                 "define stream OutputStream (name string,value long);" +
                 "define stream StockStream (symbol string, price float, volume long,time long);\n" +
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
-                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", database = \"" + DATABASE
+                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", influxdb.database = \"" + DATABASE
                 + "\")\n" +
                 "@Index(\"symbol\")" +
-                "define table StockTable (symbol string, price float, volume long,time long);\n";
+                "define table StockTable(symbol string, price float, volume long,time long);\n";
         String query = "" +
                 "@info(name = 'query1')\n" +
                 "from StockStream\n" +

@@ -4,11 +4,11 @@
 
 ### influxdb *<a target="_blank" href="https://wso2.github.io/siddhi/documentation/siddhi-4.0/#store">(Store)</a>*
 
-<p style="word-wrap: break-word">This extension assigns connection instructions to configure influxDB store. It also implements read-write operations on connected influxDB database.</p>
+<p style="word-wrap: break-word">This extension connects to  influxDB store. It also implements read-write operations on connected influxDB database.</p>
 
 <span id="syntax" class="md-typeset" style="display: block; font-weight: bold;">Syntax</span>
 ```
-@Store(type="influxdb", url="<STRING>", username="<STRING>", password="<STRING>", database="<STRING>", retention="<STRING>", table.name="<STRING>")
+@Store(type="influxdb", url="<STRING>", username="<STRING>", password="<STRING>", influxdb.database="<STRING>", retention.policy="<STRING>", table.name="<STRING>")
 @PrimaryKey("PRIMARY_KEY")
 @Index("INDEX")
 ```
@@ -48,24 +48,24 @@
         <td style="vertical-align: top">No</td>
     </tr>
     <tr>
-        <td style="vertical-align: top">database</td>
-        <td style="vertical-align: top; word-wrap: break-word"> The database to which the data should be entered. </td>
+        <td style="vertical-align: top">influxdb.database</td>
+        <td style="vertical-align: top; word-wrap: break-word"> The name of the InfluxDB database to which the data should be entered. </td>
         <td style="vertical-align: top"></td>
         <td style="vertical-align: top">STRING</td>
         <td style="vertical-align: top">No</td>
         <td style="vertical-align: top">No</td>
     </tr>
     <tr>
-        <td style="vertical-align: top">retention</td>
+        <td style="vertical-align: top">retention.policy</td>
         <td style="vertical-align: top; word-wrap: break-word"> Describes how long InfluxDB keeps data. </td>
-        <td style="vertical-align: top">autogen </td>
+        <td style="vertical-align: top">autogen</td>
         <td style="vertical-align: top">STRING</td>
         <td style="vertical-align: top">Yes</td>
         <td style="vertical-align: top">No</td>
     </tr>
     <tr>
         <td style="vertical-align: top">table.name</td>
-        <td style="vertical-align: top; word-wrap: break-word">The name with which the event table should be persisted in the store. If no name is specified via this parameter, the event table is persisted with the same name as the Siddhi table.</td>
+        <td style="vertical-align: top; word-wrap: break-word">The name with which the siddhi store  should be persisted in the InfluxDB database. If no name is specified via this parameter, the store is persisted in InfluxDB database with the same name define in the table definition of siddhi app.</td>
         <td style="vertical-align: top">The table name defined in the Siddhi App query.</td>
         <td style="vertical-align: top">STRING</td>
         <td style="vertical-align: top">Yes</td>
@@ -76,14 +76,14 @@
 <span id="examples" class="md-typeset" style="display: block; font-weight: bold;">Examples</span>
 <span id="example-1" class="md-typeset" style="display: block; color: rgba(0, 0, 0, 0.54); font-size: 12.8px; font-weight: bold;">EXAMPLE 1</span>
 ```
- @Store(type = "influxdb",
+ @Store (type = "influxdb",
    url = "http://localhost:8086",
    username = "root",
    password = "root" ,
    database ="aTimeSeries")
-@Index("symbol","time")
-define table StockTable(symbol string,volume long,price float,time long) ;
-define stream StockStream (symbol string,volume long,price float);@info(name='query2') from StockStream
+@Index ("symbol","time")
+define table StockTable (symbol string,volume long,price float,time long) ;
+define stream StockStream (symbol string,volume long,price float);@info (name='query2') from StockStream
 select symbol,price,volume,currentTimeMillis() as time
 insert into StockTable ;
 ```
@@ -91,15 +91,15 @@ insert into StockTable ;
 
 <span id="example-2" class="md-typeset" style="display: block; color: rgba(0, 0, 0, 0.54); font-size: 12.8px; font-weight: bold;">EXAMPLE 2</span>
 ```
- @Store(type = "influxdb",
+ @Store (type = "influxdb",
    url = "http://localhost:8086",
    username = "root",
    password = "root" ,
    database ="aTimeSeries")
-@Index("symbol","time")
-define table StockTable(symbol string,volume long,price float,time long) ;
+@Index ("symbol","time")
+define table StockTable (symbol string,volume long,price float,time long) ;
 define stream StockStream (symbol string,volume long,price float,time long);
-@info(name = 'query1')  
+@info (name = 'query1')  
 from StockStream 
 select symbol,  volume, price, time
 insert into StockTable ;
@@ -108,14 +108,14 @@ insert into StockTable ;
 
 <span id="example-3" class="md-typeset" style="display: block; color: rgba(0, 0, 0, 0.54); font-size: 12.8px; font-weight: bold;">EXAMPLE 3</span>
 ```
- @Store(type = "influxdb",
+ @Store (type = "influxdb",
    url = "http://localhost:8086",
    username = "root",
    password = "root" ,
    database ="aTimeSeries")
-@Index("symbol","time")
+@Index ("symbol","time")
 define table StockTable(symbol string,volume long,price float,time long) ;
-@info(name = 'query4')
+@info (name = 'query4')
 from ReadStream#window.length(1) join StockTable on StockTable.symbol==ReadStream.symbols 
 select StockTable.symbol as checkName, StockTable.price as checkCategory,
 StockTable.volume as checkVolume,StockTable.time as checkTime

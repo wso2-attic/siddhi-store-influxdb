@@ -26,8 +26,8 @@ public class InfluxDBTableConstants {
     public static final String ANNOTATION_ELEMENT_USERNAME = "username";
     public static final String ANNOTATION_ELEMENT_PASSWORD = "password";
     public static final String ANNOTATION_ELEMENT_TABLE_NAME = "table.name";
-    public static final String ANNOTATION_ELEMENT_DATABASE = "database";
-    public static final String ANNOTATION_ELEMENT_RETENTION_POLICY = "retention";
+    public static final String ANNOTATION_ELEMENT_DATABASE = "influxdb.database";
+    public static final String ANNOTATION_ELEMENT_RETENTION_POLICY = "retention.policy";
     public static final String INFLUXQL_MATH_ADD = "+";
     public static final String INFLUXQL_MATH_DIVIDE = "/";
     public static final String INFLUXQL_MATH_MULTIPLY = "*";

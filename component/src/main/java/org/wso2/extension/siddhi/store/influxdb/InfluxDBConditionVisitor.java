@@ -42,7 +42,6 @@ public class InfluxDBConditionVisitor extends BaseExpressionVisitor {
     private SortedMap<Integer, Object> parametersCon;
 
     public InfluxDBConditionVisitor() {
-
         this.condition = new StringBuilder();
         this.streamVarCount = 0;
         this.constantCount = 0;
@@ -53,125 +52,95 @@ public class InfluxDBConditionVisitor extends BaseExpressionVisitor {
     }
 
     public String returnCondition() {
-
-        this.parametrizeCondition();
+        this.parameterizeCondition();
         return this.finalCompiledCondition.trim();
     }
 
     public SortedMap<Integer, Object> getParameters() {
-
         return this.parameters;
     }
 
     public SortedMap<Integer, Object> getParametersConstant() {
-
         return this.parametersCon;
     }
 
     @Override
     public void beginVisitAnd() {
-
         condition.append(InfluxDBTableConstants.OPEN_PARENTHESIS);
     }
 
     @Override
     public void endVisitAnd() {
-
         condition.append(InfluxDBTableConstants.CLOSE_PARENTHESIS);
     }
 
     @Override
-    public void beginVisitAndLeftOperand() {
-        //Not applicable
-    }
+    public void beginVisitAndLeftOperand() { }
 
     @Override
-    public void endVisitAndLeftOperand() {
-        //Not applicable
-    }
+    public void endVisitAndLeftOperand() { }
 
     @Override
     public void beginVisitAndRightOperand() {
-
         condition.append(InfluxDBTableConstants.WHITESPACE)
                 .append(InfluxDBTableConstants.INFLUXQL_AND)
                 .append(InfluxDBTableConstants.WHITESPACE);
     }
 
     @Override
-    public void endVisitAndRightOperand() {
-        //Not applicable
-    }
+    public void endVisitAndRightOperand() { }
 
     @Override
     public void beginVisitOr() {
-
         condition.append(InfluxDBTableConstants.OPEN_PARENTHESIS);
     }
 
     @Override
     public void endVisitOr() {
-
         condition.append(InfluxDBTableConstants.CLOSE_PARENTHESIS);
     }
 
     @Override
-    public void beginVisitOrLeftOperand() {
-        //Not applicable
-    }
+    public void beginVisitOrLeftOperand() { }
 
     @Override
-    public void endVisitOrLeftOperand() {
-        //Not applicable
-    }
+    public void endVisitOrLeftOperand() { }
 
     @Override
     public void beginVisitOrRightOperand() {
-
         condition.append(InfluxDBTableConstants.INFLUXQL_OR).append(InfluxDBTableConstants.WHITESPACE);
     }
 
     @Override
-    public void endVisitOrRightOperand() {
-        //Not applicable
-    }
+    public void endVisitOrRightOperand() { }
 
     @Override
     public void beginVisitNot() {
-
         condition.append(InfluxDBTableConstants.INFLUXQL_NOT).append(InfluxDBTableConstants.WHITESPACE);
     }
 
     @Override
-    public void endVisitNot() {
-        //Not applicable
-    }
+    public void endVisitNot() { }
 
     @Override
     public void beginVisitCompare(Compare.Operator operator) {
-
         condition.append(InfluxDBTableConstants.OPEN_PARENTHESIS);
     }
 
     @Override
     public void endVisitCompare(Compare.Operator operator) {
-
         condition.append(InfluxDBTableConstants.CLOSE_PARENTHESIS);
     }
 
     @Override
-    public void beginVisitCompareLeftOperand(Compare.Operator operator) {
-        //Not applicable
-    }
+    public void beginVisitCompareLeftOperand(Compare.Operator operator) { }
+
 
     @Override
-    public void endVisitCompareLeftOperand(Compare.Operator operator) {
-        //Not applicable
-    }
+    public void endVisitCompareLeftOperand(Compare.Operator operator) { }
 
     @Override
     public void beginVisitCompareRightOperand(Compare.Operator operator) {
-
         switch (operator) {
             case EQUAL:
                 condition.append(InfluxDBTableConstants.INFLUXQL_COMPARE_EQUAL);
@@ -196,60 +165,47 @@ public class InfluxDBConditionVisitor extends BaseExpressionVisitor {
     }
 
     @Override
-    public void endVisitCompareRightOperand(Compare.Operator operator) {
-        //Not applicable
-    }
+    public void endVisitCompareRightOperand(Compare.Operator operator) { }
 
     @Override
-    public void beginVisitIsNull(String streamId) {
-
-    }
+    public void beginVisitIsNull(String streamId) { }
 
     @Override
     public void endVisitIsNull(String streamId) {
-
         condition.append(InfluxDBTableConstants.INFLUXQL_IS_NULL).append(InfluxDBTableConstants.WHITESPACE);
     }
 
     @Override
     public void beginVisitIn(String storeId) {
-
         condition.append(InfluxDBTableConstants.INFLUXQL_IN).append(InfluxDBTableConstants.WHITESPACE);
     }
 
     @Override
-    public void endVisitIn(String storeId) {
-        //Not applicable
-    }
+    public void endVisitIn(String storeId) { }
 
     @Override
     public void beginVisitConstant(Object value, Attribute.Type type) {
-
         String name = this.generateConstantName();
         this.placeholdersConstant.put(name, value);
         condition.append("[").append(name).append("]").append(InfluxDBTableConstants.WHITESPACE);
     }
 
     @Override
-    public void endVisitConstant(Object value, Attribute.Type type) {
-        //Not applicable
-    }
+    public void endVisitConstant(Object value, Attribute.Type type) { }
 
     @Override
     public void beginVisitMath(MathOperator mathOperator) {
-
         condition.append(InfluxDBTableConstants.OPEN_PARENTHESIS);
     }
 
     @Override
     public void endVisitMath(MathOperator mathOperator) {
-
         condition.append(InfluxDBTableConstants.CLOSE_PARENTHESIS);
     }
 
     @Override
     public void beginVisitMathLeftOperand(MathOperator mathOperator) {
-        //Not applicable
+
     }
 
     @Override
@@ -333,7 +289,7 @@ public class InfluxDBConditionVisitor extends BaseExpressionVisitor {
         //Not applicable
     }
 
-    private void parametrizeCondition() {
+    private void parameterizeCondition() {
 
         String query = this.condition.toString();
         String[] tokens = query.split("\\[");

@@ -69,7 +69,7 @@ public class InsertIntoInfluxDBTestCase {
         String streams = "" +
                 "define stream StockStream (symbol string, price float, volume long,time long); " +
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
-                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", database = \"" + DATABASE
+                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", influxdb.database = \"" + DATABASE
                 + "\")\n" +
                 "@Index(\"symbol\",\"time\")" +
                 "define table StockTable (symbol string, price float, volume long,time long); ";
@@ -97,7 +97,7 @@ public class InsertIntoInfluxDBTestCase {
         String streams = "" +
                 "define stream StockStream (symbol string, price float, volume long,time long); " +
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
-                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", database = \"" + DATABASE
+                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", influxdb.database = \"" + DATABASE
                 + "\")\n" +
                 "@Index(\"symbol\",\"price\",\"time\")" +
                 "define table StockTable (symbol string, price float, volume long,time long); ";
@@ -123,7 +123,7 @@ public class InsertIntoInfluxDBTestCase {
         String streams = "" +
                 "define stream StockStream (symbol string, price float, volume long); " +
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
-                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", database = \"" + DATABASE
+                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", influxdb.database = \"" + DATABASE
                 + "\")\n" +
                 "@Index(\"symbol\",\"time\")" +
                 "define table StockTable (symbol string, price float, volume long,time long); ";
@@ -150,7 +150,7 @@ public class InsertIntoInfluxDBTestCase {
         String streams = "" +
                 "define stream StockStream (symbol string, price float, volume long,time long); " +
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
-                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", database = \"" + DATABASE
+                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", influxdb.database = \"" + DATABASE
                 + "\")\n" +
                 "@Index(\"time\")" +
                 "define table StockTable (symbol string, price float, volume long,time long); ";
@@ -177,7 +177,7 @@ public class InsertIntoInfluxDBTestCase {
         String streams = "" +
                 "define stream StockStream (symbol string, price float, volume long,time string); " +
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
-                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", database = \"" + DATABASE
+                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", influxdb.database = \"" + DATABASE
                 + "\")\n" +
                 "@Index(\"symbol\",\"time\")" +
                 "define table StockTable (symbol string, price float, volume long,time string); ";

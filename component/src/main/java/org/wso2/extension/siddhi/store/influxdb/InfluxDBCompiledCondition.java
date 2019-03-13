@@ -40,18 +40,15 @@ public class InfluxDBCompiledCondition implements CompiledCondition {
 
     @Override
     public CompiledCondition cloneCompilation(String key) {
-
         return new InfluxDBCompiledCondition(this.compiledQuery, this.parameters,
                 this.parametersConstant);
     }
 
     public String getCompiledQuery() {
-
         return compiledQuery;
     }
 
     public SortedMap<Integer, Object> getParametersConstants() {
-
         return parametersConstant;
     }
 }

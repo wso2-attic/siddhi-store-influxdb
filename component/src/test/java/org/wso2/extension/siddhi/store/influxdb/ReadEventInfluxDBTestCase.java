@@ -79,7 +79,7 @@ public class ReadEventInfluxDBTestCase {
                 "define stream OutputStream (checkName string, checkCategory float, checkVolume long,checkTime long);" +
                 "\n" +
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
-                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", database = \"" + DATABASE
+                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", influxdb.database = \"" + DATABASE
                 + "\")\n" +
                 "@Index(\"symbol\")" +
                 "define table StockTable (symbol string, price float, volume long,time long);\n";
@@ -152,7 +152,7 @@ public class ReadEventInfluxDBTestCase {
                 "define stream OutputStream (checkName string, checkCategory float, checkVolume long,checkTime long);" +
                 "\n" +
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
-                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", database = \"" + DATABASE
+                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", influxdb.database = \"" + DATABASE
                 + "\")\n" +
                 "@Index(\"symbol\")" +
                 "define table StockTable (symbol string, price float, volume long,time long);\n";
@@ -204,7 +204,7 @@ public class ReadEventInfluxDBTestCase {
                 "define stream OutputStream (checkName string, checkCategory float, checkVolume long,checkTime long);" +
                 "\n" +
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
-                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", database = \"" + DATABASE
+                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", influxdb.database = \"" + DATABASE
                 + "\")\n" +
                 "@Index(\"symbol\")" +
                 "define table StockTable (symbol string, price float, volume long,time long);\n";
@@ -259,7 +259,7 @@ public class ReadEventInfluxDBTestCase {
                 "define stream OutputStream (checkName string, checkCategory float, checkVolume long,checkTime long);" +
                 "\n" +
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
-                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", database = \"" + DATABASE
+                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", influxdb.database = \"" + DATABASE
                 + "\")\n" +
                 "@Index(\"symbol\")" +
                 "define table StockTable (symbol string, price float, volume long,time long);\n";
@@ -314,7 +314,7 @@ public class ReadEventInfluxDBTestCase {
                 "define stream OutputStream (checkName string, checkPrice float, checkVolume long,checkTime long);" +
                 "\n" +
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
-                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", database = \"" + DATABASE
+                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", influxdb.database = \"" + DATABASE
                 + "\")\n" +
                 "@Index(\"symbol\")" +
                 "define table StockTable (symbol string, price float, volume long,time long);\n";
@@ -368,7 +368,7 @@ public class ReadEventInfluxDBTestCase {
                 "define stream OutputStream (checkName string, checkCategory float, checkVolume long,checkTime long);" +
                 "\n" +
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
-                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", database = \"" + DATABASE
+                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", influxdb.database = \"" + DATABASE
                 + "\")\n" +
                 "@Index(\"symbol\")" +
                 "define table StockTable (symbol string, price float, volume long,time long);\n";
@@ -423,7 +423,7 @@ public class ReadEventInfluxDBTestCase {
                 "define stream OutputStream (checkName string, checkCategory float, checkVolume long,checkTime long);" +
                 "\n" +
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
-                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", database = \"" + DATABASE
+                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", influxdb.database = \"" + DATABASE
                 + "\")\n" +
                 "@Index(\"symbol\")" +
                 "define table StockTable (symbol string, price float, volume long,time long);\n";

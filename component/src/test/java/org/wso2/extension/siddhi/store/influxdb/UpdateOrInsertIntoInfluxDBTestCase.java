@@ -70,7 +70,7 @@ public class UpdateOrInsertIntoInfluxDBTestCase {
                 "define stream StockStream (symbol string, price float, volume long,time long); " +
                 "define stream UpdateStockStream (symbol string, price float, volume long,time long); " +
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
-                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", database = \"" + DATABASE
+                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", influxdb.database = \"" + DATABASE
                 + "\")\n" +
                 "@Index(\"symbol\")" +
                 "define table StockTable (symbol string, price float, volume long,time long); ";
@@ -107,7 +107,7 @@ public class UpdateOrInsertIntoInfluxDBTestCase {
                 "define stream StockStream (symbol string, price float, volume long,time long); " +
                 "define stream UpdateStockStream (symbol string, price float, volume long,time long); " +
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
-                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", database = \"" + DATABASE
+                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", influxdb.database = \"" + DATABASE
                 + "\")\n" +
                 "@Index(\"symbol\")" +
                 "define table StockTable (symbol string, price float, volume long,time long); ";
@@ -141,7 +141,7 @@ public class UpdateOrInsertIntoInfluxDBTestCase {
                 "define stream StockStream (symbol string, price float, volume long,time long); " +
                 "define stream UpdateStockStream (symbol string, price float, volume long,time long); " +
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
-                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", database = \"" + DATABASE
+                "username=\"" + USERNAME + "\", password=\"" + PASSWORD + "\", influxdb.database = \"" + DATABASE
                 + "\")\n" +
                 "@Index(\"symbol\")" +
                 "define table StockTable (symbol string, price float, volume long,time long); ";

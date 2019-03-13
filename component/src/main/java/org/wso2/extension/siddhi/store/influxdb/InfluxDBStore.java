@@ -77,7 +77,7 @@ import static org.wso2.siddhi.core.util.SiddhiConstants.ANNOTATION_STORE;
 @Extension(
         name = "influxdb",
         namespace = "store",
-        description = "This extension assigns connection instructions to configure influxDB store. " +
+        description = "This extension connects to  influxDB store. " +
                 "It also implements read-write operations on connected influxDB database.",
         parameters = {
                 @Parameter(
@@ -97,36 +97,36 @@ import static org.wso2.siddhi.core.util.SiddhiConstants.ANNOTATION_STORE;
                         type = {DataType.STRING}
                 ),
                 @Parameter(
-                        name = "database",
-                        description = " The database to which the data should be entered. ",
+                        name = "influxdb.database",
+                        description = " The name of the InfluxDB database to which the data should be entered. ",
                         type = {DataType.STRING}
                 ),
                 @Parameter(
-                        name = "retention",
+                        name = "retention.policy",
                         description = " Describes how long InfluxDB keeps data. ",
                         optional = true,
                         defaultValue = "autogen",
                         type = {DataType.STRING}
-        ),
+                ),
                 @Parameter(name = "table.name",
-                        description = "The name with which the event table should be persisted in the store. If no " +
-                                "name is specified via this parameter, the event table is persisted with the same " +
-                                "name as the Siddhi table.",
+                        description = "The name with which the siddhi store  should be persisted in the InfluxDB " +
+                                "database. If no name is specified via this parameter, the store is persisted in " +
+                                "InfluxDB database with the same name define in the table definition of siddhi app.",
                         type = {DataType.STRING},
                         optional = true,
                         defaultValue = "The table name defined in the Siddhi App query."),
         },
         examples = {
                 @Example(
-                        syntax = " @Store(type = \"influxdb\",\n" +
+                        syntax = " @Store (type = \"influxdb\",\n" +
                                 "   url = \"http://localhost:8086\",\n" +
                                 "   username = \"root\",\n" +
                                 "   password = \"root\" ,\n" +
                                 "   database =\"aTimeSeries\")\n" +
-                                "@Index(\"symbol\",\"time\")\n" +
-                                "define table StockTable(symbol string,volume long,price float,time long) ;\n" +
+                                "@Index (\"symbol\",\"time\")\n" +
+                                "define table StockTable (symbol string,volume long,price float,time long) ;\n" +
                                 "define stream StockStream (symbol string,volume long,price float);" +
-                                "@info(name='query2') " +
+                                "@info (name='query2') " +
                                 "from StockStream\n" +
                                 "select symbol,price,volume,currentTimeMillis() as time\n" +
                                 "insert into StockTable ;",
@@ -137,15 +137,15 @@ import static org.wso2.siddhi.core.util.SiddhiConstants.ANNOTATION_STORE;
                                 "the current time of the siddhi application."
                 ),
                 @Example(
-                        syntax = " @Store(type = \"influxdb\",\n" +
+                        syntax = " @Store (type = \"influxdb\",\n" +
                                 "   url = \"http://localhost:8086\",\n" +
                                 "   username = \"root\",\n" +
                                 "   password = \"root\" ,\n" +
                                 "   database =\"aTimeSeries\")\n" +
-                                "@Index(\"symbol\",\"time\")\n" +
-                                "define table StockTable(symbol string,volume long,price float,time long) ;\n" +
+                                "@Index (\"symbol\",\"time\")\n" +
+                                "define table StockTable (symbol string,volume long,price float,time long) ;\n" +
                                 "define stream StockStream (symbol string,volume long,price float,time long);\n" +
-                                "@info(name = 'query1')  \n" +
+                                "@info (name = 'query1')  \n" +
                                 "from StockStream \n" +
                                 "select symbol,  volume, price, time\n" +
                                 "insert into StockTable ;",
@@ -156,14 +156,14 @@ import static org.wso2.siddhi.core.util.SiddhiConstants.ANNOTATION_STORE;
 
                 ),
                 @Example(
-                        syntax = " @Store(type = \"influxdb\",\n" +
+                        syntax = " @Store (type = \"influxdb\",\n" +
                                 "   url = \"http://localhost:8086\",\n" +
                                 "   username = \"root\",\n" +
                                 "   password = \"root\" ,\n" +
                                 "   database =\"aTimeSeries\")\n" +
-                                "@Index(\"symbol\",\"time\")\n" +
+                                "@Index (\"symbol\",\"time\")\n" +
                                 "define table StockTable(symbol string,volume long,price float,time long) ;\n" +
-                                "@info(name = 'query4')\n" +
+                                "@info (name = 'query4')\n" +
                                 "from ReadStream#window.length(1) join StockTable on " +
                                 "StockTable.symbol==ReadStream.symbols \n" +
                                 "select StockTable.symbol as checkName, StockTable.price as checkCategory,\n" +
@@ -178,9 +178,9 @@ import static org.wso2.siddhi.core.util.SiddhiConstants.ANNOTATION_STORE;
         }
 )
 
-public class InfluxDBEventTable extends AbstractQueryableRecordTable {
+public class InfluxDBStore extends AbstractQueryableRecordTable {
 
-    private static final Log log = LogFactory.getLog(InfluxDBEventTable.class);
+    private static final Log log = LogFactory.getLog(InfluxDBStore.class);
     private String tableName;
     private String database;
     private String url;
@@ -202,7 +202,6 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
      */
     @Override
     protected void init(TableDefinition tableDefinition, ConfigReader configReader) {
-
         this.attributeNames =
                 tableDefinition.getAttributeList().stream().map(Attribute::getName).
                         collect(Collectors.toList());
@@ -217,19 +216,19 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
         this.tableName = InfluxDBTableUtils.isEmpty(tableName) ? tableDefinition.getId() : tableName;
         if (InfluxDBTableUtils.isEmpty(url)) {
             throw new SiddhiAppCreationException("Required parameter '" + ANNOTATION_ELEMENT_URL + "' for DB " +
-                    "connectivity cannot be empty" + "for creating table : " + this.tableName);
+                    "connectivity cannot be empty" + " for creating table : " + this.tableName);
         }
         if (InfluxDBTableUtils.isEmpty(username)) {
             throw new SiddhiAppCreationException("Required parameter '" + ANNOTATION_ELEMENT_USERNAME + "' for DB " +
-                    "connectivity cannot be empty" + "for creating table : " + this.tableName);
+                    "connectivity cannot be empty" + " for creating table : " + this.tableName);
         }
         if (InfluxDBTableUtils.isEmpty(password)) {
             throw new SiddhiAppCreationException("Required parameter '" + ANNOTATION_ELEMENT_PASSWORD + "' for DB " +
-                    "connectivity cannot be empty " + "for creating table : " + this.tableName);
+                    "connectivity cannot be empty " + " for creating table : " + this.tableName);
         }
         if (InfluxDBTableUtils.isEmpty(database)) {
             throw new SiddhiAppCreationException("Required parameter '" + ANNOTATION_ELEMENT_DATABASE + "'for DB "
-                    + "connectivity cannot be empty " + "for creating table : " + this.tableName);
+                    + "connectivity cannot be empty " + " for creating table : " + this.tableName);
         }
         if (!InfluxDBTableUtils.validateTimeAttribute(attributeNames)) {
             throw new SiddhiAppCreationException("time attribute cannot be empty in table definition of table : "
@@ -257,7 +256,6 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
      */
     @Override
     protected void add(List<Object[]> records) {
-
         try {
             this.writePoints(records);
         } catch (InfluxDBException e) {
@@ -276,7 +274,6 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
     @Override
     protected RecordIterator<Object[]> find(Map<String, Object> findConditionParameterMap,
                                             CompiledCondition compiledCondition) {
-
         InfluxDBCompiledCondition influxCompiledCondition = (InfluxDBCompiledCondition) compiledCondition;
         String condition = influxCompiledCondition.getCompiledQuery();
         Map<Integer, Object> constantMap = influxCompiledCondition.getParametersConstants();
@@ -300,7 +297,6 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
     @Override
     protected boolean contains(Map<String, Object> containsConditionParameterMap,
                                CompiledCondition compiledCondition) {
-
         InfluxDBCompiledCondition influxCompiledCondition = (InfluxDBCompiledCondition) compiledCondition;
         String condition = influxCompiledCondition.getCompiledQuery();
         Map<Integer, Object> constantMap = influxCompiledCondition.getParametersConstants();
@@ -326,28 +322,27 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
      **/
     @Override
     protected void delete(List<Map<String, Object>> deleteConditionParameterMaps, CompiledCondition compiledCondition) {
-
         InfluxDBCompiledCondition influxCompiledCondition = (InfluxDBCompiledCondition) compiledCondition;
         String condition = influxCompiledCondition.getCompiledQuery();
         Map<Integer, Object> constantMap = influxCompiledCondition.getParametersConstants();
-        String findCondition;
-        influxdb.setDatabase(database);
+        StringBuilder findCondition = new StringBuilder();
         Query query;
         try {
-            StringBuilder lines = new StringBuilder();
-            lines.append(DELETE_QUERY).append(this.tableName).append(INFLUXQL_WHERE);
-            findCondition = lines.toString();
-            for (Map<String, Object> map : deleteConditionParameterMaps) {
-                for (Map.Entry<String, Object> entry : map.entrySet()) {
-                    condition = condition.replaceFirst(Pattern.quote("?"), entry.getValue().toString());
+            findCondition.append(DELETE_QUERY).append(this.tableName);
+            if (!condition.equals("'*'")) {
+                findCondition.append(INFLUXQL_WHERE);
+                for (Map<String, Object> map : deleteConditionParameterMaps) {
+                    for (Map.Entry<String, Object> entry : map.entrySet()) {
+                        condition = condition.replaceFirst(Pattern.quote("?"), entry.getValue().toString());
+                    }
+                }
+                for (Map.Entry<Integer, Object> entry : constantMap.entrySet()) {
+                    Object constant = entry.getValue();
+                    condition = condition.replaceFirst(Pattern.quote("*"), constant.toString());
                 }
             }
-            for (Map.Entry<Integer, Object> entry : constantMap.entrySet()) {
-                Object myObject = entry.getValue();
-                condition = condition.replaceFirst(Pattern.quote("*"), myObject.toString());
-            }
-            findCondition = findCondition + condition;
-            query = new Query(findCondition, database);
+            findCondition.append(condition);
+            query = new Query(findCondition.toString(), database);
             influxdb.query(query);
         } catch (InfluxDBException e) {
             throw new InfluxDBTableException("Error deleting records from table '" + this.tableName + "': "
@@ -359,7 +354,6 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
     protected void update(CompiledCondition compiledCondition, List<Map<String, Object>> list,
                           Map<String, CompiledExpression> map, List<Map<String, Object>> list1)
             throws ConnectionUnavailableException {
-
         log.error("update operation is not defined for influxDB store implementation");
     }
 
@@ -377,7 +371,6 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
     protected void updateOrAdd(CompiledCondition compiledCondition, List<Map<String, Object>> list,
                                Map<String, CompiledExpression> map, List<Map<String, Object>> listToAdd,
                                List<Object[]> listToUpdate) {
-
         try {
             this.writePoints(listToUpdate);
         } catch (InfluxDBException e) {
@@ -395,7 +388,6 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
      */
     @Override
     protected CompiledCondition compileCondition(ExpressionBuilder expressionBuilder) {
-
         InfluxDBConditionVisitor visitor = new InfluxDBConditionVisitor();
         expressionBuilder.build(visitor);
         return new InfluxDBCompiledCondition(visitor.returnCondition(), visitor.getParameters(),
@@ -411,7 +403,6 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
      */
     @Override
     protected CompiledExpression compileSetAttribute(ExpressionBuilder expressionBuilder) {
-
         return compileCondition(expressionBuilder);
     }
 
@@ -424,7 +415,6 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
      */
     @Override
     protected void connect() throws ConnectionUnavailableException {
-
         try {
             influxdb = InfluxDBFactory.connect(url, username, password);
             if (!this.checkDatabaseExists(database)) {
@@ -441,7 +431,8 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
             throw new ConnectionUnavailableException("failed to initialize influxDB store " + e.getMessage(), e);
         } catch (InfluxDBException.AuthorizationFailedException e) {
             connected = false;
-            throw new InfluxDBTableException("wrong url or username " + e.getMessage(), e);
+            throw new InfluxDBTableException("Either provided  username :" + username +
+                    " or  password : " + password + " is incorrect " + e.getMessage(), e);
         }
     }
 
@@ -461,45 +452,34 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
 
     public QueryResult getSelectQueryResult(Map<String, Object> selectConditionParameterMap,
                                             String condition, Map<Integer, Object> constantMap) {
-
-        String findCondition;
-        influxdb.setDatabase(database);
         Query query;
-        QueryResult queryResult;
-        StringBuilder line = new StringBuilder();
-        line.append(SELECT_QUERY).append(this.tableName);
-        if (condition.equals("'*'")) {
-            findCondition = line.toString();
-        } else {
-            line.append(INFLUXQL_WHERE);
+        StringBuilder findCondition = new StringBuilder();
+        findCondition.append(SELECT_QUERY).append(this.tableName);
+        if (!condition.equals("'*'")) {
+            findCondition.append(INFLUXQL_WHERE);
             for (Map.Entry<String, Object> entry : selectConditionParameterMap.entrySet()) {
-                Object myObject = entry.getValue();
-                if (myObject instanceof String) {
-                    condition = condition.replaceFirst(Pattern.quote("?"), myObject.toString());
+                Object streamVariable = entry.getValue();
+                if (streamVariable instanceof String) {
+                    condition = condition.replaceFirst(Pattern.quote("?"), streamVariable.toString());
                 } else {
-                    condition = condition.replaceFirst(Pattern.quote("'?'"), myObject.toString());
+                    condition = condition.replaceFirst(Pattern.quote("'?'"), streamVariable.toString());
                 }
             }
             for (Map.Entry<Integer, Object> entry : constantMap.entrySet()) {
-                Object myObject = entry.getValue();
-                if (myObject instanceof String) {
-                    condition = condition.replaceFirst(Pattern.quote("*"), myObject.toString());
+                Object constant = entry.getValue();
+                if (constant instanceof String) {
+                    condition = condition.replaceFirst(Pattern.quote("*"), constant.toString());
                 } else {
-                    condition = condition.replaceFirst(Pattern.quote("'*'"), myObject.toString());
+                    condition = condition.replaceFirst(Pattern.quote("'*'"), constant.toString());
                 }
             }
-            findCondition = line.toString();
-            findCondition = findCondition + condition;
+            findCondition.append(condition);
         }
-        influxdb.setDatabase(database);
-        query = new Query(findCondition, database);
-        influxdb.query(query);
-        queryResult = influxdb.query(query);
-        return queryResult;
+        query = new Query(findCondition.toString(), database);
+        return influxdb.query(query);
     }
 
     public void writePoints(List<Object[]> list) {
-
         for (Object[] record : list) {
             Map<String, String> insertTagMap = InfluxDBTableUtils.mapTagValuesToAttributes(record,
                     this.attributeNames, this.tagPositions);
@@ -507,7 +487,6 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
                     this.attributeNames, this.tagPositions);
             long times = InfluxDBTableUtils.mapTimeToAttributeValue(record, this.tableName,
                     this.timePosition);
-            influxdb.setDatabase(database);
             BatchPoints batchPoints = BatchPoints.database(database).build();
             Point point = Point.measurement(tableName)
                     .time(times, TimeUnit.MILLISECONDS)
@@ -520,7 +499,6 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
     }
 
     public boolean checkDatabaseExists(String dbName) {
-
         boolean isExists = false;
         int index = 0;
         Query query = new Query("SHOW DATABASES", database);
@@ -543,53 +521,48 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
     protected RecordIterator<Object[]> query(Map<String, Object> parameterMap, CompiledCondition compiledCondition,
                                              CompiledSelection compiledSelection, Attribute[] outputAttributes)
             throws ConnectionUnavailableException {
-
         InfluxDBCompiledSelection influxDBCompiledSelection = (InfluxDBCompiledSelection) compiledSelection;
         InfluxDBCompiledCondition influxDBCompiledCondition = (InfluxDBCompiledCondition) compiledCondition;
         Map<Integer, Object> consMap = influxDBCompiledCondition.getParametersConstants();
-        Query query1;
-        QueryResult queryResult;
+        Query queryInflux;
         String query = getSelectQuery(influxDBCompiledCondition, influxDBCompiledSelection, parameterMap, consMap);
         try {
-            query1 = new Query(query, database);
+            queryInflux = new Query(query, database);
         } catch (InfluxDBException e) {
             throw new InfluxDBTableException("Error when preparing to execute query: '" + query
-                    + "' in '" + this.tableName + "' store: " + e.getMessage(), e);
+                    + "' in store '" + this.tableName + "' : " + e.getMessage(), e);
         }
         try {
-            queryResult = influxdb.query(query1);
-            return new InfluxDBIterator(queryResult);
+            return new InfluxDBIterator(influxdb.query(queryInflux));
         } catch (InfluxDBException e) {
             throw new InfluxDBTableException("Error when executing query: '" + query
-                    + "' in '" + this.tableName + "' store: " + e.getMessage(), e);
+                    + "' in store '" + this.tableName + "' : " + e.getMessage(), e);
         }
     }
 
     private String getSelectQuery(InfluxDBCompiledCondition influxDBCompiledCondition, InfluxDBCompiledSelection
             influxDBCompiledSelection, Map<String, Object> parameterMap, Map<Integer, Object> constantMap) {
-
         String selectors = influxDBCompiledSelection.getCompiledSelectClause().getCompiledQuery();
         String condition = influxDBCompiledCondition.getCompiledQuery();
         StringBuilder selectQuery = new StringBuilder("select ");
         selectQuery.append(selectors)
                 .append(" from ").append(this.tableName);
-        if (condition.equals("'*'")) {
-        } else {
+        if (!condition.equals("'*'")) {
             selectQuery.append(INFLUXQL_WHERE);
             for (Map.Entry<String, Object> entry : parameterMap.entrySet()) {
-                Object myObject = entry.getValue();
-                if (myObject instanceof String) {
-                    condition = condition.replaceFirst(Pattern.quote("?"), myObject.toString());
+                Object streamVariable = entry.getValue();
+                if (streamVariable instanceof String) {
+                    condition = condition.replaceFirst(Pattern.quote("?"), streamVariable.toString());
                 } else {
-                    condition = condition.replaceFirst(Pattern.quote("'?'"), myObject.toString());
+                    condition = condition.replaceFirst(Pattern.quote("'?'"), streamVariable.toString());
                 }
             }
             for (Map.Entry<Integer, Object> entry : constantMap.entrySet()) {
-                Object myObject = entry.getValue();
-                if (myObject instanceof String) {
-                    condition = condition.replaceFirst(Pattern.quote("*"), myObject.toString());
+                Object constant = entry.getValue();
+                if (constant instanceof String) {
+                    condition = condition.replaceFirst(Pattern.quote("*"), constant.toString());
                 } else {
-                    condition = condition.replaceFirst(Pattern.quote("'*'"), myObject.toString());
+                    condition = condition.replaceFirst(Pattern.quote("'*'"), constant.toString());
                 }
             }
             selectQuery.append(condition);
@@ -607,8 +580,8 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
         }
         InfluxDBCompiledCondition compiledHavingClause = influxDBCompiledSelection.getCompiledHavingClause();
         if (compiledHavingClause != null) {
-            log.error("Having clause is defined in the query for " + this.tableName +
-                    " But it is not defined for influxDB store implementation  ");
+            throw new InfluxDBTableException("Having clause is defined in the query for " + this.tableName +
+                   " But it is not defined for influxDB store implementation  ");
         }
         return selectQuery.toString();
     }
@@ -619,7 +592,6 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
                                                  ExpressionBuilder havingExpressionBuilder,
                                                  List<OrderByAttributeBuilder> orderByAttributeBuilders, Long limit,
                                                  Long offset) {
-
         return new InfluxDBCompiledSelection(
                 compileSelectClause(selectAttributeBuilders),
                 (groupByExpressionBuilder == null) ? null : compileClause(groupByExpressionBuilder),
@@ -630,7 +602,6 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
     }
 
     private InfluxDBCompiledCondition compileSelectClause(List<SelectAttributeBuilder> selectAttributeBuilders) {
-
         StringBuilder compiledSelectionList = new StringBuilder();
         SortedMap<Integer, Object> paramMap = new TreeMap<>();
         SortedMap<Integer, Object> paramCons = new TreeMap<>();
@@ -731,3 +702,4 @@ public class InfluxDBEventTable extends AbstractQueryableRecordTable {
         return new InfluxDBCompiledCondition(compiledSelectionList.toString(), paramMap, null);
     }
 }
+

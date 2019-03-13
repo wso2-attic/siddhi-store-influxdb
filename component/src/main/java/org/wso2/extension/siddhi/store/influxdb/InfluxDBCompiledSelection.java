@@ -46,38 +46,31 @@ public class InfluxDBCompiledSelection implements CompiledSelection {
 
     @Override
     public CompiledSelection cloneCompilation(String s) {
-
         return new InfluxDBCompiledSelection(compiledSelectClause, compiledGroupByClause, compiledHavingClause,
                 compiledOrderByClause, limit, offset);
     }
 
     public InfluxDBCompiledCondition getCompiledSelectClause() {
-
         return compiledSelectClause;
     }
 
     public InfluxDBCompiledCondition getCompiledGroupByClause() {
-
         return compiledGroupByClause;
     }
 
     public InfluxDBCompiledCondition getCompiledHavingClause() {
-
         return compiledHavingClause;
     }
 
     public InfluxDBCompiledCondition getCompiledOrderByClause() {
-
         return compiledOrderByClause;
     }
 
     public Long getLimit() {
-
         return limit;
     }
 
     public Long getOffset() {
-
         return offset;
     }
 }
