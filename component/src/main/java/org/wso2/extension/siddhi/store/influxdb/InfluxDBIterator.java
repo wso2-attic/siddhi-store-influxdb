@@ -37,7 +37,6 @@ public class InfluxDBIterator implements RecordIterator<Object[]> {
     private List<QueryResult.Series> resultSeries;
 
     public InfluxDBIterator(QueryResult queryResult) {
-
         this.queryResult = queryResult;
         if (queryResult.getResults().get(0).getSeries() != null) {
             this.resultSeries = queryResult.getResults().get(0).getSeries();
@@ -49,7 +48,6 @@ public class InfluxDBIterator implements RecordIterator<Object[]> {
 
     @Override
     public boolean hasNext() {
-
         this.result = queryResult.getResults().get(0).getSeries().get(indexSeries).getValues();
         if (result == null) {
             return false;
@@ -62,7 +60,6 @@ public class InfluxDBIterator implements RecordIterator<Object[]> {
 
     @Override
     public Object[] next() {
-
         if (this.hasNext()) {
             return extractRecord(this.queryResult);
         } else {
@@ -75,7 +72,6 @@ public class InfluxDBIterator implements RecordIterator<Object[]> {
      * according to the table's field type order.
      */
     private Object[] extractRecord(QueryResult queryResult) throws InfluxDBException {
-
         List<Object> record = queryResult
                 .getResults()
                 .get(0)
@@ -94,7 +90,5 @@ public class InfluxDBIterator implements RecordIterator<Object[]> {
     }
 
     @Override
-    public void close() throws IOException {
-
-    }
+    public void close() throws IOException { }
 }

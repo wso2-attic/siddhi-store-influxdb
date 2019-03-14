@@ -438,7 +438,6 @@ public class InfluxDBStore extends AbstractQueryableRecordTable {
 
     @Override
     protected void disconnect() {
-
         if (connected) {
             this.influxdb.close();
         }
@@ -446,7 +445,6 @@ public class InfluxDBStore extends AbstractQueryableRecordTable {
 
     @Override
     protected void destroy() {
-
         this.disconnect();
     }
 
