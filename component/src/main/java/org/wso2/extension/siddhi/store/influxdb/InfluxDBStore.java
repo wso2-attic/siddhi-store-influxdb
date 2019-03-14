@@ -354,7 +354,7 @@ public class InfluxDBStore extends AbstractQueryableRecordTable {
     protected void update(CompiledCondition compiledCondition, List<Map<String, Object>> list,
                           Map<String, CompiledExpression> map, List<Map<String, Object>> list1)
             throws ConnectionUnavailableException {
-        log.error("update operation is not defined for influxDB store implementation");
+        log.error("update operation is not defined for influxDB store implementation for " + this.tableName);
     }
 
     /**
@@ -432,7 +432,7 @@ public class InfluxDBStore extends AbstractQueryableRecordTable {
         } catch (InfluxDBException.AuthorizationFailedException e) {
             connected = false;
             throw new InfluxDBTableException("Either provided  username :" + username +
-                    " or  password : " + password + " is incorrect " + e.getMessage(), e);
+                    " or password "  + " is incorrect " + e.getMessage(), e);
         }
     }
 
