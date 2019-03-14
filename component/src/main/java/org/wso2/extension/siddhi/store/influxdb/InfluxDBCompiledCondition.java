@@ -32,7 +32,6 @@ public class InfluxDBCompiledCondition implements CompiledCondition {
 
     public InfluxDBCompiledCondition(String compiledQuery, SortedMap<Integer, Object> parameters,
                                      SortedMap<Integer, Object> parametersConstant) {
-
         this.compiledQuery = compiledQuery;
         this.parameters = parameters;
         this.parametersConstant = parametersConstant;

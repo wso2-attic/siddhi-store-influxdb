@@ -31,7 +31,6 @@ public class InfluxDBTableUtils {
     }
 
     public static boolean isEmpty(String field) {
-
         return (field == null || field.trim().length() == 0);
     }
 
@@ -40,7 +39,6 @@ public class InfluxDBTableUtils {
      */
     public static Map<String, String> mapTagValuesToAttributes(Object[] record, List<String> attributeNames,
                                                                List<Integer> tagPositions) {
-
         Map<String, String> attributesValuesMap = new HashMap<>();
         for (int i = 0; i < record.length; i++) {
             for (int j = 0; j < tagPositions.size(); j++) {
@@ -62,7 +60,6 @@ public class InfluxDBTableUtils {
      */
     public static Map<String, Object> mapFieldValuesToAttributes(Object[] record, List<String> attributeNames,
                                                                  List<Integer> tagPositions) {
-
         Map<String, Object> attributesValuesMap = new HashMap<>();
         int count;
         for (int i = 0; i < record.length; i++) {
@@ -89,7 +86,6 @@ public class InfluxDBTableUtils {
      */
     public static long mapTimeToAttributeValue(Object[] record, String tableName,
                                                int timePositions) {
-
         String time = "";
         try {
             for (int i = 0; i < record.length; i++) {
@@ -106,7 +102,6 @@ public class InfluxDBTableUtils {
     }
 
     public static boolean validateTimeAttribute(List<String> attributeNames) {
-
         boolean timeExist = false;
         for (int i = 0; i < attributeNames.size(); i++) {
             if (attributeNames.get(i).equals("time")) {

@@ -26,12 +26,10 @@ import org.wso2.siddhi.core.exception.SiddhiAppRuntimeException;
 public class InfluxDBTableException extends SiddhiAppRuntimeException {
 
     public InfluxDBTableException(String message) {
-
         super(message);
     }
 
     public InfluxDBTableException(String message, Throwable throwable) {
-
         super(message, throwable);
     }
 }

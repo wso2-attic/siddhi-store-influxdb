@@ -431,7 +431,7 @@ public class InfluxDBStore extends AbstractQueryableRecordTable {
             throw new ConnectionUnavailableException("failed to initialize influxDB store " + e.getMessage(), e);
         } catch (InfluxDBException.AuthorizationFailedException e) {
             connected = false;
-            throw new InfluxDBTableException("Either provided  username :" + username +
+            throw new InfluxDBTableException("Either provided  username : " + username +
                     " or password "  + " is incorrect " + e.getMessage(), e);
         }
     }
