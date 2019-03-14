@@ -47,19 +47,16 @@ public class ReadEventInfluxDBTestCase {
 
     @BeforeClass
     public static void startTest() {
-
         log.info("==InfluxDB Table READ tests started ==");
     }
 
     @AfterClass
     public static void shutdown() {
-
         log.info("== InfluxDB Table READ tests completed ==");
     }
 
     @BeforeMethod
     public void init() {
-
         try {
             removeEventCount = 0;
             InfluxDBTestUtils.initDatabaseTable(TABLE_NAME);

@@ -41,19 +41,16 @@ public class DeleteFromInfluxDBTestCase {
 
     @BeforeClass
     public static void startTest() {
-
         log.info("== InfluxDB Table DELETE tests started ==");
     }
 
     @AfterClass
     public static void shutdown() {
-
         log.info("== InfluxDB Table DELETE tests completed ==");
     }
 
     @BeforeMethod
     public void init() {
-
         try {
             InfluxDBTestUtils.initDatabaseTable(TABLE_NAME);
         } catch (InfluxDBException e) {
@@ -63,7 +60,6 @@ public class DeleteFromInfluxDBTestCase {
 
     @Test(description = "Delete From InfluxDBTable successfully test1")
     public void deleteFromInfluxDBTableTestWithSingleCondition() throws InterruptedException, InfluxDBException {
-
         log.info("deleteFromTableTestWithSingleCondition");
         SiddhiManager siddhiManager = new SiddhiManager();
         String streams = "" +
@@ -100,7 +96,6 @@ public class DeleteFromInfluxDBTestCase {
 
     @Test(description = "Delete From InfluxDB Table successfully test2")
     public void deleteFromTableTestWithSingleCondition() throws InterruptedException, InfluxDBException {
-
         log.info("deleteFromTableTestWithSingleCondition");
         SiddhiManager siddhiManager = new SiddhiManager();
         String streams = "" +
@@ -138,7 +133,6 @@ public class DeleteFromInfluxDBTestCase {
 
     @Test(description = "Delete From influxDB table successfully test3")
     public void deleteFromInfluxDBTableTest() throws InterruptedException, InfluxDBException {
-
         log.info("deleteFromInfluxDBTableTest");
         SiddhiManager siddhiManager = new SiddhiManager();
         String streams = "" +

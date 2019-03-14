@@ -52,19 +52,16 @@ public class ContainsInInfluxDBTestCase {
 
     @BeforeClass
     public static void startTest() {
-
         log.info("==InfluxDB Table contains tests started ==");
     }
 
     @AfterClass
     public static void shutdown() {
-
         log.info("== InfluxDB Table contains tests completed ==");
     }
 
     @BeforeMethod
     public void init() {
-
         try {
             inEventCount = 0;
             eventArrived = false;
@@ -76,7 +73,6 @@ public class ContainsInInfluxDBTestCase {
 
     @Test(description = "Test contains with one condition.")
     public void containsCheckTestWithSingleCondition() throws InterruptedException, InfluxDBException {
-
         log.info("containsCheckTestWithSingleCondition");
         SiddhiManager siddhiManager = new SiddhiManager();
         String streams = "" +
@@ -137,7 +133,6 @@ public class ContainsInInfluxDBTestCase {
 
     @Test(description = "Test contains with two conditions.")
     public void containsCheckTestWithTwoConditions() throws InterruptedException, InfluxDBException {
-
         log.info("containsCheckTestWithTwoConditions");
         SiddhiManager siddhiManager = new SiddhiManager();
         String streams = "" +
@@ -163,7 +158,6 @@ public class ContainsInInfluxDBTestCase {
         siddhiAppRuntime.addCallback("query2", new QueryCallback() {
             @Override
             public void receive(long l, Event[] events, Event[] events1) {
-
                 EventPrinter.print(l, events, events1);
                 if (events != null) {
                     eventArrived = true;
@@ -198,7 +192,6 @@ public class ContainsInInfluxDBTestCase {
 
     @Test(description = "Testing with already defined outputstream.")
     public void containsCheckTestWithDefinedStream() throws InterruptedException, InfluxDBException {
-
         log.info("containsCheckTestWithDefinedStream");
         SiddhiManager siddhiManager = new SiddhiManager();
         String streams = "" +
@@ -226,7 +219,6 @@ public class ContainsInInfluxDBTestCase {
         siddhiAppRuntime.addCallback("query2", new QueryCallback() {
             @Override
             public void receive(long l, Event[] events, Event[] events1) {
-
                 EventPrinter.print(l, events, events1);
                 if (events != null) {
                     eventArrived = true;

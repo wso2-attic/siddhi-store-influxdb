@@ -42,19 +42,16 @@ public class DefineInfluxDBTableTestCase {
 
     @BeforeClass
     public static void startTest() {
-
         log.info("== InfluxDB table definition Test started ==");
     }
 
     @AfterClass
     public static void shutdown() {
-
         log.info("== InfluxDB table definition Test started ==");
     }
 
     @BeforeMethod
     public void init() {
-
         try {
             InfluxDBTestUtils.initDatabaseTable(TABLE_NAME);
         } catch (InfluxDBException e) {
@@ -64,7 +61,6 @@ public class DefineInfluxDBTableTestCase {
 
     @Test(testName = "influxDBTableCreationTest", description = "Testing table creation. ")
     public void influxDBTableCreationTest() throws InterruptedException, InfluxDBException {
-
         log.info("InfluxDBTableCreationTest");
         SiddhiManager siddhiManager = new SiddhiManager();
         String streams = "" +
@@ -91,7 +87,6 @@ public class DefineInfluxDBTableTestCase {
 
     @Test(expectedExceptions = SiddhiAppCreationException.class, description = "testing without defining url value")
     public void influxDBTableDefinitionWithoutUrlTest() {
-
         log.info("InfluxDBTableDefinitionWithoutUrlTest");
         SiddhiManager siddhiManager = new SiddhiManager();
         String streams = "" +
@@ -113,7 +108,6 @@ public class DefineInfluxDBTableTestCase {
 
     @Test(expectedExceptions = SiddhiAppCreationException.class, description = "testing without defining username")
     public void influxDBTableWithoutUsernameTest() {
-
         log.info("InfluxDBTableDefinitionWithoutUsernameTest");
         SiddhiManager siddhiManager = new SiddhiManager();
         String streams = "" +
@@ -135,7 +129,6 @@ public class DefineInfluxDBTableTestCase {
 
     @Test(expectedExceptions = SiddhiAppCreationException.class, description = "testing without defining password")
     public void influxDBTableCreationWithoutPasswordTest() {
-
         log.info("influxDBTableCreationWithoutPasswordTest");
         SiddhiManager siddhiManager = new SiddhiManager();
         String streams = "" +
@@ -157,7 +150,6 @@ public class DefineInfluxDBTableTestCase {
 
     @Test(expectedExceptions = SiddhiAppCreationException.class, description = "Testing without defining database name")
     public void influxDBTableCreationWithoutDatabaseTest() {
-
         log.info("InfluxDBTableCreationWithoutDatabaseTest");
         SiddhiManager siddhiManager = new SiddhiManager();
         String streams = "" +
@@ -179,7 +171,6 @@ public class DefineInfluxDBTableTestCase {
 
     @Test(description = "testing with incorrect value for url")
     public void influxDBTablWithIncorrectUrlTest() {
-
         log.info("InfluxDBTablWithIncorrectUrlTest");
         SiddhiManager siddhiManager = new SiddhiManager();
         String streams = "" +
@@ -201,7 +192,6 @@ public class DefineInfluxDBTableTestCase {
 
     @Test(description = "Testing with incorrect username")
     public void influxDBTableWithIncorrectUsernameTest() throws InterruptedException, InfluxDBException {
-
         log.info("InfluxDBTableWithIncorrectUsernameTest");
         SiddhiManager siddhiManager = new SiddhiManager();
         String streams = "" +
@@ -219,7 +209,6 @@ public class DefineInfluxDBTableTestCase {
 
     @Test(description = "Testing with incorrect password")
     public void influxDBTableDefinitionWithIncorrectPasswordTest() throws InfluxDBException {
-
         log.info("influxDBTableDefinitionWithIncorrectPasswordTest");
         SiddhiManager siddhiManager = new SiddhiManager();
         String streams = "" +
@@ -236,7 +225,6 @@ public class DefineInfluxDBTableTestCase {
 
     @Test(description = "Testing with non existing database ")
     public void tableDefinitionWithNonExistingDatabaseTest() throws InfluxDBException {
-
         log.info("tableDefinitionWithNonExistingDatabaseTest");
         SiddhiManager siddhiManager = new SiddhiManager();
         String streams = "" +

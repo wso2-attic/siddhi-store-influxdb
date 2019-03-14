@@ -34,12 +34,9 @@ public class InfluxDBTestUtils {
     public static final String USERNAME = "root";
     private static final Log log = LogFactory.getLog(InfluxDBTestUtils.class);
 
-    private InfluxDBTestUtils() {
-
-    }
+    private InfluxDBTestUtils() { }
 
     public static void initDatabaseTable(String tableName) throws InfluxDBException {
-
         Query query;
         try {
             InfluxDB influxdb = InfluxDBFactory.connect(URL, USERNAME, PASSWORD);
@@ -51,7 +48,6 @@ public class InfluxDBTestUtils {
     }
 
     public static Integer getPointsCount(String tableName) {
-
         InfluxDB influxDB = InfluxDBFactory.connect(URL, USERNAME, PASSWORD);
         Query query1 = new Query("select count(volume) from " + TABLE_NAME, DATABASE);
         QueryResult queryResult1 = influxDB.query(query1);

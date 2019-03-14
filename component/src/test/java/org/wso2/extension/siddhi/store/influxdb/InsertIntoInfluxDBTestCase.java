@@ -41,19 +41,16 @@ public class InsertIntoInfluxDBTestCase {
 
     @BeforeClass
     public static void startTest() {
-
         log.info("== InfluxDB Table INSERT tests started ==");
     }
 
     @AfterClass
     public static void shutdown() {
-
         log.info("==InfluxDB Table INSERT tests completed ==");
     }
 
     @BeforeMethod
     public void init() {
-
         try {
             InfluxDBTestUtils.initDatabaseTable(TABLE_NAME);
         } catch (InfluxDBException e) {
@@ -63,7 +60,6 @@ public class InsertIntoInfluxDBTestCase {
 
     @Test(description = "Testing insertion with single tag key")
     public void insertIntoTableWithSingleTagKeyTest() throws InterruptedException, InfluxDBException {
-
         log.info("insertIntoTableWithSingleTagKeyTest");
         SiddhiManager siddhiManager = new SiddhiManager();
         String streams = "" +
@@ -91,7 +87,6 @@ public class InsertIntoInfluxDBTestCase {
 
     @Test(description = "Testing insertion with two tag keys")
     public void insertIntoTableWithTwoTagKeysTest() throws InterruptedException, InfluxDBException {
-
         log.info("insertIntoTableWithTwoTagKeysTest");
         SiddhiManager siddhiManager = new SiddhiManager();
         String streams = "" +
@@ -117,7 +112,6 @@ public class InsertIntoInfluxDBTestCase {
 
     @Test(description = "Insert successfully with extracting current time")
     public void insertIntoTableTest() throws InterruptedException, InfluxDBException {
-
         log.info("InsertIntoInfluxDBTableTest");
         SiddhiManager siddhiManager = new SiddhiManager();
         String streams = "" +
@@ -144,7 +138,6 @@ public class InsertIntoInfluxDBTestCase {
 
     @Test(description = "define Table without tag keys")
     public void insertIntoTableWithoutTagKeysTest() throws InterruptedException, InfluxDBException {
-
         log.info("insertIntoTableWithoutTagKeysTest");
         SiddhiManager siddhiManager = new SiddhiManager();
         String streams = "" +
@@ -171,7 +164,6 @@ public class InsertIntoInfluxDBTestCase {
 
     @Test(description = "incorrect format for time")
     public void insertIntoTableWithIncorretTimeFormatTest() throws InterruptedException, InfluxDBException {
-
         log.info("insertIntoTableWithIncorretTimeFormatTest");
         SiddhiManager siddhiManager = new SiddhiManager();
         String streams = "" +

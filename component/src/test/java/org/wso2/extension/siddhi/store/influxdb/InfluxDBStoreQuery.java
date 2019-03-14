@@ -47,20 +47,17 @@ public class InfluxDBStoreQuery {
 
     @BeforeClass
     public static void startTest() {
-
         log.info("== InfluxDB Table Query tests started ==");
 
     }
 
     @AfterClass
     public static void shutdown() {
-
         log.info("==InfluxDB Table Query tests completed ==");
     }
 
     @BeforeMethod
     public void init() {
-
         try {
             InfluxDBTestUtils.initDatabaseTable(TABLE_NAME);
         } catch (InfluxDBException e) {
@@ -70,11 +67,8 @@ public class InfluxDBStoreQuery {
 
     @Test
     public void storeQueryTest1() throws InterruptedException {
-
         log.info("storeQueryTest1");
-
         SiddhiManager siddhiManager = new SiddhiManager();
-
         String streams = "" +
                 "define stream StockStream (symbol string, price float, volume long); " +
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
@@ -87,19 +81,14 @@ public class InfluxDBStoreQuery {
                 "from StockStream\n" +
                 "select symbol,price,volume,currentTimeMillis() as time\n" +
                 "insert into StockTable ;";
-
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query);
-
         InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
-
         siddhiAppRuntime.start();
-
         stockStream.send(new Object[]{"WSO2", 55.6f, 100L});
         stockStream.send(new Object[]{"IBM", 75.6f, 100L});
         stockStream.send(new Object[]{"WSO2", 57.6f, 100L});
         stockStream.send(new Object[]{"WSO2", 59.6f, 100L});
         Thread.sleep(500);
-
         Event[] events = siddhiAppRuntime.query("" +
                 "from StockTable " +
                 "on price > 5 AND symbol==\"WSO2\" " +
@@ -133,11 +122,8 @@ public class InfluxDBStoreQuery {
 
     @Test
     public void storeQueryTest2() throws InterruptedException {
-
         log.info("Test2 table");
-
         SiddhiManager siddhiManager = new SiddhiManager();
-
         String streams = "" +
                 "define stream StockStream (symbol string, price float, volume long); " +
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
@@ -150,48 +136,34 @@ public class InfluxDBStoreQuery {
                 "from StockStream\n" +
                 "select symbol,price,volume,currentTimeMillis() as time\n" +
                 "insert into StockTable ;";
-
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query);
-
         InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
-
         siddhiAppRuntime.start();
-
         stockStream.send(new Object[]{"WSO2", 55.6f, 100L});
         stockStream.send(new Object[]{"IBM", 75.6f, 100L});
         stockStream.send(new Object[]{"WSO2", 57.6f, 100L});
         Thread.sleep(500);
-
         Event[] events = siddhiAppRuntime.query("" +
                 "from StockTable ");
-
         EventPrinter.print(events);
         AssertJUnit.assertEquals(3, events.length);
-
         events = siddhiAppRuntime.query("" +
                 "from StockTable " +
                 "on price > 75 ");
-
         EventPrinter.print(events);
         AssertJUnit.assertEquals(1, events.length);
-
         events = siddhiAppRuntime.query("" +
                 "from StockTable " +
                 "on price > volume*3/4  ");
         EventPrinter.print(events);
         AssertJUnit.assertEquals(1, events.length);
-
         siddhiAppRuntime.shutdown();
-
     }
 
     @Test
     public void storeQueryTest3() throws InterruptedException {
-
         log.info("Test3 table");
-
         SiddhiManager siddhiManager = new SiddhiManager();
-
         String streams = "" +
                 "define stream StockStream (symbol string, price float, volume long,time long); " +
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
@@ -204,18 +176,13 @@ public class InfluxDBStoreQuery {
                 "from StockStream\n" +
                 "select symbol,price,volume, time\n" +
                 "insert into StockTable ;";
-
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query);
-
         InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
-
         siddhiAppRuntime.start();
-
         stockStream.send(new Object[]{"WSO2", 55.6f, 100L, 1548181800003L});
         stockStream.send(new Object[]{"IBM", 75.6f, 100L, 1548181800005L});
         stockStream.send(new Object[]{"WSO2", 57.6f, 100L, 1548181800005L});
         Thread.sleep(500);
-
         Event[] events = siddhiAppRuntime.query("" +
                 "from StockTable " +
                 "on volume > 10 " +
@@ -223,7 +190,6 @@ public class InfluxDBStoreQuery {
         EventPrinter.print(events);
         AssertJUnit.assertEquals(3, events.length);
         AssertJUnit.assertEquals(3, events[0].getData().length);
-
         events = siddhiAppRuntime.query("" +
                 "from StockTable " +
                 "select symbol, volume,time ");
@@ -235,11 +201,8 @@ public class InfluxDBStoreQuery {
 
     @Test
     public void storeQueryTest4() throws InterruptedException {
-
         log.info("Test4 table");
-
         SiddhiManager siddhiManager = new SiddhiManager();
-
         String streams = "" +
                 "define stream StockStream (symbol string, price float, volume long); " +
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
@@ -252,18 +215,13 @@ public class InfluxDBStoreQuery {
                 "from StockStream\n" +
                 "select symbol,price,volume,currentTimeMillis() as time\n" +
                 "insert into StockTable ;";
-
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query);
-
         InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
-
         siddhiAppRuntime.start();
-
         stockStream.send(new Object[]{"WSO2", 55.6f, 100L});
         stockStream.send(new Object[]{"IBM", 75.6f, 100L});
         stockStream.send(new Object[]{"WSO2", 57.6f, 100L});
         Thread.sleep(500);
-
         Event[] events = siddhiAppRuntime.query("" +
                 "from StockTable " +
                 "on volume > 10 " +
@@ -273,16 +231,12 @@ public class InfluxDBStoreQuery {
         AssertJUnit.assertEquals(2, events.length);
         AssertJUnit.assertEquals("WSO2", events[0].getData()[1]);
         AssertJUnit.assertEquals("IBM", events[1].getData()[1]);
-
     }
 
     @Test(expectedExceptions = StoreQueryCreationException.class)
     public void storeQueryTest5() throws InterruptedException {
-
         log.info("Test5 table");
-
         SiddhiManager siddhiManager = new SiddhiManager();
-
         String streams = "" +
                 "define stream StockStream (symbol string, price float, volume long); " +
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
@@ -295,24 +249,19 @@ public class InfluxDBStoreQuery {
                 "from StockStream\n" +
                 "select symbol,price,volume,currentTimeMillis() as time\n" +
                 "insert into StockTable ;";
-
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query);
-
         try {
             InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
             siddhiAppRuntime.start();
-
             Event[] events = siddhiAppRuntime.query("" +
                     "from StockTable " +
                     "on price > 10 " +
                     "select symbol1, volume as totalVolume ,time " +
                     "group by symbol " +
                     "having volume >150");
-
             EventPrinter.print(events);
             AssertJUnit.assertEquals(1, events.length);
             AssertJUnit.assertEquals(400L, events[0].getData(1));
-
         } finally {
             siddhiAppRuntime.shutdown();
         }
@@ -320,11 +269,8 @@ public class InfluxDBStoreQuery {
 
     @Test(expectedExceptions = StoreQueryCreationException.class)
     public void storeQueryTest6() throws InterruptedException {
-
         log.info("Test6 table");
-
         SiddhiManager siddhiManager = new SiddhiManager();
-
         String streams = "" +
                 "define stream StockStream (symbol string, price float, volume long); " +
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
@@ -337,24 +283,19 @@ public class InfluxDBStoreQuery {
                 "from StockStream\n" +
                 "select symbol,price,volume,currentTimeMillis() as time\n" +
                 "insert into StockTable ;";
-
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query);
-
         try {
             InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
             siddhiAppRuntime.start();
-
             Event[] events = siddhiAppRuntime.query("" +
                     "from StockTable1 " +
                     "on price > 10 " +
                     "select symbol, volume as totalVolume ,time " +
                     "group by symbol " +
                     "having volume >150");
-
             EventPrinter.print(events);
             AssertJUnit.assertEquals(1, events.length);
             AssertJUnit.assertEquals(400L, events[0].getData(1));
-
         } finally {
             siddhiAppRuntime.shutdown();
         }
@@ -362,11 +303,8 @@ public class InfluxDBStoreQuery {
 
     @Test(expectedExceptions = SiddhiParserException.class)
     public void storeQueryTest7() {
-
         log.info("Test7 table");
-
         SiddhiManager siddhiManager = new SiddhiManager();
-
         String streams = "" +
                 "define stream StockStream (symbol string, price float, volume long); " +
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
@@ -379,24 +317,19 @@ public class InfluxDBStoreQuery {
                 "from StockStream\n" +
                 "select symbol,price,volume,currentTimeMillis() as time\n" +
                 "insert into StockTable ;";
-
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query);
-
         try {
             InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
             siddhiAppRuntime.start();
-
             Event[] events = siddhiAppRuntime.query("" +
                     "from StockTable " +
                     "on price > 10 " +
                     "select symbol, volume as totalVolume ,time" +
                     "group by symbol " +
                     "having volume >150");
-
             EventPrinter.print(events);
             AssertJUnit.assertEquals(1, events.length);
             AssertJUnit.assertEquals(400L, events[0].getData(1));
-
         } finally {
             siddhiAppRuntime.shutdown();
         }
@@ -404,11 +337,8 @@ public class InfluxDBStoreQuery {
 
     @Test(expectedExceptions = StoreQueryCreationException.class)
     public void storeQueryTest8() throws InterruptedException {
-
         log.info("Test9 table");
-
         SiddhiManager siddhiManager = new SiddhiManager();
-
         String streams = "" +
                 "define stream StockStream (symbol string, price float, volume long); " +
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
@@ -421,33 +351,24 @@ public class InfluxDBStoreQuery {
                 "from StockStream\n" +
                 "select symbol,price,volume,currentTimeMillis() as time\n" +
                 "insert into StockTable ;";
-
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams + query);
-
         InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
-
         siddhiAppRuntime.start();
-
         stockStream.send(new Object[]{"WSO2", 55.6f, 100L});
         stockStream.send(new Object[]{"IBM", 75.6f, 100L});
         stockStream.send(new Object[]{"WSO2", 57.6f, 100L});
         Thread.sleep(500);
-
         Event[] events = siddhiAppRuntime.query("" +
                 "from StockTable " +
                 "on symbol == 'IBM' " +
                 "select symbol, volume ");
         EventPrinter.print(events);
-
     }
 
     @Test
     public void storeQueryTest9() throws InterruptedException {
-
         log.info("Test9 table");
-
         SiddhiManager siddhiManager = new SiddhiManager();
-
         String streams = "" +
                 "define stream StockStream (symbol string, price float, volume long,time long); " +
                 "@Store(type=\"influxdb\", url = \"" + URL + "\" ," +
@@ -458,13 +379,9 @@ public class InfluxDBStoreQuery {
         String storeQuery = "" +
                 "from StockTable " +
                 "select * ;";
-
         SiddhiAppRuntime siddhiAppRuntime = siddhiManager.createSiddhiAppRuntime(streams);
-
         InputHandler stockStream = siddhiAppRuntime.getInputHandler("StockStream");
-
         siddhiAppRuntime.start();
-
         Attribute[] actualAttributeArray = siddhiAppRuntime.getStoreQueryOutputAttributes(SiddhiCompiler.parseStoreQuery
                 (storeQuery));
         Attribute symbolAttribute = new Attribute("symbol", Attribute.Type.STRING);
@@ -474,7 +391,6 @@ public class InfluxDBStoreQuery {
         Attribute[] expectedAttributeArray = new Attribute[]{symbolAttribute, priceAttribute, volumeAttribute,
                 timeAttribute};
         AssertJUnit.assertArrayEquals(expectedAttributeArray, actualAttributeArray);
-
         storeQuery = "" +
                 "from StockTable " +
                 "select symbol, volume as totalVolume,time ;";
@@ -484,6 +400,5 @@ public class InfluxDBStoreQuery {
         expectedAttributeArray = new Attribute[]{symbolAttribute, totalVolumeAttribute, timeAttribute};
         siddhiAppRuntime.shutdown();
         AssertJUnit.assertArrayEquals(expectedAttributeArray, actualAttributeArray);
-
     }
 }
