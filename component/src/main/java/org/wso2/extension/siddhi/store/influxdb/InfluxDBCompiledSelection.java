@@ -35,7 +35,6 @@ public class InfluxDBCompiledSelection implements CompiledSelection {
                                      InfluxDBCompiledCondition compiledGroupByClause,
                                      InfluxDBCompiledCondition compiledHavingClause,
                                      InfluxDBCompiledCondition compiledOrderByClause, Long limit, Long offset) {
-
         this.compiledSelectClause = compiledSelectClause;
         this.compiledGroupByClause = compiledGroupByClause;
         this.compiledHavingClause = compiledHavingClause;

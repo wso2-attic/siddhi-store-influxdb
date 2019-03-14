@@ -204,18 +204,13 @@ public class InfluxDBConditionVisitor extends BaseExpressionVisitor {
     }
 
     @Override
-    public void beginVisitMathLeftOperand(MathOperator mathOperator) {
-
-    }
+    public void beginVisitMathLeftOperand(MathOperator mathOperator) { }
 
     @Override
-    public void endVisitMathLeftOperand(MathOperator mathOperator) {
-        //Not applicable
-    }
+    public void endVisitMathLeftOperand(MathOperator mathOperator) { }
 
     @Override
     public void beginVisitMathRightOperand(MathOperator mathOperator) {
-
         switch (mathOperator) {
             case ADD:
                 condition.append(InfluxDBTableConstants.INFLUXQL_MATH_ADD);
@@ -237,33 +232,22 @@ public class InfluxDBConditionVisitor extends BaseExpressionVisitor {
     }
 
     @Override
-    public void endVisitMathRightOperand(MathOperator mathOperator) {
-        //Not applicable
-    }
+    public void endVisitMathRightOperand(MathOperator mathOperator) { }
 
     @Override
-    public void beginVisitAttributeFunction(String namespace, String functionName) {
-
-    }
+    public void beginVisitAttributeFunction(String namespace, String functionName) { }
 
     @Override
-    public void endVisitAttributeFunction(String namespace, String functionName) {
-
-    }
+    public void endVisitAttributeFunction(String namespace, String functionName) { }
 
     @Override
-    public void beginVisitParameterAttributeFunction(int index) {
-        //Not applicable
-    }
+    public void beginVisitParameterAttributeFunction(int index) { }
 
     @Override
-    public void endVisitParameterAttributeFunction(int index) {
-        //Not applicable
-    }
+    public void endVisitParameterAttributeFunction(int index) { }
 
     @Override
     public void beginVisitStreamVariable(String id, String streamId, String attributeName, Attribute.Type type) {
-
         String name;
         name = this.generateStreamVarName();
         this.placeholders.put(name, new Attribute(id, type));
@@ -271,13 +255,10 @@ public class InfluxDBConditionVisitor extends BaseExpressionVisitor {
     }
 
     @Override
-    public void endVisitStreamVariable(String id, String streamId, String attributeName, Attribute.Type type) {
-        //Not applicable
-    }
+    public void endVisitStreamVariable(String id, String streamId, String attributeName, Attribute.Type type) { }
 
     @Override
     public void beginVisitStoreVariable(String storeId, String attributeName, Attribute.Type type) {
-
         condition.append("\"")
                 .append(attributeName)
                 .append("\"")
@@ -285,12 +266,9 @@ public class InfluxDBConditionVisitor extends BaseExpressionVisitor {
     }
 
     @Override
-    public void endVisitStoreVariable(String storeId, String attributeName, Attribute.Type type) {
-        //Not applicable
-    }
+    public void endVisitStoreVariable(String storeId, String attributeName, Attribute.Type type) { }
 
     private void parameterizeCondition() {
-
         String query = this.condition.toString();
         String[] tokens = query.split("\\[");
         int ordinal = 1;
@@ -317,14 +295,12 @@ public class InfluxDBConditionVisitor extends BaseExpressionVisitor {
     }
 
     private String generateStreamVarName() {
-
         String name = "strVar" + this.streamVarCount;
         this.streamVarCount++;
         return name;
     }
 
     private String generateConstantName() {
-
         String name = "const" + this.constantCount;
         this.constantCount++;
         return name;

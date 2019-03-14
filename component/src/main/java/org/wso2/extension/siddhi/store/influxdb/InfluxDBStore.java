@@ -632,7 +632,6 @@ public class InfluxDBStore extends AbstractQueryableRecordTable {
     }
 
     private InfluxDBCompiledCondition compileClause(List<ExpressionBuilder> expressionBuilders) {
-
         StringBuilder compiledSelectionList = new StringBuilder();
         SortedMap<Integer, Object> paramMap = new TreeMap<>();
         SortedMap<Integer, Object> paramCons = new TreeMap<>();
@@ -668,7 +667,6 @@ public class InfluxDBStore extends AbstractQueryableRecordTable {
     }
 
     private InfluxDBCompiledCondition compileOrderByClause(List<OrderByAttributeBuilder> orderByAttributeBuilders) {
-
         StringBuilder compiledSelectionList = new StringBuilder();
         SortedMap<Integer, Object> paramMap = new TreeMap<>();
         int offset = 0;
