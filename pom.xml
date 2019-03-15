@@ -34,6 +34,15 @@
     <modules>
         <module>component</module>
     </modules>
+
+    <scm>
+        <connection>scm:git:https://github.com/wso2-extensions/siddhi-io-influxdb.git</connection>
+        <url>https://github.com/wso2-extensions/siddhi-io-influxdb.git</url>
+        <developerConnection>scm:git:https://github.com/wso2-extensions/siddhi-io-influxdb.git
+        </developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+    
     <profiles>
         <profile>
             <id>default</id>
@@ -63,8 +72,8 @@
         </profile>
     </profiles>
     <properties>
-        <siddhi.version>4.4.8</siddhi.version>
-        <siddhi.version.range>[4.1.38,5.0)</siddhi.version.range>
+        <siddhi.version>4.4.9</siddhi.version>
+        <siddhi.version.range>[4.1.38,5.0.0)</siddhi.version.range>
         <log4j.version>1.2.17.wso2v1</log4j.version>
         <datasource.version>1.1.4</datasource.version>
         <logging.test.version>1.1.1</logging.test.version>
