@@ -19,14 +19,14 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Siddhi-Store-InfluxDB-Test-Suite" parallel="false">
     <test name="Siddhi-store-influxdb-tests" preserve-order="true" parallel="false">
-        <classes>
-            <class name="org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase"/>
-            <class name="org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase"/>
-            <class name="org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase"/>
-            <class name="org.wso2.extension.siddhi.store.influxdb.ContainsInInfluxDBTestCase"/>
-            <class name="org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase"/>
-            <class name="org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase"/>
-            <class name="org.wso2.extension.siddhi.store.influxdb.InfluxDBStoreQuery"/>
-        </classes>
+        <!--<classes>-->
+            <!--<class name="org.wso2.extension.siddhi.store.influxdb.DeleteFromInfluxDBTestCase"/>-->
+            <!--<class name="org.wso2.extension.siddhi.store.influxdb.ReadEventInfluxDBTestCase"/>-->
+            <!--<class name="org.wso2.extension.siddhi.store.influxdb.InsertIntoInfluxDBTestCase"/>-->
+            <!--<class name="org.wso2.extension.siddhi.store.influxdb.ContainsInInfluxDBTestCase"/>-->
+            <!--<class name="org.wso2.extension.siddhi.store.influxdb.UpdateOrInsertIntoInfluxDBTestCase"/>-->
+            <!--<class name="org.wso2.extension.siddhi.store.influxdb.DefineInfluxDBTableTestCase"/>-->
+            <!--<class name="org.wso2.extension.siddhi.store.influxdb.InfluxDBStoreQuery"/>-->
+        <!--</classes>-->
     </test>
 </suite>
