@@ -43,8 +43,8 @@ CREATE DATABASE <database_name>
 
 ```
      <dependency>
-        <groupId>org.wso2.extension.siddhi.store.</groupId>
-        <artifactId>siddhi-store-</artifactId>
+        <groupId>org.wso2.extension.siddhi.store.influxdb</groupId>
+        <artifactId>siddhi-store-influxdb</artifactId>
         <version>x.x.x</version>
      </dependency>
 ```
