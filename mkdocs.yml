@@ -1,11 +1,11 @@
-site_name:  Siddhi-Store-InfluxDB
+site_name: Siddhi-Store-InfluxDB
 site_description: Siddhi Store InfluxDB Extension
 site_author: WSO2
 site_url: https://wso2-extensions.github.io/siddhi-store-influxdb/
 extra_css:
-  - stylesheets/extra.css
+- stylesheets/extra.css
 extra_javascript:
-  - javascripts/extra.js
+- javascripts/extra.js
 repo_name: Siddhi-store-influxdb
 repo_url: https://github.com/wso2-extensions/siddhi-store-influxdb
 copyright: Copyright &copy; 2011 - 2019 WSO2
@@ -17,17 +17,21 @@ theme:
     primary: teal
     accent: teal
 google_analytics:
-  - UA-103065-28
-  - auto
+- UA-103065-28
+- auto
 extra:
   social:
-    - type: github
-      link: https://github.com/wso2/siddhi
-    - type: linkedin
-      link: https://www.linkedin.com/groups/13553064
+  - type: github
+    link: https://github.com/wso2/siddhi
+  - type: linkedin
+    link: https://www.linkedin.com/groups/13553064
 pages:
-  - Welcome: index.md
-  - API docs:
-      - 1.0.0-SNAPSHOT: api/1.0.0-SNAPSHOT.md
-      - latest: api/latest.md
-  - License: license.md
+- Welcome: index.md
+- API docs:
+  - 1.0.0-SNAPSHOT: api/1.0.0-SNAPSHOT.md
+  - latest: api/latest.md
+- License: license.md
+- API Docs:
+  - Latest (): api/latest.md
+  - ? ''
+    : api/.md
