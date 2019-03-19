@@ -1,4 +1,4 @@
-﻿siddhi-store-influxdb
+?siddhi-store-influxdb
 ======================================
 
 The **siddhi-store-influxdb extension** is an extension to <a></a> that can be used to persist events to a InfluxDB instance of the users choice.

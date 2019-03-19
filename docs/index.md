@@ -1,4 +1,4 @@
-siddhi-store-influxdb
+?siddhi-store-influxdb
 ======================================
 
 The **siddhi-store-influxdb extension** is an extension to <a></a> that can be used to persist events to a InfluxDB instance of the users choice.
@@ -43,8 +43,8 @@ CREATE DATABASE <database_name>
 
 ```
      <dependency>
-        <groupId>org.wso2.extension.siddhi.store.</groupId>
-        <artifactId>siddhi-store-</artifactId>
+        <groupId>org.wso2.extension.siddhi.store.influxdb</groupId>
+        <artifactId>siddhi-store-influxdb</artifactId>
         <version>x.x.x</version>
      </dependency>
 ```
