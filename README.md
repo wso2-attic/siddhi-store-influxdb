@@ -12,6 +12,22 @@ Find some useful links below.
 
 * A InfluxDB server instance should be started.
 * User should have the necessary privileges and access rights to connect to the InfluxDB data store of choice.
+* You can start the InfluxDB server using docker image.
+
+1.Start the container.
+
+```
+docker run --name=influxdb -d -p 8086:8086 influxdb
+```
+
+2.Run the influxDB client in this container.
+```
+docker exec -it influxdb influx
+```
+3.Create a database in influxDB using the command :
+```
+CREATE DATABASE <database_name>
+```
 
 ## How to use
 
@@ -32,7 +48,15 @@ Find some useful links below.
         <version>x.x.x</version>
      </dependency>
 ```
+## Jenkins Build Status
 
+---
+
+|  Branch | Build Status |
+| :------ |:------------ | 
+| master  | [![Build Status](https://wso2.org/jenkins/job/siddhi/job/siddhi-store-influxdb/badge/icon)](https://wso2.org/jenkins/job/siddhi/job/siddhi-store-influxdb/) |
+
+---
 ## Contact us
 
  * Post your questions with the <a target="_blank" href="http://stackoverflow.com/search?q=siddhi">"Siddhi"</a> tag in <a target="_blank" href="http://stackoverflow.com/search?q=siddhi">Stackoverflow</a>.

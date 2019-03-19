@@ -25,15 +25,9 @@ extra:
       link: https://github.com/wso2/siddhi
     - type: linkedin
       link: https://www.linkedin.com/groups/13553064
-markdown_extensions:
-  - admonition
-  - toc(permalink=true)
-  - codehilite(guess_lang=false)
 pages:
   - Welcome: index.md
-  - API Docs: null
-  - License: about/license.md
-  - API Docs:
-      - Latest (): api/latest.md
-      - ? ''
-          : api/.md
+  - API docs:
+      - 1.0.0-SNAPSHOT: api/1.0.0-SNAPSHOT.md
+      - latest: api/latest.md
+  - License: license.md
