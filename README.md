@@ -10,6 +10,7 @@ Find some useful links below.
 
 ## Latest API Docs 
 
+Latest API Docs is <a target="_blank" href="https://wso2-extensions.github.io/siddhi-store-influxdb/api/1.0.1">1.0.1</a>.
 
 ## Prerequisites
 
@@ -62,6 +63,7 @@ CREATE DATABASE <database_name>
 ---
 ## Features
 
+* <a target="_blank" href="https://wso2-extensions.github.io/siddhi-store-influxdb/api/1.0.1/#influxdb-store">influxdb</a> *<a target="_blank" href="https://wso2.github.io/siddhi/documentation/siddhi-4.0/#store">(Store)</a>*<br><div style="padding-left: 1em;"><p>This extension connects to  influxDB store. It also implements read-write operations on connected influxDB database.</p></div>
 
 ## Contact us
 

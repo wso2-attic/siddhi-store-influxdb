@@ -1,4 +1,4 @@
-?siddhi-store-influxdb
+siddhi-store-influxdb
 ======================================
 
 The **siddhi-store-influxdb extension** is an extension to <a></a> that can be used to persist events to a InfluxDB instance of the users choice.
@@ -7,6 +7,10 @@ Find some useful links below.
 * <a target= "_blank" href="https://github.com/wso2-extensions/siddhi-store-influxdb">Source code</a>
 * <a target= "_blank" href="https://github.com/wso2-extensions/siddhi-store-influxdb/releases">Releases</a>
 * <a target= "_blank" href="https://github.com/wso2-extensions/siddhi-store-influxdb/issues">Issue tracker</a>
+
+## Latest API Docs 
+
+Latest API Docs is <a target="_blank" href="https://wso2-extensions.github.io/siddhi-store-influxdb/api/1.0.1">1.0.1</a>.
 
 ## Prerequisites
 
@@ -57,6 +61,10 @@ CREATE DATABASE <database_name>
 | master  | [![Build Status](https://wso2.org/jenkins/job/siddhi/job/siddhi-store-influxdb/badge/icon)](https://wso2.org/jenkins/job/siddhi/job/siddhi-store-influxdb/) |
 
 ---
+## Features
+
+* <a target="_blank" href="https://wso2-extensions.github.io/siddhi-store-influxdb/api/1.0.1/#influxdb-store">influxdb</a> *<a target="_blank" href="https://wso2.github.io/siddhi/documentation/siddhi-4.0/#store">(Store)</a>*<br><div style="padding-left: 1em;"><p>This extension connects to  influxDB store. It also implements read-write operations on connected influxDB database.</p></div>
+
 ## Contact us
 
  * Post your questions with the <a target="_blank" href="http://stackoverflow.com/search?q=siddhi">"Siddhi"</a> tag in <a target="_blank" href="http://stackoverflow.com/search?q=siddhi">Stackoverflow</a>.
