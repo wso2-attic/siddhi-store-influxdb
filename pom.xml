@@ -36,9 +36,9 @@
     </modules>
 
     <scm>
-        <connection>scm:git:https://github.com/wso2-extensions/siddhi-io-influxdb.git</connection>
-        <url>https://github.com/wso2-extensions/siddhi-io-influxdb.git</url>
-        <developerConnection>scm:git:https://github.com/wso2-extensions/siddhi-io-influxdb.git
+        <connection>scm:git:https://github.com/wso2-extensions/siddhi-store-influxdb.git</connection>
+        <url>https://github.com/wso2-extensions/siddhi-store-influxdb.git</url>
+        <developerConnection>scm:git:https://github.com/wso2-extensions/siddhi-store-influxdb.git
         </developerConnection>
         <tag>HEAD</tag>
     </scm>
