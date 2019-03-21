@@ -27,13 +27,10 @@ extra:
     link: https://www.linkedin.com/groups/13553064
 pages:
 - Welcome: index.md
-- API docs:
-  - 1.0.0-SNAPSHOT: api/1.0.0-SNAPSHOT.md
-  - latest: api/latest.md
-- License: license.md
 - API Docs:
   - 1.0.1: api/1.0.1.md
   - 1.0.0: api/1.0.0.md
   - ? ''
     : api/.md
   - latest: api/latest.md
+- License: license.md
