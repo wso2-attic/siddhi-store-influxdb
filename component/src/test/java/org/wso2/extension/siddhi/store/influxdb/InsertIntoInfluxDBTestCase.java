@@ -17,6 +17,9 @@
  */
 package org.wso2.extension.siddhi.store.influxdb;
 
+import io.siddhi.core.SiddhiAppRuntime;
+import io.siddhi.core.SiddhiManager;
+import io.siddhi.core.stream.input.InputHandler;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.influxdb.InfluxDBException;
@@ -25,9 +28,6 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import org.wso2.siddhi.core.SiddhiAppRuntime;
-import org.wso2.siddhi.core.SiddhiManager;
-import org.wso2.siddhi.core.stream.input.InputHandler;
 
 import static org.wso2.extension.siddhi.store.influxdb.InfluxDBTestUtils.DATABASE;
 import static org.wso2.extension.siddhi.store.influxdb.InfluxDBTestUtils.PASSWORD;

@@ -17,7 +17,7 @@
  */
 package org.wso2.extension.siddhi.store.influxdb;
 
-import org.wso2.siddhi.core.util.collection.operator.CompiledCondition;
+import io.siddhi.core.util.collection.operator.CompiledCondition;
 
 import java.util.SortedMap;
 
@@ -27,20 +27,12 @@ import java.util.SortedMap;
 public class InfluxDBCompiledCondition implements CompiledCondition {
 
     private String compiledQuery;
-    private SortedMap<Integer, Object> parameters;
     private SortedMap<Integer, Object> parametersConstant;
 
     public InfluxDBCompiledCondition(String compiledQuery, SortedMap<Integer, Object> parameters,
                                      SortedMap<Integer, Object> parametersConstant) {
         this.compiledQuery = compiledQuery;
-        this.parameters = parameters;
         this.parametersConstant = parametersConstant;
-    }
-
-    @Override
-    public CompiledCondition cloneCompilation(String key) {
-        return new InfluxDBCompiledCondition(this.compiledQuery, this.parameters,
-                this.parametersConstant);
     }
 
     public String getCompiledQuery() {

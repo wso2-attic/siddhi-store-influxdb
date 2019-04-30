@@ -17,9 +17,9 @@
  */
 package org.wso2.extension.siddhi.store.influxdb;
 
+import io.siddhi.core.table.record.RecordIterator;
 import org.influxdb.InfluxDBException;
 import org.influxdb.dto.QueryResult;
-import org.wso2.siddhi.core.table.record.RecordIterator;
 
 import java.io.IOException;
 import java.util.List;

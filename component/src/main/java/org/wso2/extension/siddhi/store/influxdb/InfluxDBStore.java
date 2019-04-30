@@ -17,6 +17,24 @@
  */
 package org.wso2.extension.siddhi.store.influxdb;
 
+import io.siddhi.annotation.Example;
+import io.siddhi.annotation.Extension;
+import io.siddhi.annotation.Parameter;
+import io.siddhi.annotation.util.DataType;
+import io.siddhi.core.exception.ConnectionUnavailableException;
+import io.siddhi.core.exception.SiddhiAppCreationException;
+import io.siddhi.core.table.record.AbstractQueryableRecordTable;
+import io.siddhi.core.table.record.ExpressionBuilder;
+import io.siddhi.core.table.record.RecordIterator;
+import io.siddhi.core.util.collection.operator.CompiledCondition;
+import io.siddhi.core.util.collection.operator.CompiledExpression;
+import io.siddhi.core.util.collection.operator.CompiledSelection;
+import io.siddhi.core.util.config.ConfigReader;
+import io.siddhi.query.api.annotation.Annotation;
+import io.siddhi.query.api.definition.Attribute;
+import io.siddhi.query.api.definition.TableDefinition;
+import io.siddhi.query.api.execution.query.selection.OrderByAttribute;
+import io.siddhi.query.api.util.AnnotationHelper;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.influxdb.InfluxDB;
@@ -27,24 +45,6 @@ import org.influxdb.dto.BatchPoints;
 import org.influxdb.dto.Point;
 import org.influxdb.dto.Query;
 import org.influxdb.dto.QueryResult;
-import org.wso2.siddhi.annotation.Example;
-import org.wso2.siddhi.annotation.Extension;
-import org.wso2.siddhi.annotation.Parameter;
-import org.wso2.siddhi.annotation.util.DataType;
-import org.wso2.siddhi.core.exception.ConnectionUnavailableException;
-import org.wso2.siddhi.core.exception.SiddhiAppCreationException;
-import org.wso2.siddhi.core.table.record.AbstractQueryableRecordTable;
-import org.wso2.siddhi.core.table.record.ExpressionBuilder;
-import org.wso2.siddhi.core.table.record.RecordIterator;
-import org.wso2.siddhi.core.util.collection.operator.CompiledCondition;
-import org.wso2.siddhi.core.util.collection.operator.CompiledExpression;
-import org.wso2.siddhi.core.util.collection.operator.CompiledSelection;
-import org.wso2.siddhi.core.util.config.ConfigReader;
-import org.wso2.siddhi.query.api.annotation.Annotation;
-import org.wso2.siddhi.query.api.definition.Attribute;
-import org.wso2.siddhi.query.api.definition.TableDefinition;
-import org.wso2.siddhi.query.api.execution.query.selection.OrderByAttribute;
-import org.wso2.siddhi.query.api.util.AnnotationHelper;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -56,6 +56,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+import static io.siddhi.core.util.SiddhiConstants.ANNOTATION_INDEX;
+import static io.siddhi.core.util.SiddhiConstants.ANNOTATION_STORE;
 import static org.wso2.extension.siddhi.store.influxdb.InfluxDBTableConstants.ANNOTATION_ELEMENT_DATABASE;
 import static org.wso2.extension.siddhi.store.influxdb.InfluxDBTableConstants.ANNOTATION_ELEMENT_PASSWORD;
 import static org.wso2.extension.siddhi.store.influxdb.InfluxDBTableConstants.ANNOTATION_ELEMENT_RETENTION_POLICY;
@@ -68,8 +70,6 @@ import static org.wso2.extension.siddhi.store.influxdb.InfluxDBTableConstants.IN
 import static org.wso2.extension.siddhi.store.influxdb.InfluxDBTableConstants.SELECT_QUERY;
 import static org.wso2.extension.siddhi.store.influxdb.InfluxDBTableConstants.SEPARATOR;
 import static org.wso2.extension.siddhi.store.influxdb.InfluxDBTableConstants.WHITESPACE;
-import static org.wso2.siddhi.core.util.SiddhiConstants.ANNOTATION_INDEX;
-import static org.wso2.siddhi.core.util.SiddhiConstants.ANNOTATION_STORE;
 
 /**
  * Class representing the InfluxDB store implementation

@@ -17,6 +17,15 @@
  */
 package org.wso2.extension.siddhi.store.influxdb;
 
+import io.siddhi.core.SiddhiAppRuntime;
+import io.siddhi.core.SiddhiManager;
+import io.siddhi.core.event.Event;
+import io.siddhi.core.exception.StoreQueryCreationException;
+import io.siddhi.core.stream.input.InputHandler;
+import io.siddhi.core.util.EventPrinter;
+import io.siddhi.query.api.definition.Attribute;
+import io.siddhi.query.compiler.SiddhiCompiler;
+import io.siddhi.query.compiler.exception.SiddhiParserException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.influxdb.InfluxDBException;
@@ -25,15 +34,6 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import org.wso2.siddhi.core.SiddhiAppRuntime;
-import org.wso2.siddhi.core.SiddhiManager;
-import org.wso2.siddhi.core.event.Event;
-import org.wso2.siddhi.core.exception.StoreQueryCreationException;
-import org.wso2.siddhi.core.stream.input.InputHandler;
-import org.wso2.siddhi.core.util.EventPrinter;
-import org.wso2.siddhi.query.api.definition.Attribute;
-import org.wso2.siddhi.query.compiler.SiddhiCompiler;
-import org.wso2.siddhi.query.compiler.exception.SiddhiParserException;
 
 import static org.wso2.extension.siddhi.store.influxdb.InfluxDBTestUtils.DATABASE;
 import static org.wso2.extension.siddhi.store.influxdb.InfluxDBTestUtils.PASSWORD;
