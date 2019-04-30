@@ -77,44 +77,45 @@ import static org.wso2.siddhi.core.util.SiddhiConstants.ANNOTATION_STORE;
 @Extension(
         name = "influxdb",
         namespace = "store",
-        description = "This extension connects to  influxDB store. " +
-                "It also implements read-write operations on connected influxDB database.",
+        description = "This extension connects to the influxDB store. It also implements read-write operations on " +
+                "the connected influxDB database.",
         parameters = {
                 @Parameter(
                         name = "url",
-                        description = " Url via which the InfluxDB data store is accessed",
+                        description = " The URL via which the InfluxDB data store is accessed.",
                         defaultValue = "http://localhost:8086 ",
                         type = {DataType.STRING}
                 ),
                 @Parameter(
                         name = "username",
-                        description = " The username used to access InfluxDB data store ",
+                        description = " The username used to access the InfluxDB data store.",
                         type = {DataType.STRING}
                 ),
                 @Parameter(
                         name = "password",
-                        description = " The password used to access InfluxDB data store ",
+                        description = " The password used to access the InfluxDB data store ",
                         type = {DataType.STRING}
                 ),
                 @Parameter(
                         name = "influxdb.database",
-                        description = " The name of the InfluxDB database to which the data should be entered. ",
+                        description = " The name of the InfluxDB database in which the data must be entered. ",
                         type = {DataType.STRING}
                 ),
                 @Parameter(
                         name = "retention.policy",
-                        description = " Describes how long InfluxDB keeps data. ",
+                        description = "This describes how long the InfluxDB retains the data.",
                         optional = true,
                         defaultValue = "autogen",
                         type = {DataType.STRING}
                 ),
                 @Parameter(name = "table.name",
-                        description = "The name with which the siddhi store  should be persisted in the InfluxDB " +
-                                "database. If no name is specified via this parameter, the store is persisted in " +
-                                "InfluxDB database with the same name define in the table definition of siddhi app.",
+                        description = "The name with which the Siddhi store must be persisted in the InfluxDB " +
+                                "database. If no name is specified via this parameter, the store is persisted in the " +
+                                "InfluxDB database with the same name defined in the table definition of the Siddhi" +
+                                " application.",
                         type = {DataType.STRING},
                         optional = true,
-                        defaultValue = "The table name defined in the Siddhi App query."),
+                        defaultValue = "The table name defined in the Siddhi Application query."),
         },
         examples = {
                 @Example(
@@ -130,11 +131,14 @@ import static org.wso2.siddhi.core.util.SiddhiConstants.ANNOTATION_STORE;
                                 "from StockStream\n" +
                                 "select symbol,price,volume,currentTimeMillis() as time\n" +
                                 "insert into StockTable ;",
-                        description = " The above example creates a table in the  database if it does not " +
-                                "exist with symbol which is configured under '@Index annotation as a tag key" +
-                                ", 'volume ' and 'price' as field keys and time as the timestamp associated with" +
-                                " particular data.Here the time is not needed to be given by the user and it extract " +
-                                "the current time of the siddhi application."
+                        description = " This query creates a table in the database if it does not already exist " +
+                                "with the following attributes:\n" +
+                                "- 'symbol' attribute as the tag key. This must be  included within the @Index " +
+                                "annotation\n" +
+                                "- 'volume' and 'price' attributes as field keys.\n" +
+                                "- 'time'attribute as the time stamp associated with particular data. Here, the time does not" +
+                                " need to be provided by you. It can be extracted from the current time of the Siddhi" +
+                                " application."
                 ),
                 @Example(
                         syntax = " @Store (type = \"influxdb\",\n" +
@@ -149,10 +153,12 @@ import static org.wso2.siddhi.core.util.SiddhiConstants.ANNOTATION_STORE;
                                 "from StockStream \n" +
                                 "select symbol,  volume, price, time\n" +
                                 "insert into StockTable ;",
-                        description = " The above example creates a table in the  database if it does not exist" +
-                                " already with 'symbol which is configured under '@Index' annotation  as a tag key " +
-                                "and 'volume' and 'price' as field keys . Time represents the timestamp" +
-                                "  associated with a particular data."
+                        description = "The above query creates a table in the database if it does not already exist" +
+                                " with the following:\n" +
+                                "- 'symbol' attribute as the tag key. This must be  included within the @Index " +
+                                "annotation.\n" +
+                                "- 'volume' and 'price' attributes as field keys.\n" +
+                                "- 'time' attribute as the time stamp associated with particular data."
 
                 ),
                 @Example(
@@ -170,10 +176,14 @@ import static org.wso2.siddhi.core.util.SiddhiConstants.ANNOTATION_STORE;
                                 "StockTable.volume as checkVolume,StockTable.time as checkTime\n" +
                                 "insert into OutputStream; ",
 
-                        description = " The above example creates a table in the database if it does not exist" +
-                                " already with 'symbol' which is configured under '@Index' annotation  as a " +
-                                "tag key , 'volume' and 'price' as field keys and time represents the timestamp" +
-                                "Then the table is joined with a stream named 'ReadStream' based on a condition."
+                        description = "The above query creates a table in the database if it does not already exist" +
+                                " with the following:\n" +
+                                "- 'symbol' attribute as the tag key. This must be  included within the @Index " +
+                                "annotation.\n" +
+                                "- 'volume' and 'price' attributes as field keys.\n" +
+                                "- 'time' attribute to represent the time stamp.\n" +
+                                "Once the table is created, it is joined with the stream named 'ReadStream' based " +
+                                "on a condition."
                 )
         }
 )
