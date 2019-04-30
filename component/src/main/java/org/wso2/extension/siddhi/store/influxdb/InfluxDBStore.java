@@ -136,9 +136,9 @@ import static org.wso2.siddhi.core.util.SiddhiConstants.ANNOTATION_STORE;
                                 "- 'symbol' attribute as the tag key. This must be  included within the @Index " +
                                 "annotation\n" +
                                 "- 'volume' and 'price' attributes as field keys.\n" +
-                                "- 'time'attribute as the time stamp associated with particular data. Here, the time does not" +
-                                " need to be provided by you. It can be extracted from the current time of the Siddhi" +
-                                " application."
+                                "- 'time'attribute as the time stamp associated with particular data. Here, the time " +
+                                "does not need to be provided by you. It can be extracted from the current time of " +
+                                "the Siddhi application."
                 ),
                 @Example(
                         syntax = " @Store (type = \"influxdb\",\n" +
