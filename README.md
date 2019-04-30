@@ -2,6 +2,7 @@ siddhi-store-influxdb
 ======================================
 
 The **siddhi-store-influxdb extension** is an extension to <a></a> that can be used to persist events to a InfluxDB instance of the users choice.
+
 Find some useful links below.
 
 * <a target= "_blank" href="https://github.com/wso2-extensions/siddhi-store-influxdb">Source code</a>
