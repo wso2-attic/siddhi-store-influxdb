@@ -420,6 +420,18 @@
 
 
   <li class="md-nav__item">
+    <a href="api/1.0.2/" title="1.0.2" class="md-nav__link">
+      1.0.2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="api/1.0.1/" title="1.0.1" class="md-nav__link">
       1.0.1
     </a>
@@ -556,7 +568,7 @@
                 
                 
                 <h1 id="siddhi-store-influxdb">siddhi-store-influxdb</h1>
-<p>The <strong>siddhi-store-influxdb extension</strong> is an extension to <a></a> that can be used to persist events to a InfluxDB instance of the users choice.
+<p>The <strong>siddhi-store-influxdb extension</strong> persists events in an InfluxDB instance of your choice.
 Find some useful links below.</p>
 <ul>
 <li><a target= "_blank" href="https://github.com/wso2-extensions/siddhi-store-influxdb">Source code</a></li>
@@ -564,25 +576,28 @@ Find some useful links below.</p>
 <li><a target= "_blank" href="https://github.com/wso2-extensions/siddhi-store-influxdb/issues">Issue tracker</a></li>
 </ul>
 <h2 id="latest-api-docs">Latest API Docs</h2>
-<p>Latest API Docs is <a target="_blank" href="https://wso2-extensions.github.io/siddhi-store-influxdb/api/1.0.1">1.0.1</a>.</p>
+<p>Latest API Docs is <a target="_blank" href="https://wso2-extensions.github.io/siddhi-store-influxdb/api/1.0.2">1.0.2</a>.</p>
 <h2 id="prerequisites">Prerequisites</h2>
+<p>To use this extension, the following prerequisites need to be completed:
+* An InfluxDB server instance must be started. You can start the InfluxDB server using docker image as follows:</p>
+<pre><code>1.Start the container by issuing the following command.
+```
+docker run --name=influxdb -d -p 8086:8086 influxdb
+```
+2.Run the influxDB client the container by issuing the following command.
+
+ ```
+ docker exec -it influxdb influx
+ ```
+
+3.Create a database in influxDB by issuing the following command :
+ ```
+ CREATE DATABASE &lt;database_name&gt;
+ ```
+</code></pre>
 <ul>
-<li>A InfluxDB server instance should be started.</li>
-<li>User should have the necessary privileges and access rights to connect to the InfluxDB data store of choice.</li>
-<li>You can start the InfluxDB server using docker image.</li>
+<li>You need to have the necessary privileges and access rights to connect to the InfluxDB data store of your choice.</li>
 </ul>
-<p>1.Start the container.</p>
-<pre><code>docker run --name=influxdb -d -p 8086:8086 influxdb
-</code></pre>
-
-<p>2.Run the influxDB client in this container.</p>
-<pre><code>docker exec -it influxdb influx
-</code></pre>
-
-<p>3.Create a database in influxDB using the command :</p>
-<pre><code>CREATE DATABASE &lt;database_name&gt;
-</code></pre>
-
 <h2 id="how-to-use">How to use</h2>
 <p><strong>Using the extension in <a target="_blank" href="https://github.com/wso2/product-sp">WSO2 Stream Processor</a></strong></p>
 <ul>
@@ -623,7 +638,7 @@ Find some useful links below.</p>
 <hr />
 <h2 id="features">Features</h2>
 <ul>
-<li><a target="_blank" href="https://wso2-extensions.github.io/siddhi-store-influxdb/api/1.0.1/#influxdb-store">influxdb</a> <em><a target="_blank" href="https://wso2.github.io/siddhi/documentation/siddhi-4.0/#store">(Store)</a></em><br><div style="padding-left: 1em;"><p>This extension connects to  influxDB store. It also implements read-write operations on connected influxDB database.</p></div></li>
+<li><a target="_blank" href="https://wso2-extensions.github.io/siddhi-store-influxdb/api/1.0.2/#influxdb-store">influxdb</a> <em><a target="_blank" href="https://wso2.github.io/siddhi/documentation/siddhi-4.0/#store">(Store)</a></em><br><div style="padding-left: 1em;"><p>This extension connects to the influxDB store. It also implements read-write operations on the connected influxDB database.</p></div></li>
 </ul>
 <h2 id="contact-us">Contact us</h2>
 <ul>
