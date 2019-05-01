@@ -32,6 +32,7 @@ pages:
   - latest: api/latest.md
 - License: license.md
 - API Docs:
+  - 2.0.0: api/2.0.0.md
   - 1.0.2: api/1.0.2.md
   - 1.0.1: api/1.0.1.md
   - 1.0.0: api/1.0.0.md

@@ -11,7 +11,7 @@ Find some useful links below.
 
 ## Latest API Docs 
 
-Latest API Docs is <a target="_blank" href="https://wso2-extensions.github.io/siddhi-store-influxdb/api/1.0.2">1.0.2</a>.
+Latest API Docs is <a target="_blank" href="https://wso2-extensions.github.io/siddhi-store-influxdb/api/2.0.0">2.0.0</a>.
 
 ## Prerequisites
 To use this extension, the following prerequisites need to be completed:
@@ -66,7 +66,7 @@ To use this extension, the following prerequisites need to be completed:
 ---
 ## Features
 
-* <a target="_blank" href="https://wso2-extensions.github.io/siddhi-store-influxdb/api/1.0.2/#influxdb-store">influxdb</a> *<a target="_blank" href="https://wso2.github.io/siddhi/documentation/siddhi-4.0/#store">(Store)</a>*<br><div style="padding-left: 1em;"><p>This extension connects to the influxDB store. It also implements read-write operations on the connected influxDB database.</p></div>
+* <a target="_blank" href="https://wso2-extensions.github.io/siddhi-store-influxdb/api/2.0.0/#influxdb-store">influxdb</a> *<a target="_blank" href="http://siddhi.io/documentation/siddhi-5.x/query-guide-5.x/#store">(Store)</a>*<br><div style="padding-left: 1em;"><p>This extension connects to the influxDB store. It also implements read-write operations on the connected influxDB database.</p></div>
 
 ## Contact us
 
