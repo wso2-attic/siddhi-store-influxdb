@@ -1,7 +1,7 @@
 siddhi-store-influxdb
 ======================================
 
-The **siddhi-store-influxdb extension** is an extension to <a></a> that can be used to persist events to a InfluxDB instance of the users choice.
+The **siddhi-store-influxdb extension** persists events in an InfluxDB instance of your choice.
 Find some useful links below.
 
 * <a target= "_blank" href="https://github.com/wso2-extensions/siddhi-store-influxdb">Source code</a>
@@ -10,28 +10,30 @@ Find some useful links below.
 
 ## Latest API Docs 
 
-Latest API Docs is <a target="_blank" href="https://wso2-extensions.github.io/siddhi-store-influxdb/api/1.0.1">1.0.1</a>.
+Latest API Docs is <a target="_blank" href="https://wso2-extensions.github.io/siddhi-store-influxdb/api/1.0.2">1.0.2</a>.
 
 ## Prerequisites
+To use this extension, the following prerequisites need to be completed:
+* An InfluxDB server instance must be started. You can start the InfluxDB server using docker image as follows:
 
-* A InfluxDB server instance should be started.
-* User should have the necessary privileges and access rights to connect to the InfluxDB data store of choice.
-* You can start the InfluxDB server using docker image.
+    1.Start the container by issuing the following command.
+    ```
+    docker run --name=influxdb -d -p 8086:8086 influxdb
+    ```
+    2.Run the influxDB client the container by issuing the following command.
+    
+     ```
+     docker exec -it influxdb influx
+     ```
+      
+    3.Create a database in influxDB by issuing the following command :
+     ```
+     CREATE DATABASE <database_name>
+     ```
+    
+* You need to have the necessary privileges and access rights to connect to the InfluxDB data store of your choice.
 
-1.Start the container.
 
-```
-docker run --name=influxdb -d -p 8086:8086 influxdb
-```
-
-2.Run the influxDB client in this container.
-```
-docker exec -it influxdb influx
-```
-3.Create a database in influxDB using the command :
-```
-CREATE DATABASE <database_name>
-```
 
 ## How to use
 
@@ -63,7 +65,7 @@ CREATE DATABASE <database_name>
 ---
 ## Features
 
-* <a target="_blank" href="https://wso2-extensions.github.io/siddhi-store-influxdb/api/1.0.1/#influxdb-store">influxdb</a> *<a target="_blank" href="https://wso2.github.io/siddhi/documentation/siddhi-4.0/#store">(Store)</a>*<br><div style="padding-left: 1em;"><p>This extension connects to  influxDB store. It also implements read-write operations on connected influxDB database.</p></div>
+* <a target="_blank" href="https://wso2-extensions.github.io/siddhi-store-influxdb/api/1.0.2/#influxdb-store">influxdb</a> *<a target="_blank" href="https://wso2.github.io/siddhi/documentation/siddhi-4.0/#store">(Store)</a>*<br><div style="padding-left: 1em;"><p>This extension connects to the influxDB store. It also implements read-write operations on the connected influxDB database.</p></div>
 
 ## Contact us
 
