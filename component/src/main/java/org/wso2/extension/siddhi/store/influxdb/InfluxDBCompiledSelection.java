@@ -17,7 +17,7 @@
  */
 package org.wso2.extension.siddhi.store.influxdb;
 
-import org.wso2.siddhi.core.util.collection.operator.CompiledSelection;
+import io.siddhi.core.util.collection.operator.CompiledSelection;
 
 /**
  * Implementing class for a influxdb event table which Maintains the compiled select, group by, having  clauses.
@@ -41,12 +41,6 @@ public class InfluxDBCompiledSelection implements CompiledSelection {
         this.compiledOrderByClause = compiledOrderByClause;
         this.limit = limit;
         this.offset = offset;
-    }
-
-    @Override
-    public CompiledSelection cloneCompilation(String s) {
-        return new InfluxDBCompiledSelection(compiledSelectClause, compiledGroupByClause, compiledHavingClause,
-                compiledOrderByClause, limit, offset);
     }
 
     public InfluxDBCompiledCondition getCompiledSelectClause() {

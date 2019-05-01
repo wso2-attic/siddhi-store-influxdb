@@ -17,9 +17,9 @@
  */
 package org.wso2.extension.siddhi.store.influxdb;
 
-import org.wso2.siddhi.core.table.record.BaseExpressionVisitor;
-import org.wso2.siddhi.query.api.definition.Attribute;
-import org.wso2.siddhi.query.api.expression.condition.Compare;
+import io.siddhi.core.table.record.BaseExpressionVisitor;
+import io.siddhi.query.api.definition.Attribute;
+import io.siddhi.query.api.expression.condition.Compare;
 
 import java.util.HashMap;
 import java.util.Map;
