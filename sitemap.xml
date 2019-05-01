@@ -2,47 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://wso2-extensions.github.io/siddhi-store-influxdb/</loc>
-     <lastmod>2019-04-30</lastmod>
+     <lastmod>2019-05-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2-extensions.github.io/siddhi-store-influxdb/api/1.0.0-SNAPSHOT/</loc>
-     <lastmod>2019-04-30</lastmod>
+     <lastmod>2019-05-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2-extensions.github.io/siddhi-store-influxdb/api/latest/</loc>
-     <lastmod>2019-04-30</lastmod>
+     <lastmod>2019-05-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2-extensions.github.io/siddhi-store-influxdb/license/</loc>
-     <lastmod>2019-04-30</lastmod>
+     <lastmod>2019-05-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2-extensions.github.io/siddhi-store-influxdb/api/1.0.2/</loc>
-     <lastmod>2019-04-30</lastmod>
+     <lastmod>2019-05-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2-extensions.github.io/siddhi-store-influxdb/api/1.0.1/</loc>
-     <lastmod>2019-04-30</lastmod>
+     <lastmod>2019-05-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2-extensions.github.io/siddhi-store-influxdb/api/1.0.0/</loc>
-     <lastmod>2019-04-30</lastmod>
+     <lastmod>2019-05-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2-extensions.github.io/siddhi-store-influxdb/api/latest/</loc>
-     <lastmod>2019-04-30</lastmod>
+     <lastmod>2019-05-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2-extensions.github.io/siddhi-store-influxdb/api/.md/</loc>
-     <lastmod>2019-04-30</lastmod>
+     <lastmod>2019-05-01</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
